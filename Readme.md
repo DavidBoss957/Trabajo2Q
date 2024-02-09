@@ -1,6 +1,6 @@
 # Trabajo 2Q Proyectos
 
-@everyone he escuchado la reunión y voy a hacer mi parte que es la Definición de Requerimientos:
+## Definición de Requerimientos:
 
 **Definición de Requerimientos**
 # 1. 🏠*Requerimiento de Página de Bienvenida sin Registro*
