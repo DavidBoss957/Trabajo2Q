@@ -1,7 +1,5 @@
 # Trabajo 2Q Proyectos
 
-## Definición de Requerimientos:
-
 **Definición de Requerimientos**
 # 1. 🏠*Requerimiento de Página de Bienvenida sin Registro*
 
