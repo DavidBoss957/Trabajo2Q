@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
         alias: {
             type: String
         },
-        role: {
+        cargo: {
             type: String,
             enum: ["alumno", "alumni", "profesor", "coordinador", "departamento"],
             required: true
@@ -23,29 +23,29 @@ const userSchema = new mongoose.Schema(
         promocion: {
             type: String, // Only applicable for "alumni"
             required: function() {
-                return this.role === "alumni";
+                return this.cargo === "alumni";
             }
         },
         departamento: {
             type: String, // Only applicable for "departamento"
             required: function() {
-                return this.role === "departamento";
+                return this.cargo === "departamento";
             }
         },
         grado: {
             type: String,
             required: function() {
-                return ["alumno", "alumni"].includes(this.role);
+                return ["alumno", "alumni"].includes(this.cargo);
             }
         },
-        categoria: {
+        role: {
             type: String,
             enum: ["usuario", "creador", "administrador"],
             required: true,
             default: function() {
-                if (["alumno", "alumni"].includes(this.role)) return "usuario";
-                if (this.role === "profesor") return "creador";
-                if (["coordinador", "departamento"].includes(this.role)) return "administrador";
+                if (["alumno", "alumni"].includes(this.cargo)) return "usuario";
+                if (this.cargo === "profesor") return "creador";
+                if (["coordinador", "departamento"].includes(this.cargo)) return "administrador";
             }
         },
         email: {
