@@ -1,0 +1,51 @@
+
+GET http://localhost:3000/api/users
+
+###
+
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+    "name": "John Doe",
+    "age": 25,
+    "email": "john.doe@example.com",
+    "password": "securepassword",
+    "role": "user"
+}
+
+###
+
+
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+    "name": "el vigilante",
+    "age": 25,
+    "email": "john.elvigilante@example.com",
+    "password": "securepassword",
+    "role": "user"
+}
+
+###
+
+
+//POST para estructura de datos final
+//actualmente con test-user (no funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+    "name": "nombre",
+    "apellido1":"apellido1",
+    "apellido2":"apellido2",
+    "alias":"aliastest",
+    "cargo":"alumno",
+    "role": "usuario",
+    "email":"alumno@example.com",
+    "password":"password123"
+}
