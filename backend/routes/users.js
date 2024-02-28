@@ -8,7 +8,7 @@ const router = express.Router()
 //controller load
 const { getItems, getItem, createItem, updateItem, deleteItem} = require("../controllers/users")
 //validator load 
-const { validatorCreateItem,validatorGetItem } = require("../validators/tracks")
+const { validatorCreateItem,validatorGetItem } = require("../validators/users")
 //API CUSTOM VALIDATOR
 const customHeader = require("../middleware/customHeader")
 
