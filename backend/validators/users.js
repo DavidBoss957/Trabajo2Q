@@ -1,6 +1,9 @@
 const { check } = require("express-validator")
 const validateResults = require("../utils/handleValidator")
 
+// Expresión regular para validar los correos electrónicos
+const emailRegex = /@(live\.u-tad\.com|u-tad\.com)$/;
+
 const validatorCreateItem = [
 	check("name").exists().notEmpty(), //.isLength(min:5, max:90)	check("album").exists().notEmpty(),
 	check("apellido1").exists().notEmpty(),
@@ -8,7 +11,7 @@ const validatorCreateItem = [
     check("alias").exists().notEmpty(),
     check("cargo").exists().notEmpty(),
 	check("role").exists().notEmpty(),
-    check("email").exists().notEmpty(),
+    check("email").exists().notEmpty().matches(emailRegex).withMessage('El correo electrónico debe ser de @live.u-tad.com o @u-tad.com'),
 	check("password").exists().notEmpty(),	
 	(req, res, next) => validateResults(req, res, next)
 ]
