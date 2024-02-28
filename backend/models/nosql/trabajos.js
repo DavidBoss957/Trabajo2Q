@@ -75,4 +75,4 @@ const trabajoSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("Trabajos", trabajoSchema);
+module.exports = mongoose.model("trabajos", trabajoSchema);
