@@ -1,8 +1,10 @@
 
+
+//GET lista de usuarios (funciona)
 GET http://localhost:3000/api/users
 
 ###
-
+//POST par 1 usuario (funciona)
 POST http://localhost:3000/api/users HTTP/1.1
 Content-Type: application/json
 api_key: Api-publica-123
@@ -17,7 +19,7 @@ api_key: Api-publica-123
 
 ###
 
-
+//POST par 1 usuario (funciona)
 POST http://localhost:3000/api/users HTTP/1.1
 Content-Type: application/json
 api_key: Api-publica-123
@@ -41,11 +43,13 @@ api_key: Api-publica-123
 
 {
     "name": "nombre",
-    "apellido1":"apellido1",
-    "apellido2":"apellido2",
-    "alias":"aliastest",
-    "cargo":"alumno",
+    "apellido1": "apellido1",
+    "apellido2": "apellido2",
+    "alias": "aliastest",
+    "cargo": "alumno",
     "role": "usuario",
-    "email":"alumno@example.com",
-    "password":"password123"
+    "grado": "nombre_del_grado",  // Agrega el valor del grado aquí
+    "email": "alumno@example.com",
+    "password": "password123"
 }
+
