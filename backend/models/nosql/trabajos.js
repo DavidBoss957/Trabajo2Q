@@ -70,7 +70,8 @@ const trabajoSchema = new mongoose.Schema(
         }
     },
     {
-        timestamps: true
+        timestamp: true, // TODO createdAt, updatedAt
+        versionKey: false
     }
 );
 
