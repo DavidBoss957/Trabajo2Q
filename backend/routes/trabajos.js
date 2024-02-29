@@ -7,14 +7,19 @@ const controllerTrabajos = require('../controllers/trabajos')
 // TODO validators
 // TODO middleware
 
+const notificador = require('../utils/notifyUser')
+
 // GET requests
+router.get('/', controllerTrabajos.getItems)
+router.get('/:id', controllerTrabajos.getItem)
 
 // POST requests
-// TODO adicionar await notifyUsersOnNameAppearance(nuevoProyecto._id);
+router.post('/', controllerTrabajos.createItem)
 
 // PUT requests
+router.put('/', controllerTrabajos.updateItem)
 
 // DELETE requests
-
+router.put('/', controllerTrabajos.deleteItem)
 
 module.exports = router

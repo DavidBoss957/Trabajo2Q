@@ -3,7 +3,10 @@ const getItems = async (req, res) => { }
 
 const getItem = async (req, res) => { }
 
-const createItem = async (req, res) => { }
+const createItem = async (req, res) => {
+    // TODO notificar usuarios relacionados con el trabajo
+    // await notificador.notifyUsersOnNameAppearance(nuevoProyecto._id);
+}
 
 const updateItem = async (req, res) => { }
 

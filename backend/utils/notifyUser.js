@@ -2,9 +2,9 @@
 
 // const Project = require('../models/nosql/trabajos');
 // const User = require('../models/user');
-const { sendAppearanceNotification } = require('../utils/sendNotifications');
+const { sendAppearanceNotification } = require('./sendNotifications');
 
-// Función para notificar a los usuarios cuando su nombre aparece en un proyecto publicado
+// Notifica a los usuarios cuando su nombre aparece en un proyecto publicado
 const notifyUsersOnNameAppearance = async (projectId) => {
     try {
         // TODO Obtener el proyecto publicado
@@ -24,4 +24,12 @@ const notifyUsersOnNameAppearance = async (projectId) => {
     } catch (error) {
         console.error('Error al enviar notificaciones:', error);
     }
+}
+
+// Notifica a los usuarios cuando sus proyectos han sido acceptados para publicar
+const notifyUserOnProjectAcceptance = () => { }
+
+module.exports = {
+    notifyUsersOnNameAppearance,
+    notifyUserOnProjectAcceptance
 }
