@@ -7,8 +7,6 @@ const controllerTrabajos = require('../controllers/trabajos')
 // TODO validators
 // TODO middleware
 
-const notificador = require('../utils/notifyUser')
-
 // GET requests
 router.get('/', controllerTrabajos.getItems)
 router.get('/:id', controllerTrabajos.getItem)
