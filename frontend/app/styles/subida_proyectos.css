@@ -1,0 +1,44 @@
+.fixed-width-span {
+  width: 190px; /* Ajusta el ancho según tus necesidades */
+}
+
+.fixed-height {
+  height: 150px; /* Ajusta esta altura a tus necesidades */
+}
+
+.fixed-height-label{
+  height: 65px; /* Ajusta esta altura a tus necesidades */
+}
+
+.input-file-container {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  transition: border 0.3s ease;
+}
+
+.input-file-container:hover {
+  border: 2px dashed #000;
+}
+
+.input-file-trigger {
+  display: block;
+  padding: 10px 45px;
+  background: #39D2B4;
+  color: #fff;
+  font-size: 1em;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.input-file {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
