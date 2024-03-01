@@ -1,28 +1,26 @@
-const { check } = require("express-validator")
-const validateResults = require("../utils/handleValidator")
-
+const { body, check } = require("express-validator");
+const validateResults = require("../utils/handleValidator");
 // Expresión regular para validar los correos electrónicos
 const emailRegex = /@(live\.u-tad\.com|u-tad\.com)$/;
-
-const validatorCreateItem = [
-	check("name").exists().notEmpty(), //.isLength(min:5, max:90)	check("album").exists().notEmpty(),
-	check("apellido1").exists().notEmpty(),
-    check("apellido2").exists().notEmpty(),
-    check("alias").exists().notEmpty(),
-    check("cargo").exists().notEmpty(),
-	check("role").exists().notEmpty(),
-    check("email").exists().notEmpty().matches(emailRegex).withMessage('El correo electrónico debe ser de @live.u-tad.com o @u-tad.com'),
-	check("password").exists().notEmpty(),	
-	(req, res, next) => validateResults(req, res, next)
-]
-const validatorGetItem = [
+// Validador para la creación de usuarios
+const validatorCreateUser = [
+    body('name').isString().notEmpty(),
+    body('apellido1').isString(),
+    body('apellido2').isString(),
+    body('alias').isString(),
+    body('cargo').isString().isIn(["alumno", "alumni", "profesor", "coordinador", "departamento"]).notEmpty(),
+    body('email').isEmail().matches(emailRegex).withMessage('El correo electrónico debe ser de @live.u-tad.com o @u-tad.com').notEmpty(),
+    body('password').isString().notEmpty(),
+];
+// Validador para obtener un usuario
+const validatorGetUser = [
     check("id").exists().notEmpty().isMongoId(),
     (req, res, next) => {
         return validateResults(req, res, next)
     }
     ]
 
-	module.exports = { validatorCreateItem, validatorGetItem}
+	module.exports = { validatorCreateUser, validatorGetUser}
 
 	/*
 	ESTRUCTURA DE USUARIOS para validar	

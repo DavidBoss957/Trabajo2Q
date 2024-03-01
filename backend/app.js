@@ -9,7 +9,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use("/api", require("./routes"))
-app.use(express.static("trabajos"))//localhost:3000/file.jpg
+app.use(express.static("storage"))//localhost:3000/file.jpg
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {

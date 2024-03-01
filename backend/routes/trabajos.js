@@ -1,23 +1,27 @@
-
-const express = require('express')
+const express = require("express")
 const router = express.Router()
+//controller load
+const { getItems, getItem, createItem, updateItem, deleteItem} = require("../controllers/trabajos")
+//validator load 
+const { validatorCreateUser,validatorGetUser } = require("../validators/users")
+//API CUSTOM VALIDATOR
+const customHeader = require("../middleware/customHeader")
 
-// const { getItem, getItems, createItem, updateItem, deleteItem } = require('../controllers/trabajos')
-const controllerTrabajos = require('../controllers/trabajos')
-// TODO validators
-// TODO middleware
+//controller links
+//GET list trabajos
+router.get("/", getItems)
+//Get 1 solo item
+router.get("/:id",validatorGetUser, getItem)
+//POST Create trabajo
+//validator link + customheader api validator 
+router.post("/", validatorCreateUser,customHeader,createItem)
 
-// GET requests
-router.get('/', controllerTrabajos.getItems)
-router.get('/:id', controllerTrabajos.getItem)
+//UPDATE TRABAJO
+router.put("/:id", validatorGetUser,validatorCreateUser,updateItem)
 
-// POST requests
-router.post('/', controllerTrabajos.createItem)
+//Elimina un trabajo de registro
+router.delete("/:id", validatorGetUser, deleteItem)
 
-// PUT requests
-router.put('/', controllerTrabajos.updateItem)
 
-// DELETE requests
-router.put('/', controllerTrabajos.deleteItem)
 
 module.exports = router
