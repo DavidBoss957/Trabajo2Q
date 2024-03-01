@@ -1,7 +1,7 @@
 const { body, check } = require("express-validator");
 const validateResults = require("../utils/handleValidator");
 // Expresión regular para validar los correos electrónicos
-const emailRegex = /@(live\.u-tad\.com|u-tad\.com)$/;
+const emailRegex = /@(live\.u-tad\.com|u-tad\.com|ext\.u-tad\.com)$/;
 // Validador para la creación de usuarios
 const validatorCreateUser = [
     body('name').isString().notEmpty(),
