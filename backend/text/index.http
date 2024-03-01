@@ -185,18 +185,18 @@ api_key: Api-publica-123
 {
   "titulo": "proyecto1",
   "titulacion": "inso",
-  "anocreacion": "2024",
+  "anocreacion": 2024,
   "autores": "larys,wokis,telkis",
   "docentesImplicados": "profesor,dumbeldore,voldemort",
   "asignatura": "hacking",
   "resumen": "es una proyecto que se basa en lorem ipsum",
   "enlace": "www.loreloremacumacu.com",
   "premios": "premios2024",
-  "palabrasClave": "antia,lorem,ipsum,proyecto,2024,premios,asignatura,hacking",
+  "palabrasClave": ["antia", "lorem", "ipsum", "proyecto", "2024", "premios", "asignatura", "hacking"],
   "resultadofinal": {
-        "url": "asdfasdfasdf",
-        "filename": "parecetrue"
-    },
+    "url": "asdfasdfasdf",
+    "filename": "parecetrue"
+  }
 }
 
 
