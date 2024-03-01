@@ -1,8 +1,8 @@
 const multer = require("multer")
-const trabajos = multer.diskStorage({
+const storage = multer.diskStorage({
         destination:function(req, file, callback){ //Pasan argumentos automáticamente
-            const pathTrabajos = __dirname+"/../trabajos"
-            callback(null, pathTrabajos) //error y destination
+            const pathStorage = __dirname+"/../storage"
+            callback(null, pathStorage) //error y destination
         },
         filename:function(req, file, callback){ //Sobreescribimos o renombramos
             //Tienen extensión jpg, pdf, mp4
@@ -11,5 +11,5 @@ const trabajos = multer.diskStorage({
             callback(null, filename)
         }
     })
-    const uploadMiddleware = multer({trabajos}) //Middleware entre la ruta y el controlador
+    const uploadMiddleware = multer({storage}) //Middleware entre la ruta y el controlador
     module.exports = uploadMiddleware

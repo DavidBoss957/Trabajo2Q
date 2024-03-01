@@ -1,4 +1,4 @@
-
+/*
 const mongoose = require("mongoose")
 //const mongooseDelete = require("mongoose-delete")
 
@@ -31,8 +31,9 @@ const UserScheme = new mongoose.Schema(
 )
 //UserScheme.plugin(mongooseDelete, {overrideMethods: "all"})
 module.exports = mongoose.model("users", UserScheme) // Nombre de la colección (o de la tabla en SQL)
-
-/*const mongoose = require("mongoose");
+*/
+const mongoose = require("mongoose");
+//const mongooseDelete = require("mongoose-delete")
 
 const userSchema = new mongoose.Schema(
     {
@@ -71,7 +72,7 @@ const userSchema = new mongoose.Schema(
             required: function() {
                 return ["alumno", "alumni"].includes(this.cargo);
             }
-        },
+         },
         role: {
             type: String,
             enum: ["usuario", "creador", "administrador"],
@@ -97,6 +98,6 @@ const userSchema = new mongoose.Schema(
     }
 );
 
+//UserScheme.plugin(mongooseDelete, {overrideMethods: "all"})
 module.exports = mongoose.model("users", userSchema);
 
-*/
