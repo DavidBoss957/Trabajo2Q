@@ -163,12 +163,12 @@ Content-Type: application/json
 api_key: Api-publica-123
 
 {
-  "name": "lara",
-  "apellido1": "lomez",
-  "apellido2": "antia",
-  "alias": "larys",
-  "cargo": "profesor",
-  "email": "laris@ext.u-tad.com",
+  "name": "jara",
+  "apellido1": "mamen",
+  "apellido2": "trux",
+  "alias": "trunks",
+  "cargo": "alumno",
+  "email": "jara.mamen@u-tad.com",
   "password": "password123"
 }
 
