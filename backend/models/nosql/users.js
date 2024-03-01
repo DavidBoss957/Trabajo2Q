@@ -62,17 +62,22 @@ const userSchema = new mongoose.Schema(
             }
         },
         departamento: {
-            type: String, // Only applicable for "departamento"
-            required: function() {
-                return this.cargo === "departamento";
-            }
+            type: String, // Ahora con opciones seleccionables
+            enum: ["profesorado", "secretaria", "sistemas"] // Opciones disponibles
         },
         grado: {
             type: String,
-            required: function() {
-                return ["alumno", "alumni"].includes(this.cargo);
-            }
-         },
+            enum: [
+                "Grado en Dirección de Empresas de Entretenimiento Digital",
+                "Grado en Efectos Visuales",
+                "Grado en Animación",
+                "Grado en Diseño Digital",
+                "Grado en Diseño de Productos Interactivos + Título Propio en Technical Design para Unreal Engine",
+                "Grado en Ingeniería del Software",
+                "Doble Grado en Matemática Computacional e Ingeniería del Software",
+                "Doble Grado en Física Computacional e Ingeniería del Software"
+            ]
+        },
         role: {
             type: String,
             enum: ["usuario", "creador", "administrador"],

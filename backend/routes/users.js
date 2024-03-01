@@ -42,8 +42,11 @@ router.post("/", validatorCreateUser, customHeader, async (req, res) => {
         // Llenar automáticamente los campos según el valor de 'cargo'
         switch (body.cargo) {
             case "alumno":
+                body.role = "usuario";
+                break;
             case "alumni":
                 body.role = "usuario";
+                body.promocion = body.promocion || "2021"; // Asumimos que el valor por defecto es "2021"
                 break;
             case "profesor":
                 body.role = "creador";

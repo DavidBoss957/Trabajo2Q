@@ -3,7 +3,7 @@ const router = express.Router()
 //controller load
 const { getItems, getItem, createItem, updateItem, deleteItem} = require("../controllers/trabajos")
 //validator load 
-const { validatorCreateUser,validatorGetUser } = require("../validators/users")
+const { validatorCreateItem,validatorGetItem } = require("../validators/trabajos")
 //API CUSTOM VALIDATOR
 const customHeader = require("../middleware/customHeader")
 
@@ -11,16 +11,16 @@ const customHeader = require("../middleware/customHeader")
 //GET list trabajos
 router.get("/", getItems)
 //Get 1 solo item
-router.get("/:id",validatorGetUser, getItem)
+router.get("/:id",validatorGetItem, getItem)
 //POST Create trabajo
 //validator link + customheader api validator 
-router.post("/", validatorCreateUser,customHeader,createItem)
+router.post("/", validatorCreateItem,customHeader,createItem)
 
 //UPDATE TRABAJO
-router.put("/:id", validatorGetUser,validatorCreateUser,updateItem)
+router.put("/:id", validatorGetItem,validatorCreateItem,updateItem)
 
 //Elimina un trabajo de registro
-router.delete("/:id", validatorGetUser, deleteItem)
+router.delete("/:id",validatorGetItem, deleteItem)
 
 
 

@@ -6,60 +6,41 @@ const trabajoSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        asignaturaProyecto: {
+        titulacion: {
             type: String,
             required: true
         },
-        cursoLetra: {
+        anocreacion: {
+            type: Number,
+            required: true
+        },
+        autores:{
             type: String,
             required: true
         },
-        estudiantesImplicados: [
-            {
-                nombreCompleto: {
-                    type: String,
-                    required: true
-                }
-            }
-        ],
-        docentesImplicados: [
-            {
-                nombreCompleto: {
-                    type: String
-                }
-            }
-        ],
-        fichaResumen: {
-            descripcionTrabajo: {
-                type: String,
-                required: true
-            },
-            factorDiferenciador: {
-                type: String,
-                required: true
-            }
+        docentesImplicados: {
+            type: String,
+            required: true   
         },
-        cursoAcademico: {
+        asignatura:{
             type: String,
             required: true
         },
-        subidaContenido: {
-            trabajoProyecto: {
-                type: String,
-                required: true
-            },
-            memoria: {
-                type: String
-            },
-            enlaceRecursosExternos: {
-                type: String
-            }
+        resumen: {
+            type: String,
+            required: true
+            
+        },
+        enlace: {
+            type: String,
+            required: true
         },
         premios: {
             type: String
         },
         palabrasClave: {
             type: [String],
+            //lo pongo false para hacer los test de post
             required: true,
             validate: {
                 validator: function(arr) {
@@ -67,8 +48,27 @@ const trabajoSchema = new mongoose.Schema(
                 },
                 message: "Debe haber entre 5 y 10 palabras clave."
             }
+        },
+        resultadofinal: {
+            url: {
+                type: String,
+                required: true
+            },
+            filename: {
+                type: String,
+                required: true
+            }
+        },
+        memoria: {
+            url: {
+                type: String
+            },
+            filename: {
+                type: String
+            }      
         }
     },
+       
     {
         timestamp: true, // TODO createdAt, updatedAt
         versionKey: false
