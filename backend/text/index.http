@@ -133,4 +133,72 @@ api_key: Api-publica-123
 }
 
 
+
+###
+###
+//POST ALUMNI
+// (funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "julio",
+  "apellido1": "gomez",
+  "apellido2": "lopez",
+  "alias": "sjuls",
+  "cargo": "alumni",
+  "email": "juls@live.u-tad.com",
+  "password": "password123"
+}
+
+
+
+###
+###
+//POST PROFESOR
+// (funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "lara",
+  "apellido1": "lomez",
+  "apellido2": "antia",
+  "alias": "larys",
+  "cargo": "profesor",
+  "email": "laris@ext.u-tad.com",
+  "password": "password123"
+}
+
+
+
+###
+###
+//POST TRABAJO
+// (no funciona)
+POST http://localhost:3000/api/trabajos HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "titulo": "proyecto1",
+  "titulacion": "inso",
+  "anocreacion": "2024",
+  "autores": "larys,wokis,telkis",
+  "docentesImplicados": "profesor,dumbeldore,voldemort",
+  "asignatura": "hacking",
+  "resumen": "es una proyecto que se basa en lorem ipsum",
+  "enlace": "www.loreloremacumacu.com",
+  "premios": "premios2024",
+  "palabrasClave": "antia,lorem,ipsum,proyecto,2024,premios,asignatura,hacking",
+  "resultadofinal": {
+        "url": "asdfasdfasdf",
+        "filename": "parecetrue"
+    },
+}
+
+
+
 ###
