@@ -1,5 +1,9 @@
 
 const nodemailer = require('nodemailer');
+require('dotenv').config();
+
+const email = process.env.EMAIL;
+const password = process.env.EMAIL_PASSWORD;
 
 const sendNameAppeareanceNotification = async (userEmail, projectName) => {
     try {
@@ -7,14 +11,14 @@ const sendNameAppeareanceNotification = async (userEmail, projectName) => {
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: 'foro.trabajos.utad@gmail.com',
-                pass: 'pass'
+                user: email,
+                pass: password
             }
         });
 
         // Configurar el mensaje de correo electrónico
         const message = {
-            from: 'foro.trabajos.utad@gmail.com',
+            from: email,
             to: userEmail,
             subject: 'Tu nombre ha aparecido en un proyecto publicado',
             text: `Hola,\n\nTu nombre ha aparecido en el proyecto "${projectName}".\n\nSaludos.`
@@ -35,14 +39,14 @@ const sendProjectAcceptanceNotification = async (userEmail, projectName) => {
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: 'foro.trabajos.utad@gmail.com',
-                pass: 'pass'
+                user: email,
+                pass: password
             }
         });
 
         // Configurar el mensaje de correo electrónico
         const message = {
-            from: 'foro.trabajos.utad@gmail.com',
+            from: email,
             to: userEmail,
             subject: 'Tu proyecto ha sido aceptado para ser publicado',
             text: `Hola,\n\nTu proyecto "${projectName}" ha sido aceptado para ser publicado.\n\nSaludos.`
