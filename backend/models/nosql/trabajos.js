@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+//const mongooseDelete = require("mongoose-delete")
 
 const trabajoSchema = new mongoose.Schema(
     {
@@ -74,5 +75,5 @@ const trabajoSchema = new mongoose.Schema(
         versionKey: false
     }
 );
-
+//StorageScheme.plugin(mongooseDelete, {overrideMethods: "all"})
 module.exports = mongoose.model("trabajos", trabajoSchema);
