@@ -34,7 +34,7 @@ const sendNotifications = async (projectId, filterOption, notificationFunction) 
 
 // Notifica a los usuarios cuando su nombre aparece en un proyecto publicado
 const notifyOnNameAppearance = async (projectId) => {
-    await sendNotifications(projectId, 'notificarAparicionDeNombre', Notifications.sendNameAppeareanceNotification);
+    await sendNotifications(projectId, 'notificarAparicionDeNombre', Notifications.sendNameAppearanceNotification);
 };
 
 // Notifica a los usuarios cuando sus proyectos han sido aceptados para publicar
