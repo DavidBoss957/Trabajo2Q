@@ -1,27 +1,24 @@
 
 const nodemailer = require('nodemailer');
-require('dotenv').config();
 
-const email = process.env.EMAIL;
-const password = process.env.EMAIL_PASSWORD;
-
-const sendNameAppeareanceNotification = async (userEmail, projectName) => {
+// Función genérica para enviar correos electrónicos
+const sendEmailNotification = async (userEmail, subject, messageText) => {
     try {
         // Configurar el transporte del correo electrónico
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: email,
-                pass: password
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASSWORD
             }
         });
 
         // Configurar el mensaje de correo electrónico
         const message = {
-            from: email,
+            from: process.env.EMAIL,
             to: userEmail,
-            subject: 'Tu nombre ha aparecido en un proyecto publicado',
-            text: `Hola,\n\nTu nombre ha aparecido en el proyecto "${projectName}".\n\nSaludos.`
+            subject: subject,
+            text: messageText
         };
 
         // Enviar el correo electrónico
@@ -33,35 +30,21 @@ const sendNameAppeareanceNotification = async (userEmail, projectName) => {
     }
 };
 
+// Notificación de aparición de nombre en proyecto
+const sendNameAppearanceNotification = async (userEmail, projectName) => {
+    const subject = 'Tu nombre ha aparecido en un proyecto publicado';
+    const messageText = `Hola,\n\nTu nombre ha aparecido en el proyecto "${projectName}".\n\nSaludos.`;
+    await sendEmailNotification(userEmail, subject, messageText);
+};
+
+// Notificación de aceptación de proyecto
 const sendProjectAcceptanceNotification = async (userEmail, projectName) => {
-    try {
-        // Configurar el transporte del correo electrónico
-        const transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user: email,
-                pass: password
-            }
-        });
-
-        // Configurar el mensaje de correo electrónico
-        const message = {
-            from: email,
-            to: userEmail,
-            subject: 'Tu proyecto ha sido aceptado para ser publicado',
-            text: `Hola,\n\nTu proyecto "${projectName}" ha sido aceptado para ser publicado.\n\nSaludos.`
-        };
-
-        // Enviar el correo electrónico
-        await transporter.sendMail(message);
-
-        console.log('Correo electrónico enviado con éxito.');
-    } catch (error) {
-        console.error('Error al enviar el correo electrónico de notificación de aceptación de proyecto:', error);
-    }
+    const subject = 'Tu proyecto ha sido aceptado para ser publicado';
+    const messageText = `Hola,\n\nTu proyecto "${projectName}" ha sido aceptado para ser publicado.\n\nSaludos.`;
+    await sendEmailNotification(userEmail, subject, messageText);
 };
 
 module.exports = {
-    sendNameAppeareanceNotification,
+    sendNameAppearanceNotification,
     sendProjectAcceptanceNotification
 };
