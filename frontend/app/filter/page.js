@@ -1,6 +1,7 @@
-"use client";
+"use client"
 import Head from 'next/head';
 import { useState } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -13,8 +14,24 @@ export default function Page() {
     <>
       <Head>
         <title>Resultados de Búsqueda</title>
+        <style>{`
+          .modal-backdrop.show {
+            display: none;
+          }
+          .modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto;
+          }
+          .blur-background {
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+          }
+          .modal {
+            z-index: 1050;
+          }
+        `}</style>
       </Head>
-      <div className="container mt-5">
+      <div className={`container mt-5 ${showFilters ? 'blur-background' : ''}`}>
         <div className="d-flex justify-content-between mb-3">
           <div className="flex-grow-1 me-3">
             <input
@@ -28,12 +45,11 @@ export default function Page() {
           <div>
             <button className="btn btn-outline-secondary mx-1">Mi perfil</button>
             <button className="btn btn-outline-secondary">Subir proyecto</button>
-            
           </div>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
+
         <div className="d-flex align-items-center justify-content-between mb-4">
           <h2 className="mb-0">Resultado de búsqueda:</h2>
           <div>
@@ -41,6 +57,8 @@ export default function Page() {
             <button className="btn btn-outline-secondary">Ordenar por</button>
           </div>
         </div>
+        <br />
+        <br />
 
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {Array.from({ length: 6 }).map((_, index) => (
