@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/login.css'
 
 export default function Signup() {
     const [name, setName] = useState("")
@@ -117,40 +118,40 @@ export default function Signup() {
       
 
     return (
-        <div id="signupContent">
+        <div id="signupContent" className="container mt-3">
 
             <h1 id="titulo" className="text-center my-4">Registro</h1>
 
-                <form className=" mx-3 my-3" onSubmit={handleComprobacion}>
+                <form className=" mx-5 my-3 px-5 py-5 rounded-4" onSubmit={handleComprobacion}  style={{background: '#A1A1A1'}}>
 
                     {/*nombre*/}
                     <div className="input-group mb-3">
-                        <span className="input-group-text fixed-width-span">Nombre</span>
-                        <input type="text" className="form-control" placeholder="Ejemplo" onChange={(e) => setName(e.target.value)} required/>
+                        <span className="input-group-text fixed-width-span rounded-start-4">Nombre</span>
+                        <input type="text" className="form-control rounded-end-4" placeholder="Ejemplo" onChange={(e) => setName(e.target.value)} required/>
                     </div>
 
                     {/* apellidos */}
                     <div className="mb-3 d-flex">
                         <div className="input-group">
-                            <span className="input-group-text fixed-width-span">Primer apellido</span>
-                            <input type="text" className="form-control rounded-end me-2" placeholder="Ejemplo" onChange={(e) => setApellido1(e.target.value)} required/>
+                            <span className="input-group-text fixed-width-span rounded-start-4">Primer apellido</span>
+                            <input type="text" className="form-control rounded-end-4 me-2" placeholder="Ejemplo" onChange={(e) => setApellido1(e.target.value)} required/>
                             
-                            <span className="input-group-text fixed-width-span rounded-start">Segundo apellido</span>
-                            <input type="text" className="form-control" placeholder="Ejemplo" onChange={(e) => setApellido2(e.target.value)} required/>
+                            <span className="input-group-text fixed-width-span rounded-start-4">Segundo apellido</span>
+                            <input type="text" className="form-control rounded-end-4" placeholder="Ejemplo" onChange={(e) => setApellido2(e.target.value)} required/>
                         </div>
                     </div>
 
                     {/* alias */}
                     <div className="input-group mb-3">
-                        <span className="input-group-text fixed-width-span">Alias</span>
-                        <input type="text" className="form-control" placeholder="Ejemplo" onChange={(e) => setAlias(e.target.value)}/>
+                        <span className="input-group-text fixed-width-span rounded-start-4">Alias</span>
+                        <input type="text" className="form-control rounded-end-4" placeholder="Ejemplo" onChange={(e) => setAlias(e.target.value)}/>
                     </div>
 
                     {/*correo*/}
                     <div className="input-group mb-3 ">
-                    <span className="input-group-text fixed-width-span">Correo</span>
+                    <span className="input-group-text fixed-width-span rounded-start-4">Correo</span>
                         <input type="text" className="form-control"  onChange={(e) => setEmail(e.target.value)} placeholder="nombre.apellido" required/>
-                        <select id="emailType" className="dropdown-toggle btn bg-light rounded-end border" onChange={(e) => setEmailType(e.target.value)}>
+                        <select id="emailType" className="dropdown-toggle btn rounded-end-4" onChange={(e) => setEmailType(e.target.value)}>
                             <option value="@live.u-tad.com">@live.u-tad.com</option>
                             <option value="@u-tad.com">@u-tad.com</option>
                             <option value="@ext.live.u-tad.com">@ext.live.u-tad.com</option>
@@ -159,12 +160,12 @@ export default function Signup() {
 
                     {/*contraseña*/}
                     <div className="input-group mb-3">
-                        <span className="input-group-text fixed-width-span">Contraseña</span>
-                        <input type="password" className="form-control" placeholder="Ejemplo" onChange={(e) => setPassword(e.target.value)} required/>
+                        <span className="input-group-text fixed-width-span rounded-start-4">Contraseña</span>
+                        <input type="password" className="form-control rounded-end-4" placeholder="Ejemplo" onChange={(e) => setPassword(e.target.value)} required/>
                     </div>
 
                     {/* cargo */}
-                    <select className="form-select mb-3" onChange={(e) => setCargo(e.target.value)} required>
+                    <select className="form-select mb-3 rounded-4" onChange={(e) => setCargo(e.target.value)} required>
                         <option disabled selected >Cargo</option>
                         <option value="alumno">Alumno</option>
                         <option value="alumni">Alumni</option>
@@ -176,14 +177,14 @@ export default function Signup() {
                     {["alumno", "alumni", "profesor", "coordinador"].includes(cargo) && (
                     <>
                         {/* titulacion */}
-                        <select className="form-select mb-3" onChange={(e) => setTitulacion(e.target.value)} required>
+                        <select className="form-select mb-3 rounded-4" onChange={(e) => setTitulacion(e.target.value)} required>
                         <option disabled selected >Tipo de titulación</option>
                         {tipoTitulacion.map((tipo) => (
                             <option key={tipo} value={tipo}>{tipo}</option>
                         ))}
                         </select>
                         {/*nombre de la titulacion*/}
-                        <select className="form-select mb-3" onChange={(e) => setOpcion(e.target.value)} required>
+                        <select className="form-select mb-3 rounded-4" onChange={(e) => setOpcion(e.target.value)} required>
                         <option disabled selected>Elige una opción</option>
                         {getOptions(titulacion).map((opcion) => (
                             <option key={opcion} value={opcion}>{opcion}</option>
@@ -193,7 +194,7 @@ export default function Signup() {
                     )}
                     {/*Si el cargo es alumni, se muestra el dropdown para elegir la promocion*/}
                     {cargo === "alumni" && (
-                    <select className="form-select mb-3" id="alumniDropdown" onChange={(e) => setPromocion(e.target.value)} required>
+                    <select className="form-select mb-3 rounded-4" id="alumniDropdown" onChange={(e) => setPromocion(e.target.value)} required>
                         <option disabled selected >Promoción</option>
                         {getYears().map((year) => (
                         <option key={year} value={year}>{year}</option>
@@ -203,7 +204,7 @@ export default function Signup() {
 
                     {/*si el cargo es departamento, se muestra el dropdown de los departamentos*/}
                     {cargo === "departamento" && (
-                    <select className="form-select mb-3" onChange={(e) => setDepartamento(e.target.value)} required>
+                    <select className="form-select mb-3 rounded-4" onChange={(e) => setDepartamento(e.target.value)} required>
                         <option disabled selected >Elige un departamento</option>
                         <option value="dep1">Departamento 1</option>
                         <option value="dep2">Departamento 2</option>
@@ -213,7 +214,7 @@ export default function Signup() {
 
                     {/* submit */}
                     <div className="text-center">
-                        <button type="submit" className="btn btn-secondary">Registrarse</button>
+                        <button type="submit" className="btn mt-4 text-center rounded-4 px-5" style={{background: '#C8C8C8'}}><div id='textoBoton'>Registrarse</div></button>
                     </div>
 
                 </form>

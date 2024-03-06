@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/login.css'
 
 export default function Login() {
     
@@ -45,32 +46,35 @@ export default function Login() {
             <img src="img/default.png" className="img-fluid mx-auto d-block mt-5" alt="default"/>
             <h1 id="titulo" className="text-center my-4">Introducción</h1>
 
-            <form onSubmit={handleComprobacion} className="px-5 py-5 rounded-4 bg-secondary">
-                <h2>Iniciar sesión</h2>
-                {/* correo */}
-                <label htmlFor="email">Dirección de correo electrónico</label>
-                <div className="input-group mb-3 ">
-                    <input type="text" id="email" className="form-control rounded-start-4"  onChange={(e) => setEmail(e.target.value)} placeholder="mario.hurtado" required/>
-                    <select id="emailType" className="dropdown-toggle btn bg-light rounded-end-4" onChange={(e) => setEmailType(e.target.value)}>
-                        <option value="@live.u-tad.com">@live.u-tad.com</option>
-                        <option value="@u-tad.com">@u-tad.com</option>
-                        <option value="@ext.live.u-tad.com">@ext.live.u-tad.com</option>
-                    </select>
-                </div>
+            <div id="containerFormulario" className="d-flex justify-content-center mx-5 my-5 ">
+                <form onSubmit={handleComprobacion} className="px-5 py-5 rounded-4" style={{background: '#A1A1A1'}}>
+                    
+                    <h2>Iniciar sesión</h2>
+                    {/* correo */}
+                    <label htmlFor="email">Dirección de correo electrónico</label>
+                    <div className="input-group mb-3 ">
+                        <input type="text" id="email" className="form-control rounded-start-4"  onChange={(e) => setEmail(e.target.value)} placeholder="mario.hurtado" required/>
+                        <select id="emailType" className="dropdown-toggle btn rounded-end-4" onChange={(e) => setEmailType(e.target.value)}>
+                            <option value="@live.u-tad.com">@live.u-tad.com</option>
+                            <option value="@u-tad.com">@u-tad.com</option>
+                            <option value="@ext.live.u-tad.com">@ext.live.u-tad.com</option>
+                        </select>
+                    </div>
 
-                {/*contraseña */}
-                
-                <div className="mb-3">
-                    <label htmlFor='password'>Contraseña</label>
-                    <input type="password" id='password' className="form-control rounded-4" onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" required/>
-                </div>
+                    {/*contraseña */}
+                    
+                    <div className="mb-3">
+                        <label htmlFor='password'>Contraseña</label>
+                        <input type="password" id='password' className="form-control rounded-4" onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" required/>
+                    </div>
 
-                {/*boton submit*/}
-                <div className="text-center">
-                    <button type="submit" className="btn btn-light rounded-4 mt-4 text-center">Acceder</button>
-                </div>
+                    {/*boton submit*/}
+                    <div className="text-center">
+                        <button type="submit" className="btn mt-4 text-center rounded-4 px-5" style={{background: '#C8C8C8'}}><div id='textoBoton'>Acceder</div></button>
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
         
     );
