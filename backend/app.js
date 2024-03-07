@@ -11,6 +11,9 @@ app.use(express.json())
 app.use("/api", require("./routes"))
 app.use(express.static("storage"))//localhost:3000/file.jpg
 
+const Trabajo = require('./models/nosql/trabajos');
+const Perfil = require('./models/nosql/perfil');
+
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log("Servidor escuchando en el puerto " + port)
