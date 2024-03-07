@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Head from 'next/head';
 import { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,19 +15,19 @@ export default function Page() {
       <Head>
         <title>Resultados de Búsqueda</title>
         <style>{`
-          .modal-backdrop.show {
-            display: none;
+          body.modal-open {
+            overflow: hidden;
           }
-          .modal-open .modal {
-            overflow-x: hidden;
-            overflow-y: auto;
+          .modal-backdrop.show {
+            opacity: 0.5;
           }
           .blur-background {
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            filter: blur(5px);
           }
-          .modal {
-            z-index: 1050;
+          .custom-modal-style {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
           }
         `}</style>
       </Head>
@@ -47,9 +47,11 @@ export default function Page() {
             <button className="btn btn-outline-secondary">Subir proyecto</button>
           </div>
         </div>
-        <br />
-        <br />
-
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <div className="d-flex align-items-center justify-content-between mb-4">
           <h2 className="mb-0">Resultado de búsqueda:</h2>
           <div>
@@ -57,8 +59,6 @@ export default function Page() {
             <button className="btn btn-outline-secondary">Ordenar por</button>
           </div>
         </div>
-        <br />
-        <br />
 
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {Array.from({ length: 6 }).map((_, index) => (
@@ -75,48 +75,33 @@ export default function Page() {
         </div>
 
         {showFilters && (
-          <div className="modal fade show d-block" tabIndex="-1" aria-labelledby="filterModalLabel" aria-modal="true" role="dialog">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="filterModalLabel">Filtrar por:</h5>
-                  <button type="button" className="btn-close" onClick={toggleFilters}></button>
-                </div>
-                <div className="modal-body">
-                  <form>
-                    <div className="mb-3">
-                      <label htmlFor="projectName" className="form-label">Nombre del proyecto</label>
-                      <input type="text" className="form-control" id="projectName" />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="authorName" className="form-label">Nombre del autor</label>
-                      <input type="text" className="form-control" id="authorName" />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="titulation" className="form-label">Titulación</label>
-                      <input type="text" className="form-control" id="titulation" />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="subject" className="form-label">Asignatura</label>
-                      <input type="text" className="form-control" id="subject" />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="academicYear" className="form-label">Curso académico</label>
-                      <input type="text" className="form-control" id="academicYear" />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="awards" className="form-label">Premios</label>
-                      <input type="text" className="form-control" id="awards" />
-                    </div>
-                  </form>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" onClick={toggleFilters}>Cerrar</button>
-                  <button type="button" className="btn btn-primary">Aplicar filtros</button>
+          <>
+            <div className="modal-backdrop show"></div>
+            <div className="modal show d-block" tabIndex="-1" style={{ display: 'block' }}>
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content custom-modal-style">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="filterModalLabel">Filtrar por:</h5>
+                    <button type="button" className="btn-close" onClick={toggleFilters}></button>
+                  </div>
+                  <div className="modal-body">
+                    <form>
+                      <input type="text" className="form-control mb-3" placeholder="Nombre del proyecto" />
+                      <input type="text" className="form-control mb-3" placeholder="Nombre del autor" />
+                      <input type="text" className="form-control mb-3" placeholder="Titulación" />
+                      <input type="text" className="form-control mb-3" placeholder="Asignatura" />
+                      <input type="text" className="form-control mb-3" placeholder="Curso académico" />
+                      <input type="text" className="form-control mb-3" placeholder="Premios" />
+                    </form>
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" onClick={toggleFilters}>Cerrar</button>
+                    <button type="button" className="btn btn-primary">Aplicar filtros</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </>
