@@ -36,20 +36,169 @@ api_key: Api-publica-123
 
 
 //POST para estructura de datos final
-//actualmente con test-user (no funciona)
+//actualmente con test-user (funciona)
 POST http://localhost:3000/api/users HTTP/1.1
 Content-Type: application/json
 api_key: Api-publica-123
 
 {
-    "name": "nombre",
-    "apellido1": "apellido1",
-    "apellido2": "apellido2",
-    "alias": "aliastest",
-    "cargo": "alumno",
-    "role": "usuario",
-    "grado": "nombre_del_grado",  // Agrega el valor del grado aquí
-    "email": "alumno@example.com",
-    "password": "password123"
+  "name": "John",
+  "apellido1": "Doe",
+  "apellido2": "Smith",
+  "alias": "JD",
+  "cargo": "alumno",
+  "role": "usuario",
+  "email": "john.doe@u-tad.com",
+  "password": "password123",
+  "grado": "alumno"
 }
 
+###
+
+//POST para estructura de datos final
+//actualmente con test-user (funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "antonio",
+  "apellido1": "clash",
+  "apellido2": "Smith",
+  "alias": "AS",
+  "cargo": "departamento",
+  "email": "john.doe@u-tad.com",
+  "password": "password123",
+  "grado": "alumno"
+}
+
+
+
+###
+
+
+//POST para estructura de datos final
+//actualmente con test-user ( NO funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "aaaa",
+  "apellido1": "aaa",
+  "apellido2": "aaa",
+  "alias": "a",
+  "cargo": "departamento",
+  "role": "creador",
+  "email": "de.crea@u-tad.com",
+  "password": "password123",
+  "grado": "alumni"
+}
+
+######
+
+
+//POST COORDINADOR
+// (funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "Jonnn",
+  "apellido1": "Doooo",
+  "apellido2": "Smee",
+  "alias": "Jowi",
+  "cargo": "coordinador",
+  "email": "jowii@u-tad.com",
+  "password": "password123"
+}
+
+
+###
+//POST COORDINADOR
+// (funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "SARA",
+  "apellido1": "RADE",
+  "apellido2": "snom",
+  "alias": "swi",
+  "cargo": "departamento",
+  "email": "sara@u-tad.com",
+  "password": "password123"
+}
+
+
+
+###
+###
+//POST ALUMNI
+// (funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "julio",
+  "apellido1": "gomez",
+  "apellido2": "lopez",
+  "alias": "sjuls",
+  "cargo": "alumni",
+  "email": "juls@live.u-tad.com",
+  "password": "password123"
+}
+
+
+
+###
+###
+//POST PROFESOR
+// (funciona)
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "jara",
+  "apellido1": "mamen",
+  "apellido2": "trux",
+  "alias": "trunks",
+  "cargo": "alumno",
+  "email": "jara.mamen@u-tad.com",
+  "password": "password123"
+}
+
+
+
+###
+###
+//POST TRABAJO
+// (no funciona)
+POST http://localhost:3000/api/trabajos HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "titulo": "proyecto1",
+  "titulacion": "inso",
+  "anocreacion": 2024,
+  "autores": "larys,wokis,telkis",
+  "docentesImplicados": "profesor,dumbeldore,voldemort",
+  "asignatura": "hacking",
+  "resumen": "es una proyecto que se basa en lorem ipsum",
+  "enlace": "www.loreloremacumacu.com",
+  "premios": "premios2024",
+  "palabrasClave": ["antia", "lorem", "ipsum", "proyecto", "2024", "premios", "asignatura", "hacking"],
+  "resultadofinal": {
+    "url": "asdfasdfasdf",
+    "filename": "parecetrue"
+  }
+}
+
+
+
+###
