@@ -44,7 +44,6 @@ router.post("/", validatorCreateUser, customHeader, async (req, res) => {
         switch (body.cargo) {
             case "alumno":
                 body.role = "usuario";
-                // body.notificarAparicionDeNombre = true;
                 break;
 
             case "alumni":

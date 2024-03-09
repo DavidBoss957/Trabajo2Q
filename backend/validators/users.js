@@ -11,8 +11,8 @@ const validatorCreateUser = [
     body('cargo').isString().isIn(["alumno", "alumni", "profesor", "coordinador", "departamento"]).notEmpty(),
     body('email').isEmail().matches(emailRegex).withMessage('El correo electrónico debe ser de @live.u-tad.com o @u-tad.com o @ext.u-tad.com').notEmpty(),
     body('password').isString().notEmpty(),
-    body('notificarAparicionDeNombre').isString().notEmpty(),
-    body('notificarProyectoAceptado').isString().notEmpty(),
+    body('notificarAparicionDeNombre').isBoolean(),
+    body('notificarProyectoAceptado').isBoolean(),
     (req, res, next) => validateResults(req, res, next)
 ];
 
