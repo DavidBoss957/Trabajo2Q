@@ -170,8 +170,8 @@ api_key: Api-publica-123
   "cargo": "alumni",
   "email": "pepe@live.u-tad.com",
   "password": "password123",
-  "notificarAparicionDeNombre" : "true",
-  "notificarProyectoAceptado": "false"
+  "notificarAparicionDeNombre" : true,
+  "notificarProyectoAceptado": false
 }
 
 
