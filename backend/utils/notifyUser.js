@@ -22,9 +22,7 @@ const sendNotifications = async (projectId, filterOption, notificationFunction) 
         const usersToNotify = users.filter(user => user[filterOption]);
 
         // Paso 5: Enviar notificaciones a los usuarios seleccionados
-        usersToNotify.forEach(user => {
-            notificationFunction(user.email, project.titulo);
-        });
+        // usersToNotify.forEach(user => notificationFunction(user.email, project.titulo));
 
         console.log('Notificaciones enviadas con éxito a los usuarios relevantes.');
     } catch (error) {

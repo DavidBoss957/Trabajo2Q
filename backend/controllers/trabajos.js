@@ -33,11 +33,11 @@ const getItem = async (req, res) => {
 //CREATE ITEM
 const createItem = async (req, res) => {
     const { body } = req
-    console.log(body)
+    // console.log(body)
     const data = await trabajosModel.create(body)
 
     // Notificar a los usuarios relacionados con el trabajo
-    await notificador.notifyOnNameAppearance(nuevoTrabajo._id);
+    await notificador.notifyOnNameAppearance(data._id);
 
     res.send(data)
 }
