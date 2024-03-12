@@ -33,14 +33,15 @@ const getItem = async (req, res) => {
 //CREATE ITEM
 const createItem = async (req, res) => {
     const { body } = req
-    // console.log(body)
+    console.log(body)
     const data = await trabajosModel.create(body)
 
     // Notificar a los usuarios relacionados con el trabajo
-    await notificador.notifyOnNameAppearance(data._id);
+    await notificador.notifyOnNameAppearance(nuevoTrabajo._id);
 
     res.send(data)
 }
+
 //UPDATE ITEM
 const updateItem = async (req, res) => {
 
@@ -66,6 +67,7 @@ const deleteItem = async (req, res) => {
         handleHttpError(res, 'ERROR_DELETE_ITEM')
     }
 }
+
 
 
 module.exports = { getItems, getItem, createItem, updateItem, deleteItem }; 

@@ -249,3 +249,47 @@ api_key: Api-publica-123
 
 
 ###
+
+###
+// registro de usuario
+POST http://localhost:3000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "blue",
+    "apellido1": "blue",
+    "apellido2": "blue",
+    "alias": "blue",
+    "cargo": "alumno",
+    "email": "blue@gmail.com",
+    "password": "passwordthefrog",
+    "notificarAparicionDeNombre": true,
+    "notificarProyectoAceptado": true
+}
+
+###
+
+###
+
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "blue@gmail.com",
+    "password": "passwordthefrog"
+  
+}
+
+###
+//para cambiar el role hace un update
+//http://localhost:3000/api/auth/update/blue@gmail.com(userEMAIL)
+//necesita el token de autenticacion(admin)
+PUT http://localhost:3000/api/auth/update/blue@gmail.com HTTP/1.1
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYwMTNkZTJlZjljZjA2MjJlY2Y2OGEiLCJlbWFpbCI6ImJsdWVAZ21haWwuY29tIiwiaWF0IjoxNzEwMjM1NzA5LCJleHAiOjE3MTAyNDI5MDl9.MHXhXrK7TIQDOpiuMCFdBWcyejpnwkGJjvyl9Yq-aS8
+
+{
+    "role":"admin"
+}
+
+###

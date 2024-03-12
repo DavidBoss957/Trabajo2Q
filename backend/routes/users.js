@@ -16,7 +16,7 @@ const { getUsers, getUser, createUser, updateUser, deleteUser } = require("../co
 //validator load 
 const { validatorCreateUser, validatorGetUser } = require("../validators/users")
 //API CUSTOM VALIDATOR
-const customHeader = require("../middleware/customHeader")
+
 
 //controller links
 //GET list users
@@ -27,7 +27,7 @@ router.get("/:id", validatorGetUser, getUser)
 
 //POST Create user
 //validator link + customheader api validator 
-router.post("/", validatorCreateUser, customHeader, async (req, res) => {
+router.post("/", validatorCreateUser, async (req, res) => {
 
     // Check for validation errors
     const errors = validationResult(req);
