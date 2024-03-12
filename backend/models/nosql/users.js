@@ -96,6 +96,14 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String,
             select: false
+        },
+        notificarAparicionDeNombre: {
+            type: Boolean,
+            default: false
+        },
+        notificarProyectoAceptado: {
+            type: Boolean,
+            default: false
         }
     },
     {

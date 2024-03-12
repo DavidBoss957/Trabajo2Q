@@ -6,10 +6,12 @@ const sendEmailNotification = async (userEmail, subject, messageText) => {
     try {
         // Configurar el transporte del correo electrónico
         const transporter = nodemailer.createTransport({
-            service: 'Gmail',
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
                 user: process.env.EMAIL,
-                pass: process.env.EMAIL_PASSWORD
+                pass: "" // TODO
             }
         });
 
@@ -26,7 +28,7 @@ const sendEmailNotification = async (userEmail, subject, messageText) => {
 
         console.log('Correo electrónico enviado con éxito.');
     } catch (error) {
-        console.error('Error al enviar el correo electrónico de notificación:', error);
+        console.error('Error al enviar el correo electrónico de notificación:\n', error);
     }
 };
 
