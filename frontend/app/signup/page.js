@@ -53,7 +53,7 @@ export default function Signup() {
 
         //alert("Registrandote...")
         try {
-            const response = await fetch('/http://localhost:3000/*COMPLETAR*', {
+            const response = await fetch('/http://localhost:3000/api/auth/register', {
                 method: 'POST',
                 headers: {
                 //Authorization: `Bearer ${tokenJWT}`

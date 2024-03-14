@@ -22,7 +22,7 @@ export default function Login() {
 
         //alert("Iniciando sesion...")
         try {
-            const response = await fetch('/http://localhost:3000/api/users', {
+            const response = await fetch('/http://localhost:3000/api/auth/login', {
                 method: 'POST',
                 headers: {
                 //Authorization: `Bearer ${tokenJWT}`
@@ -54,7 +54,7 @@ export default function Login() {
             email = email.substring(0, email.indexOf("@"))
         }
 
-        //alert("Email: " + email + emailType + "\nContraseña: " + password);
+        alert("Email: " + email + emailType + "\nContraseña: " + password);
         
         //una vez se compruebe todo, se hace el submit
         handleSubmit()
