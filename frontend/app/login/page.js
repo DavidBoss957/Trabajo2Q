@@ -1,7 +1,9 @@
 "use client";
+
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/login.css'
+import '../styles/login_signup.css'
 
 export default function Login() {
     
@@ -9,7 +11,7 @@ export default function Login() {
     const [password, setPassword] = useState("") //input contraseña
     const [emailType, setEmailType] = useState("@live.u-tad.com") //valor por defecto del email
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         //e.preventDefault();
 
         //objeto con los datos de login
@@ -18,8 +20,28 @@ export default function Login() {
             password: password
         }
 
-        //TODO añadir llamada fetch
         //alert("Iniciando sesion...")
+        try {
+            const response = await fetch('/http://localhost:3000/api/users', {
+                method: 'POST',
+                headers: {
+                //Authorization: `Bearer ${tokenJWT}`
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(login)
+            });
+            
+            if(response.ok) { //si se conecta bien al servidor
+                const data = await response.json();
+                //router.push("paginaprincipal")
+
+            }else{ //si da error al conectarse
+                console.error('Datos incorrectos')
+            }
+
+        }catch (e){
+            console.error('Error al iniciar sesión:', e)
+        }
            
     }
 
@@ -47,9 +69,10 @@ export default function Login() {
             <h1 id="titulo" className="text-center my-4">Introducción</h1>
 
             <div id="containerFormulario" className="d-flex justify-content-center mx-5 my-5 ">
-                <form onSubmit={handleComprobacion} className="px-5 py-5 rounded-4" style={{background: '#A1A1A1'}}>
+                <form className="px-5 py-5 rounded-4" onSubmit={handleComprobacion} >
                     
                     <h2>Iniciar sesión</h2>
+                    
                     {/* correo */}
                     <label htmlFor="email">Dirección de correo electrónico</label>
                     <div className="input-group mb-3 ">
