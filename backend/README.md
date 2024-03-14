@@ -13,7 +13,7 @@ Para que el programa corra, necesitas instalar lo siguiente:
 
 Para que el programa corra, instala las siguientes dependencias:
 
-    npm init -y npm i express nodemon cors dotenv mongoose multer
+    npm init -y npm i express nodemon cors dotenv mongoose multer jsonwebtoken bcryptjs
 
 Y también:
 
