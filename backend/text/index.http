@@ -43,8 +43,7 @@ api_key: Api-publica-123
 
 {
   "name": "John",
-  "apellido1": "Doe",
-  "apellido2": "Smith",
+  "apellidos": "Doe",
   "alias": "JD",
   "cargo": "alumno",
   "role": "usuario",
@@ -63,8 +62,7 @@ api_key: Api-publica-123
 
 {
   "name": "antonio",
-  "apellido1": "clash",
-  "apellido2": "Smith",
+  "apellidos": "clash",
   "alias": "AS",
   "cargo": "departamento",
   "email": "john.doe@u-tad.com",
@@ -85,8 +83,7 @@ api_key: Api-publica-123
 
 {
   "name": "aaaa",
-  "apellido1": "aaa",
-  "apellido2": "aaa",
+  "apellidos": "aaa",
   "alias": "a",
   "cargo": "departamento",
   "role": "creador",
@@ -106,8 +103,7 @@ api_key: Api-publica-123
 
 {
   "name": "Jonnn",
-  "apellido1": "Doooo",
-  "apellido2": "Smee",
+  "apellidos": "Doooo",
   "alias": "Jowi",
   "cargo": "coordinador",
   "email": "jowii@u-tad.com",
@@ -124,8 +120,7 @@ api_key: Api-publica-123
 
 {
   "name": "SARA",
-  "apellido1": "RADE",
-  "apellido2": "snom",
+  "apellidos": "RADE",
   "alias": "swi",
   "cargo": "departamento",
   "email": "sara@u-tad.com",
@@ -144,8 +139,7 @@ api_key: Api-publica-123
 
 {
   "name": "julio",
-  "apellido1": "gomez",
-  "apellido2": "lopez",
+  "apellidos": "gomez",
   "alias": "sjuls",
   "cargo": "alumni",
   "email": "juls@live.u-tad.com",
@@ -164,8 +158,7 @@ api_key: Api-publica-123
 
 {
   "name": "pepito",
-  "apellido1": "perez",
-  "apellido2": "lopez",
+  "apellidos": "perez",
   "alias": "pepe",
   "cargo": "alumni",
   "email": "pepe@live.u-tad.com",
@@ -186,8 +179,7 @@ api_key: Api-publica-123
 
 {
   "name": "jara",
-  "apellido1": "mamen",
-  "apellido2": "trux",
+  "apellidos": "mamen",
   "alias": "trunks",
   "cargo": "alumno",
   "email": "jara.mamen@u-tad.com",
@@ -257,8 +249,7 @@ Content-Type: application/json
 
 {
     "name": "blue",
-    "apellido1": "blue",
-    "apellido2": "blue",
+    "apellidos": "blue",
     "alias": "blue",
     "cargo": "alumno",
     "email": "blue@gmail.com",
