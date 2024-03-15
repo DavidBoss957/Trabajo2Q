@@ -41,10 +41,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        apellido1: {
-            type: String
-        },
-        apellido2: {
+        apellidos: {
             type: String
         },
         alias: {
