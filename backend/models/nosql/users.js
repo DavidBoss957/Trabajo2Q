@@ -53,13 +53,13 @@ const userSchema = new mongoose.Schema(
         cargo: {
             type: String,
             enum: ["alumno", "alumni", "profesor", "coordinador", "departamento"],
-            required: true
+            // required: true
         },
         promocion: {
             type: String, // Only applicable for "alumni"
-            required: function() {
-                return this.cargo === "alumni";
-            }
+            // required: function() {
+            //     return this.cargo === "alumni";
+            // }
         },
         departamento: {
             type: String, // Ahora con opciones seleccionables

@@ -8,7 +8,7 @@ const validatorCreateUser = [
     body('apellido1').isString().notEmpty(),
     body('apellido2').isString().notEmpty(),
     body('alias').isString().notEmpty(),
-    body('cargo').isString().isIn(["alumno", "alumni", "profesor", "coordinador", "departamento"]).notEmpty(),
+    //body('cargo').isString().isIn(["alumno", "alumni", "profesor", "coordinador", "departamento"]).notEmpty(),
     body('email').isEmail().matches(emailRegex).withMessage('El correo electrónico debe ser de @live.u-tad.com o @u-tad.com o @ext.u-tad.com').notEmpty(),
     body('password').isString().notEmpty(),
     (req, res, next) => validateResults(req, res, next)

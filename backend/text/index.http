@@ -202,3 +202,96 @@ api_key: Api-publica-123
 
 
 ###
+<<<<<<< Updated upstream
+=======
+
+
+POST http://localhost:3000/api/trabajos HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "titulo": "proyecto2",
+  "titulacion": "inso",
+  "anocreacion": 2024,
+  "autores": ["65ec901a5ffee9064e706cf9"],
+  "docentesImplicados": "profesor,dumbeldore,voldemort",
+  "asignatura": "hacking",
+  "resumen": "es una proyecto que se basa en lorem ipsum",
+  "enlace": "www.loreloremacumacu.com",
+  "premios": "premios2024",
+  "palabrasClave": ["antia", "lorem", "ipsum", "proyecto", "2024", "premios", "asignatura", "hacking"],
+  "resultadofinal": {
+    "url": "asdfasdfasdf",
+    "filename": "parecetrue"
+  }
+}
+
+
+###
+
+###
+// registro de usuario
+POST http://localhost:3000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "alba",
+    "apellidos": "alba",
+    "alias": "blue",
+    "cargo": "alumno",
+    "email": "blue@gmail.com",
+    "password": "passwordthefrog",
+    "notificarAparicionDeNombre": true,
+    "notificarProyectoAceptado": true
+}
+
+###
+
+###
+
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "blue@gmail.com",
+    "password": "passwordthefrog"
+  
+}
+
+###
+//para cambiar el role hace un update
+//http://localhost:3000/api/auth/update/blue@gmail.com(userEMAIL)
+//necesita el token de autenticacion(admin)
+PUT http://localhost:3000/api/auth/update/blue@gmail.com HTTP/1.1
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYwMTNkZTJlZjljZjA2MjJlY2Y2OGEiLCJlbWFpbCI6ImJsdWVAZ21haWwuY29tIiwiaWF0IjoxNzEwMjM1NzA5LCJleHAiOjE3MTAyNDI5MDl9.MHXhXrK7TIQDOpiuMCFdBWcyejpnwkGJjvyl9Yq-aS8
+
+{
+    "role":"admin"
+}
+
+###
+POST http://localhost:3000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "alba",
+    "apellidos": "alba",
+    "alias": "blue",
+    "email": "alba6@live.u-tad.com",
+    "role": "usuario",
+    "password": "passwordthefrog"
+}
+
+###
+
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "alba2@live.u-tad.com",
+    "password": "passwordthefrog"
+  
+}
+>>>>>>> Stashed changes
