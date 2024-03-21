@@ -41,10 +41,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        apellido1: {
-            type: String
-        },
-        apellido2: {
+        apellidos: {
             type: String
         },
         alias: {
@@ -96,6 +93,14 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String,
             select: false
+        },
+        notificarAparicionDeNombre: {
+            type: Boolean,
+            default: false
+        },
+        notificarProyectoAceptado: {
+            type: Boolean,
+            default: false
         }
     },
     {

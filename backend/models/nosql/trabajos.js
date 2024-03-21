@@ -15,22 +15,26 @@ const trabajoSchema = new mongoose.Schema(
             type: Number,
             required: true
         },
-        autores:{
+        // autores: {
+        //     type: String,
+        //     required: true
+        // },
+        autores: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        docentesImplicados: {
             type: String,
             required: true
         },
-        docentesImplicados: {
-            type: String,
-            required: true   
-        },
-        asignatura:{
+        asignatura: {
             type: String,
             required: true
         },
         resumen: {
             type: String,
             required: true
-            
+
         },
         enlace: {
             type: String,
@@ -44,7 +48,7 @@ const trabajoSchema = new mongoose.Schema(
             //lo pongo false para hacer los test de post
             required: true,
             validate: {
-                validator: function(arr) {
+                validator: function (arr) {
                     return arr.length >= 5 && arr.length <= 10;
                 },
                 message: "Debe haber entre 5 y 10 palabras clave."
@@ -66,10 +70,10 @@ const trabajoSchema = new mongoose.Schema(
             },
             filename: {
                 type: String
-            }      
+            }
         }
     },
-       
+
     {
         timestamp: true, // TODO createdAt, updatedAt
         versionKey: false

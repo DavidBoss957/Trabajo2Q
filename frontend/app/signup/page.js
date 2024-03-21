@@ -55,11 +55,10 @@ export default function Signup() {
 
         
         try {
-<<<<<<< Updated upstream
-            const response = await fetch('/http://localhost:3000/*COMPLETAR*', {
-=======
+
             const response = await fetch('http://localhost:3000/api/auth/register', {
->>>>>>> Stashed changes
+
+
                 method: 'POST',
                 headers: {
                 //Authorization: `Bearer ${tokenJWT}`
