@@ -20,9 +20,11 @@ export default function Login() {
             password: password
         }
 
-        //alert("Iniciando sesion...")
+        
         try {
+
             const response = await fetch('/http://localhost:3000/api/auth/login', {
+
                 method: 'POST',
                 headers: {
                 //Authorization: `Bearer ${tokenJWT}`
@@ -42,6 +44,7 @@ export default function Login() {
         }catch (e){
             console.error('Error al iniciar sesión:', e)
         }
+        alert("Iniciando sesion...")
            
     }
 

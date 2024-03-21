@@ -27,13 +27,15 @@ router.get("/:id", validatorGetUser, getUser)
 
 //POST Create user
 //validator link + customheader api validator 
+
 router.post("/", validatorCreateUser, async (req, res) => {
 
     // Check for validation errors
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) {
+    //     return res.status(400).json({ errors: errors.array() });
+    // }
+
 
     // Continue with the request handling
     try {
@@ -75,6 +77,8 @@ router.post("/", validatorCreateUser, async (req, res) => {
         handleHttpError(res, 'ERROR_CREATE_ITEMS');
     }
 });
+
+router.post("/", validatorCreateUser, createUser)
 
 //UPDATE USER
 router.put("/:id", validatorGetUser, validatorCreateUser, updateUser)

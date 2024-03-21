@@ -10,7 +10,7 @@ export default function Signup() {
     let [email, setEmail] = useState("") //input email
     const [password, setPassword] = useState("") //input contraseña
     const [emailType, setEmailType] = useState("@live.u-tad.com") //valor por defecto del email
-    const [role, setRole] = useState("")
+    const [role, setRole] = useState("usuario") //valor por defecto del registro
 
 
     const handleComprobacion = (e) => {
@@ -46,14 +46,19 @@ export default function Signup() {
             name: name,
             apellidos: apellidos,
             alias: alias,
-            role: role,
             email: email+emailType, //email=input+tipoEmail (alba+@live.u-tad.com)
-            password: password
+            role: role,
+            password: password            
         }
 
-        //alert("Registrandote...")
+        //alert(signup.name + signup.apellidos + signup.alias + signup.role + signup.email + signup.password)
+
+        
         try {
-            const response = await fetch('/http://localhost:3000/api/auth/register', {
+
+            const response = await fetch('http://localhost:3000/api/auth/register', {
+
+
                 method: 'POST',
                 headers: {
                 //Authorization: `Bearer ${tokenJWT}`
@@ -61,7 +66,9 @@ export default function Signup() {
                 },
                 body: JSON.stringify(signup)
             });
-            
+            console.log(signup)
+            //alert("Respuesta: " + response.ok)
+            console.log(response.ok)
             if(response.ok) { //si se conecta bien al servidor
                 const data = await response.json();
                 //router.push("paginaprincipal")
@@ -71,8 +78,10 @@ export default function Signup() {
             }
 
         }catch (e){
-            console.error('Error al iniciar sesión:', e)
+            console.error('Error al registrarse:', e)
         }
+        
+        alert("Registrandote...")
            
     }
 
