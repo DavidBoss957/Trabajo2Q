@@ -12,6 +12,7 @@ const {usersModel} = require("../models")
 const registerCtrl = async (req, res) => {
     try {
         req = matchedData(req)
+
         const password = await encrypt(req.password)
         const body = {...req, password} // Con "..." duplicamos el objeto y le añadimos o sobreescribimos una propiedad
         const dataUser = await usersModel.create(body)
@@ -39,6 +40,7 @@ const registerCtrl = async (req, res) => {
 const loginCtrl = async (req, res) => {
     try {
         req = matchedData(req)
+
         const user = await usersModel.findOne({ email: req.email }).select("password name role email")
 
         if(!user){
