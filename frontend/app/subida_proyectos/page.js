@@ -174,7 +174,7 @@ export default function ProjectUpload() {
                     <div className="input-file-container fixed-height">
                         <input type="file" hidden="true" className="form-control" id="finalResult" name="finalResult" onChange={handleChange} required/>
                         <label className="input-file-trigger form-control fixed-height-label" htmlFor="finalResult">
-                            {formState.finalResultName || "Subir resultado final *"}
+                            {formState.finalResultName || "Subir portada de proyecto *"}
                         </label>
                         <small className="form-text text-muted">
                             {formState.finalResultName || "Arrastra tus archivos aquí"}
@@ -185,7 +185,7 @@ export default function ProjectUpload() {
                     <div className="input-file-container fixed-height">
                         <input type="file" hidden="true" className="form-control" id="projectMemory" name="projectMemory" onChange={handleChange} />
                         <label className="input-file-trigger form-control fixed-height-label" htmlFor="projectMemory">
-                            {formState.projectMemoryName || "Subir memoria del proyecto (opcional)"}
+                            {formState.projectMemoryName || "Subir Resultado Final"}
                         </label>
                         <small className="form-text text-muted">
                             {formState.projectMemoryName || "Arrastra tus archivos aquí"}
