@@ -96,46 +96,48 @@ export default function ProjectUpload() {
 
     return (
         <div className="container mt-3">
-        <h2>Subida de Proyectos</h2>
         <form onSubmit={handleSubmit}>
 
             {/* Campo del nombre del proyecto */}
             <div className="mb-3">
-                <input type="text" className="form-control" name="nombreProyecto" value={formState.nombreProyecto} onChange={handleChange} placeholder="Título del proyecto" required/>
+                <input type="text" className="form-control border-0 shadow-none input-titulo-proyecto" name="nombreProyecto" value={formState.nombreProyecto} onChange={handleChange} placeholder="Título del proyecto" required/>
             </div>
 
             {/* Desplegables de Titulación y Año de creación */}
-            <div className="mb-3 d-flex">
-            <select className="form-select me-2" name="titulacion" value={formState.titulacion} onChange={handleChange} required>
-                <option value="" disabled selected>Titulación</option>
-                <option value="INSO">INSO</option>
-                <option value="DIDI">DIDI</option>
-            </select>
-            
-            <select className="form-select" name="year" value={formState.year} onChange={handleChange} required>
-            <option value="" disabled selected>Año de creacion</option>
-                {years.map(year => (
-                <option key={year} value={year}>{year}</option>
-                ))}
-            </select>
+            <div className="d-flex align-items-end">
+                <div className="mb-3">
+                    <select className="border-0 shadow-none form-select custom-select custom-select-inter" aria-label="Default select example" name="titulacion" value={formState.titulacion} onChange={handleChange} required>
+                        <option value="" disabled selected>Titulación</option>
+                        <option value="INSO">INSO</option>
+                        <option value="DIDI">DIDI</option>
+                    </select>
+            </div>
+                <div className="mb-3">
+                    <select className="border-0 shadow-none form-select custom-select custom-select-inter" aria-label="Default select example" name="year" value={formState.year} onChange={handleChange} required>
+                    <option value="" disabled selected>Año de creacion</option>
+                        {years.map(year => (
+                        <option key={year} value={year}>{year}</option>
+                        ))}
+                    </select>
+                </div>
             </div>
 
             {/* Campo de autores */}
-            <div className="input-group mb-3">
+            <div className="input-group mb-3 espaciado-select-text">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Autor/es</span>
-                <input type="text" className="form-control" placeholder="Mario Hurtado, Beatriz Peña..." aria-label="Autores" aria-describedby="basic-addon1" name="autores" value={formState.autores} onChange={handleChange} required/>
+                <input type="text" className="form-control fixed-width-span" placeholder="Mario Hurtado, Beatriz Peña..." aria-label="Autores" aria-describedby="basic-addon1" name="autores" value={formState.autores} onChange={handleChange} required/>
             </div>
 
             {/* Campo de docentes */}
             <div className="input-group mb-3">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Docentes implicados</span>
-                <input type="text" className="form-control" placeholder="Julio Arias" aria-label="Autores" aria-describedby="basic-addon1" name="docentes" value={formState.docentes} onChange={handleChange} required/>
+                <input type="text" className="form-control fixed-width-span" placeholder="Julio Arias" aria-label="Autores" aria-describedby="basic-addon1" name="docentes" value={formState.docentes} onChange={handleChange} required/>
             </div>
 
             {/* Campo de asignatura */}
             <div className="input-group mb-3">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Asignatura</span>
-                <input type="text" className="form-control" placeholder="Proyectos IV" aria-label="Autores" aria-describedby="basic-addon1" name="asignatura" value={formState.asignatura} onChange={handleChange} required/>
+                <input type="text" className="form-control fixed-width-span" placeholder="Proyectos IV" aria-label="Autores" aria-describedby="basic-addon1" name="asignatura" value={formState.asignatura} onChange={handleChange} required/>
             </div>
 
             {/* Campo de resumen */}
@@ -151,35 +153,46 @@ export default function ProjectUpload() {
             {/* Campo de enlaces externos */}
             <div className="input-group mb-3">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Enlaces externos</span>
-                <input type="text" className="form-control" placeholder="www.holasoyyo.com" aria-label="Autores" aria-describedby="basic-addon1" name="enlaces" value={formState.enlaces} onChange={handleChange}/>
+                <input type="text" className="form-control fixed-width-span" placeholder="www.holasoyyo.com" aria-label="Autores" aria-describedby="basic-addon1" name="enlaces" value={formState.enlaces} onChange={handleChange}/>
             </div>
 
             {/* Campo de premios */}
             <div className="input-group mb-3">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Premios</span>
-                <input type="text" className="form-control" placeholder="Laus 2022" aria-label="Autores" aria-describedby="basic-addon1" name="premios" value={formState.premios} onChange={handleChange}/>
+                <input type="text" className="form-control fixed-width-span" placeholder="Laus 2022" aria-label="Autores" aria-describedby="basic-addon1" name="premios" value={formState.premios} onChange={handleChange}/>
             </div>
 
             {/* Campo de etiquetas */}
             <div className="input-group mb-3">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Etiquetas</span>
-                <input type="text" className="form-control" placeholder="Entre 5 y 10 palabras separadas por comas." aria-label="Autores" aria-describedby="basic-addon1" name="etiquetas" value={formState.etiquetas} onChange={handleChange} required/>
+                <input type="text" className="form-control fixed-width-span" placeholder="Entre 5 y 10 palabras separadas por comas." aria-label="Autores" aria-describedby="basic-addon1" name="etiquetas" value={formState.etiquetas} onChange={handleChange} required/>
             </div>
 
             {/* Campos de subida de archivos */}
             <div className="row mb-3">
-                <div className="col-6">
+                <div className="col-4">
                     <div className="input-file-container fixed-height">
                         <input type="file" hidden="true" className="form-control" id="finalResult" name="finalResult" onChange={handleChange} required/>
                         <label className="input-file-trigger form-control fixed-height-label" htmlFor="finalResult">
-                            {formState.finalResultName || "Subir resultado final *"}
+                            {formState.finalResultName || "Subir portada de proyecto *"}
                         </label>
                         <small className="form-text text-muted">
                             {formState.finalResultName || "Arrastra tus archivos aquí"}
                         </small>
                     </div>
                 </div>
-                <div className="col-6">
+                <div className="col-4">
+                    <div className="input-file-container fixed-height">
+                        <input type="file" hidden="true" className="form-control" id="projectMemory" name="projectMemory" onChange={handleChange} />
+                        <label className="input-file-trigger form-control fixed-height-label" htmlFor="projectMemory">
+                            {formState.projectMemoryName || "Subir Resultado Final"}
+                        </label>
+                        <small className="form-text text-muted">
+                            {formState.projectMemoryName || "Arrastra tus archivos aquí"}
+                        </small>
+                    </div>
+                </div>
+                <div className="col-4">
                     <div className="input-file-container fixed-height">
                         <input type="file" hidden="true" className="form-control" id="projectMemory" name="projectMemory" onChange={handleChange} />
                         <label className="input-file-trigger form-control fixed-height-label" htmlFor="projectMemory">
@@ -193,7 +206,11 @@ export default function ProjectUpload() {
             </div>
 
             {/* Botón de envío */}
-            <button type="submit" className="btn btn-primary">Enviar proyecto</button>
+            <div className="justify-content-center d-flex">
+                <button type="submit" className="btn btn-primary">Enviar Proyectos</button>
+                <button type="button" className="btn btn-secondary">Guardar Borrador</button>
+            </div>
+
         </form>
         </div>
     );
