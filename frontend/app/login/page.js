@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/login_signup.css'
+import Footer from '@/components/Footer';
 
 export default function Login() {
     
@@ -101,6 +102,7 @@ export default function Login() {
 
                 </form>
             </div>
+
         </div>
         
     );
