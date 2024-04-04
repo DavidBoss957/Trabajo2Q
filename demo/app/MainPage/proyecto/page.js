@@ -2,7 +2,6 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
-import '../../styles/mainPage.css'
 import { useRouter } from 'next/navigation'
 
 export default function MainPage() {
@@ -24,54 +23,60 @@ export default function MainPage() {
         <title>Descripción de la página</title>
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,900&display=swap" rel="stylesheet"/>
       </Head>
+      <div className="bg-light border-bottom">
+        {/* Contenedor fluido para la parte superior con el fondo */}
+        <div className="container-fluid">
+          {/* Encabezado */}
+          <header className="d-flex justify-content-between align-items-center py-2">
+            <img src="/U-TAD-Logo-CARD.webp" alt="Logo" className="img-fluid" style={{ maxHeight: '60px' }} />
+            <div>
+              <button className="btn btn-outline-primary mx-2" onClick={handleProfileClick}>Mi perfil</button>
+              <button className="btn btn-primary" onClick={handleUploadClick}>Subir proyecto</button>
+            </div>
+          </header>
+        </div>
 
-      <div className="container mt-3">
-        {/* Encabezado */}
-        <header className="d-flex justify-content-between align-items-center mb-4">
-          <img src="/img/logo-utad.jpg" alt="Logo" className="img-fluid" style={{ maxHeight: '60px' }} />
-          <div>
-            <button className="btn btn-outline-primary mx-2" onClick={handleProfileClick}>Mi perfil</button>
-            <button className="btn btn-primary" onClick={handleUploadClick}>Subir proyecto</button>
+        {/* Contenedor para el título y la barra de búsqueda */}
+        <div className="container my-3">
+          {/* Título y descripción de la página */}
+          <div className="text-center py-4">
+            <h1 id="titulo" className="display-1 fw-bold text-primary">AcademiaLink</h1>
           </div>
-        </header>
-
-        {/* Título y descripción de la página */}
-        <div className="text-center mb-4">
-          <h1>Descripción de la página</h1>
+          
+          {/* Barra de búsqueda */}
+          <div className="input-group mb-4">
+            <input type="text" className="form-control" placeholder="Barra de búsqueda" />
+          </div>
         </div>
+      </div>
 
-        {/* Barra de búsqueda */}
-        <div className="input-group mb-4">
-          <input type="text" className="form-control" placeholder="Barra de búsqueda" />
+      {/* Botones de navegación, fuera del fondo */}
+      <div className="container my-4">
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-outline-primary mx-3 my-2">Grados</button>
+          <button className="btn btn-outline-primary mx-3 my-2">Ciclos</button>
+          <button className="btn btn-outline-primary mx-3 my-2">Postgrados</button>
         </div>
+      </div>
 
-        {/* Botones de navegación */}
-        <div className="d-flex justify-content-center mb-4">
-          <button className="btn btn-secondary mx-1">Grados</button>
-          <button className="btn btn-secondary mx-1">Ciclos</button>
-          <button className="btn btn-secondary mx-1">Postgrados</button>
-        </div>
-
-        {/* Sección de proyectos */}
+      {/* Sección de proyectos, también fuera del fondo */}
+      <div className="container mb-4">
         <div className="row">
           {Array.from({ length: 1 }).map((_, idx) => (
             <div key={idx} className="col-md-4 mb-3">
               <div className="card">
-                {/* Encabezado de la tarjeta con el nombre de la titulación */}
                 <div className="card-header card-header-titulacion">
-                  Titulación
+                  Grado en Ingeniería de Software
                 </div>
-                {/* Contenedor de la imagen */}
                 <img src="/img/default-project.jpg" className="card-img-top" alt="Proyecto" />
-                {/* Cuerpo de la tarjeta con el título del proyecto, autores y año */}
                 <div className="card-body">
                   <div className="d-flex justify-content-between">
                     <div>
-                      <h6 className="card-title">Título del Proyecto</h6>
-                      <p className="card-text">Autor/es</p>
+                      <h6 className="card-title">OptiCode: Plataforma de optimización para algoritmos en la nube</h6>
+                      <p className="card-text">Jaime Alberto Serrano y Sonia Ramirez López</p>
                     </div>
                     <div className="text-right">
-                      <p className="card-text">Año</p>
+                      <p className="card-text">2024</p>
                     </div>
                   </div>
                 </div>
@@ -80,12 +85,6 @@ export default function MainPage() {
           ))}
         </div>
       </div>
-
-      <footer className="footer mt-4 py-3 bg-light">
-        <div className="container text-center">
-          <span>Privacidad &nbsp; Condiciones &nbsp; Accesibilidad</span>
-        </div>
-      </footer>
     </>
   );
 }
