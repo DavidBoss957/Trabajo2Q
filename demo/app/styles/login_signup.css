@@ -1,0 +1,90 @@
+img{
+    width: 16.5rem;
+    height: 5rem;
+    flex-shrink: 0;
+}
+
+h1{
+    /* tipografia */
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+h2{
+    /* tipografia */
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+label{
+    /* tipografia */
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 1rem;
+}
+
+input, select, option{
+    /* tipografia */
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #C8C8C8 !important;
+    border-color: #C8C8C8 !important;
+}
+
+.dropdown-toggle{
+    background: #C8C8C8;
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+button{
+    color: #000;
+    font-family: Inter;
+}
+
+#textoBoton{
+    /* tipografia */
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+span{
+    background: #C8C8C8 !important;
+    border-color: #C0C0C0 !important;
+    /* tipografia */
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+form{
+    background: #A1A1A1;
+}
