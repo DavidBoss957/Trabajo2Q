@@ -1,0 +1,12 @@
+footer{
+    background-color: #D9D9D9 !important;
+}
+
+.elemento, a{
+    color: #000 !important;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

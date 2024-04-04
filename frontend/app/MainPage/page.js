@@ -1,59 +1,68 @@
 "use client";
+
+
 import { useState, useEffect } from 'react';
 import '../styles/mainPage.css';
 import Head from 'next/head';
 
 export default function MainPage() {
-const header = document.querySelector("header");
-const sectionOne = document.querySelector(".home-intro");
+  const [isIntersecting, setIsIntersecting] = useState(false);
 
-const sectionOneOptions = {
-  rootMargin: "-120px 0px 0px 0px"
-};
+  useEffect(() => {
+    const header = document.querySelector("header");
+    const sectionOne = document.querySelector(".home-intro");
 
-const sectionOneObserver = new IntersectionObserver(function(entries,sectionOneObserver){
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-      header.classList.add("nav-scrolled");
-    } else {
-      header.classList.remove("nav-scrolled");
-    }
-  });
-},
-sectionOneOptions);
+    const sectionOneOptions = {
+      rootMargin: "-120px 0px 0px 0px"
+    };
 
-sectionOneObserver.observe(sectionOne);
+    const sectionOneObserver = new IntersectionObserver(function(entries, sectionOneObserver) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          setIsIntersecting(true);
+        } else {
+          setIsIntersecting(false);
+        }
+      });
+    }, sectionOneOptions);
 
+    sectionOneObserver.observe(sectionOne);
 
-return (
-<div>
-    <head>
+    return () => {
+      // Clean up the observer
+      sectionOneObserver.unobserve(sectionOne);
+    };
+  }, []); // Empty dependency array to run this effect only once
+
+  return (
+    <div>
+      <Head>
         <link
-      href="https://fonts.googleapis.com/css?family=Poppins:300,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/main.css" />
-    <header>
-      <img src="img/logo-utad.jpg" alt="Logo" style="max-height: 60px; max-width: 100%;"></img>
-      <nav class="main-nav">
-        <div class="search-box">
-          <input class="search-input" type="text" placeholder="Buscar..."></input>
-        </div>
-      </nav>
-      <nav class="miPerfil">
-        <ul class="nav__list">
-          <li class="nav__list-item">
-            <a class="nav__link nav__link--btn" href="#">Mi Perfil</a>
-          </li>
-          <li class="nav__list-item">
-            <a class="nav__link nav__link--btn nav__link--btn--highlight" href="#">Subir Proyecto</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  </head>
+          href="https://fonts.googleapis.com/css?family=Poppins:300,900&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
 
-  <body>
+      <header className={isIntersecting ? "nav-scrolled" : ""}>
+        <img src="img/logo-utad.jpg" alt="Logo" style={{ maxHeight: '60px', maxWidth: '100%' }} />
+        <nav className="main-nav">
+          <div className="search-box">
+            <input className="search-input" type="text" placeholder="Buscar..." />
+          </div>
+        </nav>
+        <nav className="miPerfil">
+          <ul className="nav__list">
+            <li className="nav__list-item">
+              <a className="nav__link nav__link--btn-Main" href="../perfil/page.js">Mi Perfil</a>
+            </li>
+            <li className="nav__list-item">
+              <a className="nav__link nav__link--btn-Main nav__link--btn--highlight" href="../subida_proyectos/done/page.js">Subir Proyecto</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+  
     
 
     <main>
@@ -67,13 +76,13 @@ return (
       
           <ul class="nav__list">
             <li class="nav__list-item">
-              <a class=" info-boton1 ">Grados</a>
+              <a class=" grados ">Grados</a>
             </li>
             <li class="nav__list-item">
-              <a class="info-boton2" >Ciclos</a>
+              <a class="ciclos" >Ciclos</a>
             </li>
             <li class="nav__list-item">
-              <a class="info-boton3">Postgrados</a>
+              <a class="postgrados">Postgrados</a>
             </li>
           </ul>
       </div>
@@ -234,7 +243,12 @@ return (
 
         
     </main>
-    </body>
+
+
+    <footer class="footer">
+          Privacidad &nbsp;&nbsp;&nbsp; Condiciones &nbsp;&nbsp;&nbsp; Accesibilidad
+    </footer>
+    
     </div>
 );
 }
