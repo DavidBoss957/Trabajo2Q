@@ -1,0 +1,69 @@
+#nombre_apellidos{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#alias{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: normal;
+}
+
+#infogeneral{
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#infoAlias{
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.textoBoton{
+    /* tipografia */
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.info{
+    background-color: #A1A1A1;
+}
+
+.infoDatos{
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.igual{
+    width: 10.5 rem !important;
+}
+
+#elementosPerfil{
+    margin: 0 auto !important;
+}
