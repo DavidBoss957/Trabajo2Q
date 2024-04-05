@@ -28,18 +28,20 @@ const getItem = async (req, res) => {
         //console.log(err)
         handleHttpError(res, "ERROR_GET_ITEM")
     }
-
 }
 //CREATE ITEM
 const createItem = async (req, res) => {
-    const { body } = req
-    console.log(body)
-    const data = await trabajosModel.create(body)
+    try {
+        const { body } = req
+        const data = await trabajosModel.create(body)
 
-    // Notificar a los usuarios relacionados con el trabajo
-    await notificador.notifyOnNameAppearance(nuevoTrabajo._id);
+        // Notificar a los usuarios relacionados con el trabajo
+        await notificador.notifyOnNameAppearance(data._id);
 
-    res.send(data)
+        res.send(data)
+    } catch (error) {
+        handleHttpError(res, "ERROR_CREATE_ITEM")
+    }
 }
 
 //UPDATE ITEM

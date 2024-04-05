@@ -226,7 +226,7 @@ api_key: Api-publica-123
   "titulo": "proyecto2",
   "titulacion": "inso",
   "anocreacion": 2024,
-  "autores": ["65ec901a5ffee9064e706cf9"],
+  "autores": ["65f484bc102b7aa652d1b057"],
   "docentesImplicados": "profesor,dumbeldore,voldemort",
   "asignatura": "hacking",
   "resumen": "es una proyecto que se basa en lorem ipsum",

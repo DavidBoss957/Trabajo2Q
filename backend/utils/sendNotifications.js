@@ -11,7 +11,7 @@ const sendEmailNotification = async (userEmail, subject, messageText) => {
             secure: true,
             auth: {
                 user: process.env.EMAIL,
-                pass: "" // TODO
+                pass: process.env.NODEMAILER_CREDS
             }
         });
 
@@ -25,24 +25,23 @@ const sendEmailNotification = async (userEmail, subject, messageText) => {
 
         // Enviar el correo electrónico
         await transporter.sendMail(message);
-
-        console.log('Correo electrónico enviado con éxito.');
     } catch (error) {
         console.error('Error al enviar el correo electrónico de notificación:\n', error);
     }
 };
 
 // Notificación de aparición de nombre en proyecto
-const sendNameAppearanceNotification = async (userEmail, projectName) => {
+const sendNameAppearanceNotification = async (userName, userEmail, projectName) => {
     const subject = 'Tu nombre ha aparecido en un proyecto publicado';
-    const messageText = `Hola,\n\nTu nombre ha aparecido en el proyecto "${projectName}".\n\nSaludos.`;
+    const messageText = `Hola ${userName},\n\nTu nombre ha aparecido en el proyecto "${projectName}".\n\nSaludos.\nEsto es un mensaje sin respuesta.`;
     await sendEmailNotification(userEmail, subject, messageText);
+
 };
 
 // Notificación de aceptación de proyecto
-const sendProjectAcceptanceNotification = async (userEmail, projectName) => {
+const sendProjectAcceptanceNotification = async (userName, userEmail, projectName) => {
     const subject = 'Tu proyecto ha sido aceptado para ser publicado';
-    const messageText = `Hola,\n\nTu proyecto "${projectName}" ha sido aceptado para ser publicado.\n\nSaludos.`;
+    const messageText = `Hola ${userName},\n\nTu proyecto "${projectName}" ha sido aceptado para ser publicado.\n\nSaludos.`;
     await sendEmailNotification(userEmail, subject, messageText);
 };
 

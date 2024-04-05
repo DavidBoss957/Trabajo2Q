@@ -13,8 +13,8 @@ const removeExtension = (fileName) => {
 
 fs.readdirSync(__dirname).filter((file) => {
     const name = removeExtension(file) // index, users, storage, tracks
-    if(name !== 'index') {
-        router.use('/' + name, require('./'+name)) // http://localhost:3000/api/tracks
+    if (name !== 'index' && name !== "README") {
+        router.use('/' + name, require('./' + name)) // http://localhost:3000/api/tracks
     }
 })
 
