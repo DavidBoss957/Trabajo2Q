@@ -8,7 +8,7 @@
     line-height: normal;
 }
 
-#alias{
+#aliasTitulo{
     color: #000;
     text-align: center;
     font-family: Inter;
@@ -34,6 +34,8 @@
     font-style: italic;
     font-weight: 400;
     line-height: normal;
+    border: none;
+    height: min-content;
 }
 
 .textoBoton{
@@ -66,4 +68,16 @@
 
 #elementosPerfil{
     margin: 0 auto !important;
+}
+
+#infoAlias{
+    /* tipografia */
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #A1A1A1 !important;
+    border-color: #A1A1A1 !important;
 }

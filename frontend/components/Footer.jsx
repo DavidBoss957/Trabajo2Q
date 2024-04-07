@@ -3,7 +3,7 @@ import '../app/styles/footer.css'
 export default function Footer() {
 
     return(
-        <footer>
+        <footer id="footer">
             <div className="container text-center py-3 d-flex justify-content-center mt-5">
                 <div className="row d-flex">
                    {/* hover con subrayado */}

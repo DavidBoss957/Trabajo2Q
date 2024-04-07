@@ -88,46 +88,46 @@ export default function Signup() {
     return (
         <div id="signupContent" className="container mt-3">
 
-            <img src="img/default.png" className="img-fluid mx-auto d-block mt-5" alt="default"/>
+            <img src="img/default.png" id="imgsignup" className="img-fluid mx-auto d-block mt-5" alt="default"/>
             <h1 id="titulo" className="text-center my-4">Introducción</h1>
 
             <div id="containerFormulario" className="d-flex justify-content-center mx-5 my-5 ">
-                <form className="px-5 py-5 rounded-4" onSubmit={handleComprobacion}  >
+                <form id="formSignUp" className="px-5 py-5 rounded-4" onSubmit={handleComprobacion}  >
                     
-                    <h2>Registrarse</h2>
+                    <h2 id="subtitulo">Registrarse</h2>
                     
                     {/*nombre*/}
                     <div className="mb-3">
-                        <label htmlFor="nombre">Nombre</label>
+                        <label htmlFor="nombre" className="etiquetas">Nombre</label>
                         <input type="text" id="nombre" className="form-control rounded-4" placeholder="Nombre" onChange={(e) => setName(e.target.value)} required/>
                     </div>
 
                     {/* apellidos */}
                     <div className="mb-3">
-                        <label htmlFor="apellidos">Apellidos</label>
+                        <label htmlFor="apellidos" className="etiquetas">Apellidos</label>
                         <input type="text" id="apellidos" className="form-control rounded-4" placeholder="Apellidos" onChange={(e) => setApellidos(e.target.value)} required/>
                     </div>
 
                     {/* alias */}
                     <div className="mb-3">
-                        <label htmlFor="alias">Alias</label>
+                        <label htmlFor="alias" className="etiquetas">Alias</label>
                         <input type="text" id="alias" className="form-control rounded-4" placeholder="Alias" onChange={(e) => setAlias(e.target.value)}/>
                     </div>
 
                     {/*correo*/}
-                    <label htmlFor="email">Dirección de correo electrónico</label>
+                    <label htmlFor="email" className="etiquetas">Dirección de correo electrónico</label>
                     <div className="input-group mb-3 ">
                         <input type="text" id="email" className="form-control rounded-start-4"  onChange={(e) => setEmail(e.target.value)} placeholder="mario.hurtado" required/>
                         <select id="emailType" className="dropdown-toggle btn rounded-end-4" onChange={(e) => setEmailType(e.target.value)}>
-                            <option value="@live.u-tad.com">@live.u-tad.com</option>
-                            <option value="@u-tad.com">@u-tad.com</option>
-                            <option value="@ext.live.u-tad.com">@ext.live.u-tad.com</option>
+                            <option value="@live.u-tad.com" className="opcion">@live.u-tad.com</option>
+                            <option value="@u-tad.com" className="opcion">@u-tad.com</option>
+                            <option value="@ext.live.u-tad.com" className="opcion">@ext.live.u-tad.com</option>
                         </select>
                     </div>
 
                     {/*contraseña*/}
                     <div className="mb-3">
-                        <label htmlFor="password">Contraseña</label>
+                        <label htmlFor="password" className="etiquetas">Contraseña</label>
                         <input type="password" id="password" className="form-control rounded-4" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} required/>
                     </div>
 
@@ -135,7 +135,7 @@ export default function Signup() {
 
                     {/* boton submit */}
                     <div className="text-center">
-                        <button type="submit" className="btn mt-4 text-center rounded-4 px-5" style={{background: '#C8C8C8'}}><div id='textoBoton'>Registrarse</div></button>
+                        <button type="submit" id="botonSignup" className="btn mt-4 text-center rounded-4 px-5" style={{background: '#C8C8C8'}}><div id='textoBoton'>Registrarse</div></button>
                     </div>
 
                 </form>

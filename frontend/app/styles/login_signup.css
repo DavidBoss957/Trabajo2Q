@@ -1,10 +1,10 @@
-img{
+#imglogin, #imgsignup{
     width: 16.5rem;
     height: 5rem;
     flex-shrink: 0;
 }
 
-h1{
+#titulo{
     /* tipografia */
     color: #000;
     text-align: center;
@@ -15,7 +15,7 @@ h1{
     line-height: normal;
 }
 
-h2{
+#subtitulo{
     /* tipografia */
     color: #000;
     font-family: Inter;
@@ -25,7 +25,7 @@ h2{
     line-height: normal;
 }
 
-label{
+.etiquetas{
     /* tipografia */
     color: #000;
     font-family: Inter;
@@ -36,7 +36,7 @@ label{
     margin-bottom: 1rem;
 }
 
-input, select, option{
+#nombre, #apellidos, #alias, #email, #password, #emailType, .opcion{
     /* tipografia */
     color: #000;
     font-family: Inter;
@@ -58,7 +58,7 @@ input, select, option{
     line-height: normal;
 }
 
-button{
+#botonLogin, #botonSignup{
     color: #000;
     font-family: Inter;
 }
@@ -73,18 +73,6 @@ button{
     line-height: normal;
 }
 
-span{
-    background: #C8C8C8 !important;
-    border-color: #C0C0C0 !important;
-    /* tipografia */
-    color: #000;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-form{
+#formLogin, #formSignUp{
     background: #A1A1A1;
 }
