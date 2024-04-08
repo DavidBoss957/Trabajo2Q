@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/login_signup.css'
 
@@ -12,6 +13,7 @@ export default function Signup() {
     const [emailType, setEmailType] = useState("@live.u-tad.com") //valor por defecto del email
     const [role, setRole] = useState("usuario") //valor por defecto del registro
 
+    const router = useRouter();
 
     const handleComprobacion = (e) => {
         e.preventDefault();
@@ -66,13 +68,9 @@ export default function Signup() {
                 },
                 body: JSON.stringify(signup)
             });
-            //console.log(signup)
-            //console.log(response)
-            //alert("Respuesta: " + response.ok)
-            //console.log(response.ok)
             if(response.ok) { //si se conecta bien al servidor
                 const data = await response.json();
-                //router.push("paginaprincipal")
+                router.push("/login")
 
             }else{ //si da error al conectarse
                 console.error('Datos incorrectos')
@@ -81,8 +79,6 @@ export default function Signup() {
         }catch (e){
             console.error('Error al registrarse:', e)
         }
-        
-        alert("Registrandote...")
            
     }
 

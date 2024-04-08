@@ -14,9 +14,9 @@ const getUserInfo = async (storedEmail) => {
         const res = await fetch(`http://localhost:3000/api/users/${storedEmail}`);
         console.log(res)
         if (res.ok) {
-            const data = await res.json();
-            console.log(data)
-            return data;
+            const userInfo = await res.json();
+            console.log(userInfo)
+            return userInfo;
         } else {
             console.error('Error al recibir la información');
         }
@@ -50,27 +50,30 @@ export default function Perfil() {
     };
 
     //implementar funcion post para actualizar los datos del usuario
-    const handleSubmit = async (e) => {
+    const handleUpdateUser = async (e) => {
 
+        alert("Actualizando información de usuario...")
         //objeto con los datos que hay que actualizar
-        const updateInfo = { //COMPROBAR CON BACK EL NOMBRE DE LAS VARIABLES Y SI HAY IDIOMA O NO
-            alias: updateAlias,
-            idioma: updateIdioma,
-            notificacion: updateNotificacion
+        const updateInfo = {
+            alias: updateAlias
         }
 
         try {
+
+            console.log(updateInfo)
+
             const response = await fetch (`http://localhost:3000/api/users/${storedEmail}`, {
-                method: 'PUT', //VER CON BACK SI ES POST O PATCH
+                method: 'PUT',
                 headers: {
                     //Authorization: `Bearer ${tokenJWT}`
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(updateInfo)
             });
-
+            console.log(response.ok)
             if (response.ok) {
                 const data = await response.json()
+                console.log(data)
             } else {
                 console.error("Error al actualizar la informacion")
             }
@@ -93,31 +96,30 @@ export default function Perfil() {
                 <img src="img/default_profile.png" className="img-fluid mx-auto d-block mt-5 rounded-circle" alt="default"/>
                 
                 {/* Nombre y apellidos */}
-                {/* <div className="container text-center py-3 d-flex justify-content-center mt-2"></div> */}
-                <h2 id="nombre_apellidos">Nombre y apellidos</h2>
+                <h2 id="nombre_apellidos">{userInfo.name} {userInfo.apellidos}</h2>
 
                 {/* Alias */}
-                <h2 id="aliasTitulo" className='text-center mt-3'>Alias</h2>
+                <h2 id="aliasTitulo" className='text-center mt-3'>{userInfo.alias}</h2>
 
                 {/* Botones proyectos */}
                 <button type="submit" className="btn mt-4 text-center rounded-4 px-3 me-3" style={{background: '#A1A1A1'}}><div className='textoBoton'>Solicitudes de proyectos</div></button>
                 {/* SOLO ADMIN */}
-                {/* {userInfo.role === "admin" && (
+                {userInfo.role === "admin" && (
                     <button type="submit" id="administrarUsuarios" className="btn mt-4 text-center rounded-4 px-3" style={{background: '#A1A1A1'}}>
                         <div className='textoBoton'>Administrar usuarios</div>
                     </button>
-                )} */}
+                )}
 
                 {/* Informacion general */}
                 <div>
                     <h3 id="infogeneral" className="mt-5 mb-4">Informacion general</h3>
                     <div className="row mx-0">
                         <p className="info col rounded-start-4 py-2 infoDatos">Nombre Completo</p>
-                        <p className="info col rounded-end-4 py-2 infoDatos">Nombre y Apellidos</p>
+                        <p className="info col rounded-end-4 py-2 infoDatos">{userInfo.name} {userInfo.apellidos}</p>
                     </div>
                     <div className="row mx-0"> {/* ACTUALIZABLE */}
                         <p className="info col rounded-start-4 py-2 infoDatos">Alias</p>
-                        <input type="text" id="infoAlias" className="info col rounded-end-4 py-2"  onChange={(e) => setUpdateAlias(e.target.value)} placeholder="Alias"/>
+                        <input type="text" id="infoAlias" className="info col rounded-end-4 py-2"  onChange={(e) => setUpdateAlias(e.target.value)} placeholder={userInfo.alias}/>
                     </div>
                 </div>
                 
@@ -126,7 +128,7 @@ export default function Perfil() {
                     <h3 id="infogeneral" className="mt-4 mb-4">Informacion en U-tad</h3>
                     <div className="row mx-0">
                         <p className="info col rounded-start-4 py-2 infoDatos">Dirección de correo electrónico</p>
-                        <p className="info col rounded-end-4 py-2 infoDatos">nombre.apellido@live.u-tad.com</p>
+                        <p className="info col rounded-end-4 py-2 infoDatos">{userInfo.email}</p>
                     </div>
                     <div className="row mx-0">
                         <p className="info col rounded-start-4 py-2 infoDatos">Cargo</p>
@@ -151,7 +153,7 @@ export default function Perfil() {
                 {/* Botones cuenta */}
                 <div className='d-flex justify-content-center'>
                     <button className="btn mt-4 text-center rounded-4 px-4 me-3" onClick={handleCerrarSesion} style={{background: '#A1A1A1'}}><div className='textoBoton'>Cerrar sesión</div></button>
-                    <button type="submit" className="btn mt-4 text-center rounded-4 px-3" style={{background: '#A1A1A1'}}><div className='textoBoton'>Actualizar perfil</div></button>
+                    <button type="submit" className="btn mt-4 text-center rounded-4 px-3" onClick={handleUpdateUser} style={{background: '#A1A1A1'}}><div className='textoBoton'>Actualizar perfil</div></button>
                 </div>
                 
 
