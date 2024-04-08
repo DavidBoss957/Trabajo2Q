@@ -2,8 +2,12 @@
 
 //GET lista de usuarios (funciona)
 GET http://localhost:3000/api/users
-
 ###
+
+//GET lista de un usuario (funciona)
+GET http://localhost:3000/api/users/alba@live.u-tad.com
+###
+
 //POST par 1 usuario (funciona)
 POST http://localhost:3000/api/users HTTP/1.1
 Content-Type: application/json
@@ -248,14 +252,14 @@ POST http://localhost:3000/api/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "alba",
+    "name": "alba2345",
     "apellidos": "alba",
     "alias": "blue",
-    "cargo": "alumno",
-    "email": "blue@gmail.com",
+    "role": "usuario",
+    "email": "89785674@gmail.com",
     "password": "passwordthefrog",
-    "notificarAparicionDeNombre": true,
-    "notificarProyectoAceptado": true
+    "notificarAparicionDeNombre": false,
+    "notificarProyectoAceptado": false
 }
 
 ###
@@ -266,8 +270,8 @@ POST http://localhost:3000/api/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "blue@gmail.com",
-    "password": "passwordthefrog"
+    "email": "utad@live.u-tad.com",
+    "password": "utad12345"
   
 }
 

@@ -24,8 +24,8 @@ export default function Login() {
 
         
         try {
-
-            const response = await fetch('/http://localhost:3000/api/auth/login', {
+            //console.log(login)
+            const response = await fetch('http://localhost:3000/api/auth/login', {
 
                 method: 'POST',
                 headers: {
@@ -35,7 +35,7 @@ export default function Login() {
                 body: JSON.stringify(login)
             });
 
-            console.log(response)
+            //console.log(response.ok)
             
             if(response.ok) { //si se conecta bien al servidor
                 const data = await response.json();
@@ -46,6 +46,8 @@ export default function Login() {
             }else{ //si da error al conectarse
                 console.error('Datos incorrectos')
             }
+            
+            //console.log(response.ok)
 
         }catch (e){
             console.error('Error al iniciar sesión:', e)

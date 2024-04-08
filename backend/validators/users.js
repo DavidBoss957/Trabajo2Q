@@ -17,7 +17,7 @@ const validatorCreateUser = [
 
 // Validador para obtener un usuario
 const validatorGetUser = [
-    check("id").exists().notEmpty().isMongoId(),
+    check("email").exists().notEmpty(),
     (req, res, next) => {
         return validateResults(req, res, next)
     }

@@ -23,7 +23,7 @@ const { validatorCreateUser, validatorGetUser } = require("../validators/users")
 router.get("/", getUsers)
 
 //Get 1 solo item
-router.get("/:id", validatorGetUser, getUser)
+router.get("/:email", validatorGetUser, getUser)
 
 //POST Create user
 //validator link + customheader api validator 

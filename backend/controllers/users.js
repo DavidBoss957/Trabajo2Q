@@ -18,18 +18,23 @@ const getUsers = async (req, res) => {
 //GET USER
 const getUser = async (req, res) => {
     try {
-        const { id } = matchedData(req) //Me quedo solo con el id
-        const data = await usersModel.findById(id)
+        // const { id } = matchedData(req) //Me quedo solo con el id
+        // const data = await usersModel.findById(id)
+        const {email} = matchedData(req) //Me quedo solo con el id
+        const data = await usersModel.findOne({email})
         res.send(data)
     } catch (err) {
         //console.log(err)
         handleHttpError(res, "ERROR_GET_ITEM")
     }
+
 }
 //CREATE USER
 const createUser = async (req, res) => {
     try {
-        const body = matchedData(req) //El dato filtrado por el modelo (probar con body=req)
+        //const body = matchedData(req) //El dato filtrado por el modelo (probar con body=req)
+        const body = req.params
+        
         console.log("Request Body:", body);
         const data = await usersModel.create(body)
         console.log("Data created:", data);

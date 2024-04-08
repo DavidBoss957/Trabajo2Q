@@ -12,9 +12,10 @@ const getUserInfo = async (storedEmail) => {
 
     try {
         const res = await fetch(`http://localhost:3000/api/users/${storedEmail}`);
-        
+        console.log(res)
         if (res.ok) {
             const data = await res.json();
+            console.log(data)
             return data;
         } else {
             console.error('Error al recibir la información');
@@ -34,7 +35,7 @@ export default function Perfil() {
     // Recuperar email de local storage
     //const storedEmail = localStorage.getItem('email');
     
-    const storedEmail = "vasco.melo@live.u-tad.com" //prueba
+    const storedEmail = "89785674@gmail.com" //prueba
 
     const router = useRouter();
 

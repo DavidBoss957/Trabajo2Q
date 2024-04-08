@@ -66,9 +66,10 @@ export default function Signup() {
                 },
                 body: JSON.stringify(signup)
             });
-            console.log(signup)
+            //console.log(signup)
+            //console.log(response)
             //alert("Respuesta: " + response.ok)
-            console.log(response.ok)
+            //console.log(response.ok)
             if(response.ok) { //si se conecta bien al servidor
                 const data = await response.json();
                 //router.push("paginaprincipal")
