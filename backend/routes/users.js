@@ -14,7 +14,8 @@ const router = express.Router()
 //controller load
 const { getUsers, getUser, createUser, updateUser, deleteUser } = require("../controllers/users")
 //validator load 
-const { validatorCreateUser, validatorGetUser } = require("../validators/users")
+const { validatorCreateUser, validatorGetUser } = require("../validators/users");
+const authMiddleware = require('../middleware/session');
 //API CUSTOM VALIDATOR
 
 
@@ -23,7 +24,8 @@ const { validatorCreateUser, validatorGetUser } = require("../validators/users")
 router.get("/", getUsers)
 
 //Get 1 solo item
-router.get("/:email", validatorGetUser, getUser)
+//router.get("/:email", validatorGetUser, getUser)
+router.get("/:email", authMiddleware, validatorGetUser, getUser) //con JWT desde front
 
 //POST Create user
 //validator link + customheader api validator 

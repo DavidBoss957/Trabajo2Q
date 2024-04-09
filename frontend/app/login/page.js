@@ -40,8 +40,7 @@ export default function Login() {
             if(response.ok) { //si se conecta bien al servidor
                 const data = await response.json();
                 // Guardar email en local storage
-                localStorage.setItem('email', email+emailType);
-                //console.log(localStorage.getItem('email'))
+                localStorage.setItem('token', data.token);
                 router.push("/MainPage")
 
             }else{ //si da error al conectarse
@@ -65,8 +64,6 @@ export default function Login() {
             //si el input del email contiene @, se elimina todo el contenido despues del @ para evitar errores
             email = email.substring(0, email.indexOf("@"))
         }
-
-        alert("Email: " + email + emailType + "\nContraseña: " + password);
         
         //una vez se compruebe todo, se hace el submit
         handleSubmit()

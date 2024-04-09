@@ -5,18 +5,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/perfil.css'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'
+const jwt = require('jsonwebtoken');
 
-//implementar funcion get para listar la info del usuario
-const getUserInfo = async (storedEmail) => {
-    
-    //console.log(localStorage.getItem('email'))
+//recibe el email y el token de sesión
+const getUserInfo = async (email, tokenJWT) => {
 
     try {
-        const res = await fetch(`http://localhost:3000/api/users/${storedEmail}`);
-        //console.log("Respuesta: " + res.ok)
+        
+        const res = await fetch(`http://localhost:3000/api/users/${email}`, {
+            headers: {
+            'Authorization': `Bearer ${tokenJWT}`
+            }
+        });
         if (res.ok) {
             const userInfo = await res.json();
-            //console.log(userInfo)
             return userInfo;
         } else {
             console.error('Error al recibir la información');
@@ -33,22 +35,22 @@ export default function Perfil() {
     const [updateAlias, setUpdateAlias] = useState("") //alias modificado
     const [updateIdioma, setUpdateIdioma] = useState("") //actualiza el idioma de las notificaciones
     const [updateNotificacion, setUpdateNotificacion] = useState("") //actualiza donde recibir las notificaciones
-    
-    
-    //const storedEmail = "89785674@gmail.com" //prueba
 
     const router = useRouter();
 
     useEffect(() => {
-        // Recuperar email de local storage
-        const storedEmail = localStorage.getItem('email');
-        getUserInfo(storedEmail).then(setUserInfo)
+        // Recuperar token de local storage
+        const tokenJWT = localStorage.getItem('token');
+        const decodedToken = jwt.decode(tokenJWT); // Decodificar token
+        const email = decodedToken.email;   // Extraer email del token
+
+        getUserInfo(email, tokenJWT).then(setUserInfo) //envia el token y el email
     }, []);
 
     const handleCerrarSesion = () => {
         // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
         router.push('/MainPage');
-        localStorage.removeItem('email');
+        localStorage.removeItem('token');
     };
 
     //implementar funcion post para actualizar los datos del usuario
