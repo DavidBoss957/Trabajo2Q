@@ -40,7 +40,8 @@ export default function Login() {
             if(response.ok) { //si se conecta bien al servidor
                 const data = await response.json();
                 // Guardar email en local storage
-                //localStorage.setItem('email', email);
+                localStorage.setItem('email', email+emailType);
+                //console.log(localStorage.getItem('email'))
                 router.push("/MainPage")
 
             }else{ //si da error al conectarse

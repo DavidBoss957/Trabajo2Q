@@ -9,13 +9,14 @@ import { useRouter } from 'next/navigation'
 //implementar funcion get para listar la info del usuario
 const getUserInfo = async (storedEmail) => {
     
+    //console.log(localStorage.getItem('email'))
 
     try {
         const res = await fetch(`http://localhost:3000/api/users/${storedEmail}`);
-        console.log(res)
+        //console.log("Respuesta: " + res.ok)
         if (res.ok) {
             const userInfo = await res.json();
-            console.log(userInfo)
+            //console.log(userInfo)
             return userInfo;
         } else {
             console.error('Error al recibir la información');
@@ -32,14 +33,15 @@ export default function Perfil() {
     const [updateAlias, setUpdateAlias] = useState("") //alias modificado
     const [updateIdioma, setUpdateIdioma] = useState("") //actualiza el idioma de las notificaciones
     const [updateNotificacion, setUpdateNotificacion] = useState("") //actualiza donde recibir las notificaciones
-    // Recuperar email de local storage
-    //const storedEmail = localStorage.getItem('email');
     
-    const storedEmail = "89785674@gmail.com" //prueba
+    
+    //const storedEmail = "89785674@gmail.com" //prueba
 
     const router = useRouter();
 
     useEffect(() => {
+        // Recuperar email de local storage
+        const storedEmail = localStorage.getItem('email');
         getUserInfo(storedEmail).then(setUserInfo)
     }, []);
 
@@ -73,7 +75,7 @@ export default function Perfil() {
             console.log(response.ok)
             if (response.ok) {
                 const data = await response.json()
-                console.log(data)
+                //console.log(data)
             } else {
                 console.error("Error al actualizar la informacion")
             }
