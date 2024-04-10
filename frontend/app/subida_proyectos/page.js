@@ -10,38 +10,36 @@ export default function ProjectUpload() {
     const router = useRouter()
   // Estado para cada campo del formulario
     const [formState, setFormState] = useState({
-        nombreProyecto: '',
+        titulo: '',
         titulacion: '',
-        year: '',
+        anocreacion: '',
         autores: '',
-        docentes: '',
+        docentesImplicados: '',
+        asignatura: '',
         resumen: '',
-        enlaces: '',
+        enlace: '',
         premios: '',
-        etiquetas: '',
-        finalResult: null,
-        finalResultName: '', // Para almacenar el nombre del archivo
-        projectMemory: null,
-        projectMemoryName: '', // Para almacenar el nombre del archivo
+        palabrasClave: '',
+        resultadofinal: {url:'urlarch', filename:''}, // Para almacenar el nombre del archivo
+        //projectMemoryName: '', // Para almacenar el nombre del archivo
     });
 
     const years = Array.from({ length: new Date().getFullYear() - 2017 }, (v, i) => 2018 + i); // Genera un array de años desde 2018 hasta el año actual
 
-  // Cambio de los campos del formulario
+    // Cambio de los campos del formulario
     const handleChange = (e) => {
         const { name, value, files } = e.target;
-    
+
         if (files) {
-        setFormState(prevState => ({
-            ...prevState,
-            [name]: files[0],
-            [`${name}Name`]: files[0].name,
-        }));
+            setFormState(prevState => ({
+                ...prevState,
+                resultadofinal: { ...prevState.resultadofinal, filename: files[0].name }, // Ajustar para incluir el nombre del archivo
+            }));
         } else {
-        setFormState(prevState => ({
-            ...prevState,
-            [name]: value,
-        }));
+            setFormState(prevState => ({
+                ...prevState,
+                [name]: value,
+            }));
         }
     };
   
@@ -49,34 +47,18 @@ export default function ProjectUpload() {
   // Envio del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
-        const formData = new FormData();
-        formData.append('nombreProyecto', formState.nombreProyecto);
-        formData.append('titulacion', formState.titulacion);
-        formData.append('year', formState.year);
-        formData.append('autores', formState.autores);
-        formData.append('docentes', formState.docentes);
-        formData.append('resumen', formState.resumen);
-        formData.append('enlaces', formState.enlaces);
-        formData.append('premios', formState.premios);
-        formData.append('etiquetas', formState.etiquetas);
-    
-        // Adjuntar archivos si existen
-        if (formState.finalResult) {
-            formData.append('finalResult', formState.finalResult);
-        }
-        if (formState.projectMemory) {
-            formData.append('projectMemory', formState.projectMemory);
-        }
+
+        const formData = {
+            ...formState,
+            palabrasClave: formState.palabrasClave.split(',').map(keyword => keyword.trim())
+        };
     
         // Solicitud fetch al servidor
-
-
-        /*
         try {
-            const response = await fetch('/tu-endpoint-de-carga', {
+            const response = await fetch('http://localhost:3000/api/trabajos', {
                 method: 'POST',
-                body: formData,
+                headers: {"api_key": "Api-publica-123", "Content-Type":"application/json"},
+                body: JSON.stringify(formData),
         });
     
         if (response.ok) {
@@ -91,7 +73,6 @@ export default function ProjectUpload() {
         } catch (error) {
             console.error('Excepción al enviar el formulario:', error);
         }
-        */
     };
 
     return (
@@ -100,7 +81,7 @@ export default function ProjectUpload() {
 
             {/* Campo del nombre del proyecto */}
             <div className="mb-3">
-                <input type="text" className="form-control border-0 shadow-none input-titulo-proyecto" name="nombreProyecto" value={formState.nombreProyecto} onChange={handleChange} placeholder="Título del proyecto" required/>
+                <input type="text" className="form-control border-0 shadow-none input-titulo-proyecto" name="titulo" value={formState.titulo} onChange={handleChange} placeholder="Título del proyecto" required/>
             </div>
 
             {/* Desplegables de Titulación y Año de creación */}
@@ -113,7 +94,7 @@ export default function ProjectUpload() {
                     </select>
             </div>
                 <div className="mb-3">
-                    <select className="border-0 shadow-none form-select custom-select custom-select-inter" aria-label="Default select example" name="year" value={formState.year} onChange={handleChange} required>
+                    <select className="border-0 shadow-none form-select custom-select custom-select-inter" aria-label="Default select example" name="anocreacion" value={formState.anocreacion} onChange={handleChange} required>
                     <option value="" disabled selected>Año de creacion</option>
                         {years.map(year => (
                         <option key={year} value={year}>{year}</option>
@@ -131,7 +112,7 @@ export default function ProjectUpload() {
             {/* Campo de docentes */}
             <div className="input-group mb-3">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Docentes implicados</span>
-                <input type="text" className="form-control fixed-width-span" placeholder="Julio Arias" aria-label="Autores" aria-describedby="basic-addon1" name="docentes" value={formState.docentes} onChange={handleChange} required/>
+                <input type="text" className="form-control fixed-width-span" placeholder="Julio Arias" aria-label="Autores" aria-describedby="basic-addon1" name="docentesImplicados" value={formState.docentesImplicados} onChange={handleChange} required/>
             </div>
 
             {/* Campo de asignatura */}
@@ -153,7 +134,7 @@ export default function ProjectUpload() {
             {/* Campo de enlaces externos */}
             <div className="input-group mb-3">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Enlaces externos</span>
-                <input type="text" className="form-control fixed-width-span" placeholder="www.holasoyyo.com" aria-label="Autores" aria-describedby="basic-addon1" name="enlaces" value={formState.enlaces} onChange={handleChange}/>
+                <input type="text" className="form-control fixed-width-span" placeholder="www.holasoyyo.com" aria-label="Autores" aria-describedby="basic-addon1" name="enlace" value={formState.enlace} onChange={handleChange}/>
             </div>
 
             {/* Campo de premios */}
@@ -165,41 +146,19 @@ export default function ProjectUpload() {
             {/* Campo de etiquetas */}
             <div className="input-group mb-3">
                 <span className="input-group-text fixed-width-span" id="basic-addon1">Etiquetas</span>
-                <input type="text" className="form-control fixed-width-span" placeholder="Entre 5 y 10 palabras separadas por comas." aria-label="Autores" aria-describedby="basic-addon1" name="etiquetas" value={formState.etiquetas} onChange={handleChange} required/>
+                <input type="text" className="form-control fixed-width-span" placeholder="Entre 5 y 10 palabras separadas por comas." aria-label="Autores" aria-describedby="basic-addon1" name="palabrasClave" value={formState.palabrasClave} onChange={handleChange} required/>
             </div>
 
             {/* Campos de subida de archivos */}
             <div className="row mb-3">
                 <div className="col-4">
                     <div className="input-file-container fixed-height">
-                        <input type="file" hidden="true" className="form-control" id="finalResult" name="finalResult" onChange={handleChange} required/>
+                        <input type="file" hidden="true" className="form-control" id="finalResult" name="resultadofinal.filename" onChange={handleChange} required/>
                         <label className="input-file-trigger form-control fixed-height-label" htmlFor="finalResult">
-                            {formState.finalResultName || "Subir portada de proyecto *"}
+                            {formState.resultadofinal.filename || "Subir portada de proyecto *"}
                         </label>
                         <small className="form-text text-muted">
-                            {formState.finalResultName || "Arrastra tus archivos aquí"}
-                        </small>
-                    </div>
-                </div>
-                <div className="col-4">
-                    <div className="input-file-container fixed-height">
-                        <input type="file" hidden="true" className="form-control" id="projectMemory" name="projectMemory" onChange={handleChange} />
-                        <label className="input-file-trigger form-control fixed-height-label" htmlFor="projectMemory">
-                            {formState.projectMemoryName || "Subir Resultado Final"}
-                        </label>
-                        <small className="form-text text-muted">
-                            {formState.projectMemoryName || "Arrastra tus archivos aquí"}
-                        </small>
-                    </div>
-                </div>
-                <div className="col-4">
-                    <div className="input-file-container fixed-height">
-                        <input type="file" hidden="true" className="form-control" id="projectMemory" name="projectMemory" onChange={handleChange} />
-                        <label className="input-file-trigger form-control fixed-height-label" htmlFor="projectMemory">
-                            {formState.projectMemoryName || "Subir memoria del proyecto (opcional)"}
-                        </label>
-                        <small className="form-text text-muted">
-                            {formState.projectMemoryName || "Arrastra tus archivos aquí"}
+                            {formState.resultadofinal.filename || "Arrastra tus archivos aquí"}
                         </small>
                     </div>
                 </div>
