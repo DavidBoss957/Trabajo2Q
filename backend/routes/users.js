@@ -83,7 +83,7 @@ router.post("/", validatorCreateUser, async (req, res) => {
 router.post("/", validatorCreateUser, createUser)
 
 //UPDATE USER
-router.put("/:id", validatorGetUser, validatorCreateUser, updateUser)
+router.put("/:email", validatorGetUser, validatorCreateUser, updateUser)
 
 //Elimina un usuario de registro
 router.delete("/:id", validatorGetUser, deleteUser)

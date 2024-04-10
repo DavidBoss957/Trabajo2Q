@@ -38,6 +38,10 @@
     height: min-content;
 }
 
+.infoNotificaciones{
+    height: min-content;
+}
+
 .textoBoton{
     /* tipografia */
     color: #000;
