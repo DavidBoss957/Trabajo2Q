@@ -2,6 +2,7 @@
 const notificador = require('../utils/notifyUser')
 //modelo de trabajos
 const { trabajosModel } = require('../models')
+const userModel = require('../models/nosql/users')
 //load de manejo de errores
 const { matchedData } = require('express-validator')
 const { handleHttpError } = require('../utils/handleError')
@@ -33,6 +34,14 @@ const getItem = async (req, res) => {
 const createItem = async (req, res) => {
     try {
         const { body } = req
+
+        const authorEmails = body.autores;
+        const authorIds = await Promise.all(authorEmails.map(async (email) => {
+            const user = await userModel.findOne({ email });
+            return user ? user._id : email; // Si no encuentra el usuario mantiene el email
+        }));
+
+        body.autores = authorIds;
         const data = await trabajosModel.create(body)
 
         // Notificar a los usuarios relacionados con el trabajo

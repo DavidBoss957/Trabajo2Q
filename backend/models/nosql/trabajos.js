@@ -15,10 +15,6 @@ const trabajoSchema = new mongoose.Schema(
             type: Number,
             required: true
         },
-        // autores: {
-        //     type: String,
-        //     required: true
-        // },
         autores: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
