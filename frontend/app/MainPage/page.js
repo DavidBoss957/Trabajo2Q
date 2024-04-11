@@ -1,254 +1,118 @@
-"use client";
+'use client'
 
-
-import { useState, useEffect } from 'react';
-import '../styles/mainPage.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/navigation'
+import '../styles/mainPage.css'
 
 export default function MainPage() {
-  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showFilters, setShowFilters] = useState(false);;
 
-  useEffect(() => {
-    const header = document.querySelector("header");
-    const sectionOne = document.querySelector(".home-intro");
+  const handleSearchChange = (e) => setSearchQuery(e.target.value);
+  const toggleFilters = () => setShowFilters(!showFilters);
+  const handleOrderChange = (e, newOrder) => {
+    e.preventDefault();
+    setSelectedOrder(newOrder);
+  };
+  const handleFilterChange = (newFilter) => {
+    setSelectedFilter(newFilter);
+  };
 
-    const sectionOneOptions = {
-      rootMargin: "-120px 0px 0px 0px"
-    };
 
-    const sectionOneObserver = new IntersectionObserver(function(entries, sectionOneObserver) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          setIsIntersecting(true);
-        } else {
-          setIsIntersecting(false);
-        }
-      });
-    }, sectionOneOptions);
+  const router = useRouter();
 
-    sectionOneObserver.observe(sectionOne);
+  const handleProfileClick = () => {
+    // Suponiendo que tienes una ruta "/mi-perfil" en tu aplicación de Next.js
+    router.push('/perfil');
+  };
 
-    return () => {
-      // Clean up the observer
-      sectionOneObserver.unobserve(sectionOne);
-    };
-  }, []); // Empty dependency array to run this effect only once
+  const handleUploadClick = () => {
+    // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
+    router.push('/subida_proyectos');
+  };
 
   return (
-    <div>
+    <>
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css?family=Poppins:300,900&display=swap"
-          rel="stylesheet"
-        />
+        <title>Descripción de la página</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,900&display=swap" rel="stylesheet"/>
       </Head>
-
-      <header className={isIntersecting ? "nav-scrolled" : ""}>
-        <img src="img/logo-utad.jpg" alt="Logo" style={{ maxHeight: '60px', maxWidth: '100%' }} />
-        <nav className="main-nav">
-          <div className="search-box">
-            <input className="search-input" type="text" placeholder="Buscar..." />
+      <div className="bg-light border-bottom">
+        {/* Contenedor fluido para la parte superior con el fondo */}
+        <div className="container-fluid">
+          {/* Encabezado */}
+          {/*No se porque coño no se queda pegado al scrolear*/}
+          <nav className="navbar navbar-default navbar-sticky-top d-flex justify-content-between align-items-center py-2">
+            <img src="/U-TAD-Logo-CARD.webp" alt="Logo" className="img-fluid" style={{ maxHeight: '60px' }} />
+            <div className="d-flex align-items-center flex-grow-1 justify-content-center">
+              <form className="form-inline">
+                  <input className="form-control mr-2" type="search" placeholder="Buscar" aria-label="Buscar" style={{ minWidth: '500px' }} />
+              
+              </form>
+            </div>
+            <div>
+                <button className="btn btn-outline-primary mx-2" onClick={handleProfileClick}>Mi perfil</button>
+                <button className="btn btn-primary" onClick={handleUploadClick}>Crear Proyecto</button>
+            </div>
+          </nav>
+        </div>
+         {/* Contenedor para el título y la barra de búsqueda */}
+         <div className="container my-3">
+          {/* Título y descripción de la página */}
+          <div className="text-center py-4">
+            <h1 id="titulo" className="display-1 fw-bold text-primary">AcademiaLink</h1>
           </div>
-        </nav>
-        <nav className="miPerfil">
-          <ul className="nav__list">
-            <li className="nav__list-item">
-              <a className="nav__link nav__link--btn-Main" href="../perfil/page.js">Mi Perfil</a>
-            </li>
-            <li className="nav__list-item">
-              <a className="nav__link nav__link--btn-Main nav__link--btn--highlight" href="../subida_proyectos/done/page.js">Subir Proyecto</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+          
+          {/* Barra de búsqueda */}
+          <div className="input-group mb-4">
+            <input type="text" className="form-control" placeholder="Barra de búsqueda" />
+          </div>
+        </div>
 
-  
-    
 
-    <main>
-      
-      <section class="home-intro">
-        <h1>REPOSITORIO U-TAD</h1>
-        <h3>Donde yacen todos los trabajos que se hicieron y se harán.</h3>
-      </section>
+      </div>
 
+      {/* Botones Orientativos */}
       <div class="home-about">
       
           <ul class="nav__list">
-            <li class="nav__list-item">
+            
               <a class=" grados ">Grados</a>
-            </li>
-            <li class="nav__list-item">
+            
+            
               <a class="ciclos" >Ciclos</a>
-            </li>
-            <li class="nav__list-item">
+            
+            
               <a class="postgrados">Postgrados</a>
-            </li>
+            
           </ul>
       </div>
 
-    <section class="container">
-
-        <div class="proyect">
-          <div class="top-proyect">
-            <div class="proyect-titulacion"> 
-              <p>Titulación</p>
+      {/* Sección de proyectos, también fuera del fondo */}
+      <div className="container mt-4">
+        <div className="row">
+          {Array.from({ length: 12 }).map((_, idx) => (
+            <div key={idx} className="col-md-4 mb-3">
+              {/* Se utiliza un anchor tag para hacer toda la tarjeta clicable */}
+              <a href="/verProyecto" className="card-link-custom">
+                <div className="card h-100 tarjeta"> {/* Asegúrate de que la tarjeta ocupe toda la altura para que el enlace también lo haga */}
+                  <div className="card-header card-header-titulacion text-center">
+                    Grado en Ingeniería de Software
+                  </div>
+                  <img src="/tipos-de-almacenamiento-en-la-nube.jpg" className="card-img-top" alt="Proyecto" />
+                  <div className="card-body">
+                    <h6 className="card-title">OptiCode: Plataforma de optimización para algoritmos en la nube</h6>
+                    <p className="card-text">Jaime Alberto Serrano y Sonia Ramirez López</p>
+                    <p className="card-text text-right">2024</p>
+                  </div>
+                </div>
+              </a>
             </div>
-            <div>
-              <img class="proyect-image" src="img/logo-utad.jpg"></img>
-            </div>
-          </div>
-            
-            <div class="proyect-info">
-              <p>Título del Proyecto </p>
-              <p>Año</p>
-              <p>Autor/es</p>
-            </div>
-        </div>
-        <div class="proyect">
-          <div class="top-proyect">
-            <div class="proyect-titulacion"> 
-              <p>Titulación</p>
-            </div>
-            <div>
-              <img class="proyect-image" src="img/logo-utad.jpg"></img>
-            </div>
-          </div>
-            
-            <div class="proyect-info">
-              <p>Título del Proyecto </p>
-              <p>Año</p>
-              <p>Autor/es</p>
-            </div>
-        </div>
-        <div class="proyect">
-          <div class="top-proyect">
-            <div class="proyect-titulacion"> 
-              <p>Titulación</p>
-            </div>
-            <div>
-              <img class="proyect-image" src="img/logo-utad.jpg"></img>
-            </div>
-          </div>
-            
-            <div class="proyect-info">
-              <p>Título del Proyecto </p>
-              <p>Año</p>
-              <p>Autor/es</p>
-            </div>
-        </div>
-    </section>
-    <section class="container">
-
-      <div class="proyect">
-        <div class="top-proyect">
-          <div class="proyect-titulacion"> 
-            <p>Titulación</p>
-          </div>
-          <div>
-            <img class="proyect-image" src="img/logo-utad.jpg"></img>
-          </div>
-        </div>
-          
-          <div class="proyect-info">
-            <p>Título del Proyecto </p>
-            <p>Año</p>
-            <p>Autor/es</p>
-          </div>
-      </div>
-      <div class="proyect">
-        <div class="top-proyect">
-          <div class="proyect-titulacion"> 
-            <p>Titulación</p>
-          </div>
-          <div>
-            <img class="proyect-image" src="img/logo-utad.jpg"></img>
-          </div>
-        </div>
-          
-          <div class="proyect-info">
-            <p>Título del Proyecto </p>
-            <p>Año</p>
-            <p>Autor/es</p>
-          </div>
-      </div>
-      <div class="proyect">
-        <div class="top-proyect">
-          <div class="proyect-titulacion"> 
-            <p>Titulación</p>
-          </div>
-          <div>
-            <img class="proyect-image" src="img/logo-utad.jpg"></img>
-          </div>
-        </div>
-          
-          <div class="proyect-info">
-            <p>Título del Proyecto </p>
-            <p>Año</p>
-            <p>Autor/es</p>
-          </div>
-      </div>
-  </section>
-  <section class="container">
-
-    <div class="proyect">
-      <div class="top-proyect">
-        <div class="proyect-titulacion"> 
-          <p>Titulación</p>
-        </div>
-        <div>
-          <img class="proyect-image" src="img/logo-utad.jpg"></img>
+          ))}
         </div>
       </div>
-        
-        <div class="proyect-info">
-          <p>Título del Proyecto </p>
-          <p>Año</p>
-          <p>Autor/es</p>
-        </div>
-    </div>
-    <div class="proyect">
-      <div class="top-proyect">
-        <div class="proyect-titulacion"> 
-          <p>Titulación</p>
-        </div>
-        <div>
-          <img class="proyect-image" src="img/logo-utad.jpg"></img>
-        </div>
-      </div>
-        
-        <div class="proyect-info">
-          <p>Título del Proyecto </p>
-          <p>Año</p>
-          <p>Autor/es</p>
-        </div>
-    </div>
-    <div class="proyect">
-      <div class="top-proyect">
-        <div class="proyect-titulacion"> 
-          <p>Titulación</p>
-        </div>
-        <div>
-          <img class="proyect-image" src="img/logo-utad.jpg"></img>
-        </div>
-      </div>
-        
-        <div class="proyect-info">
-          <p>Título del Proyecto </p>
-          <p>Año</p>
-          <p>Autor/es</p>
-        </div>
-    </div>
-   </section>
-
-        
-    </main>
-
-
-    <footer class="footer">
-          Privacidad &nbsp;&nbsp;&nbsp; Condiciones &nbsp;&nbsp;&nbsp; Accesibilidad
-    </footer>
-    
-    </div>
-);
+    </>
+  );
 }
