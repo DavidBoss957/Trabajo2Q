@@ -219,6 +219,7 @@ api_key: Api-publica-123
 
 
 ###
+GET http://localhost:3000/api/trabajos HTTP/1.1
 
 ###
 // registro de usuario
@@ -226,12 +227,12 @@ POST http://localhost:3000/api/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "alba2345",
-    "apellidos": "alba",
-    "alias": "blue",
+    "name": "Francisco Javier",
+    "apellidos": "Sanchez Cano",
+    "alias": "alias",
     "role": "usuario",
-    "email": "89785674@gmail.com",
-    "password": "passwordthefrog",
+    "email": "francisco.cano@live.u-tad.com",
+    "password": "contrasena1234",
     "notificarAparicionDeNombre": false,
     "notificarProyectoAceptado": false
 }
@@ -244,8 +245,8 @@ POST http://localhost:3000/api/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "utad@live.u-tad.com",
-    "password": "utad12345"
+    "email": "francisco.cano@live.u-tad.com",
+    "password": "contrasena1234"
   
 }
 
