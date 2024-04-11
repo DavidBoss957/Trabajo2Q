@@ -50,7 +50,8 @@ export default function ProjectUpload() {
 
         const formData = {
             ...formState,
-            palabrasClave: formState.palabrasClave.split(',').map(keyword => keyword.trim())
+            palabrasClave: formState.palabrasClave.split(',').map(keyword => keyword.trim()),
+            autores: formState.autores.split(',').map(keyword => keyword.trim())
         };
     
         // Solicitud fetch al servidor

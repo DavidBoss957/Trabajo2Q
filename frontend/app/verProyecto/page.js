@@ -57,13 +57,13 @@ return (
       <h1>{project.titulo}</h1>
       <p><strong>Titulación:</strong> {project.titulacion}</p>
       <p><strong>Año de Creación:</strong> {project.anocreacion}</p>
-      <p><strong>Autores:</strong> {project.autores}</p>
+      <p><strong>Autores:</strong> {project.autores.join(', ')}</p>
       <p><strong>Docentes Implicados:</strong> {project.docentesImplicados}</p>
       <p><strong>Asignatura:</strong> {project.asignatura}</p>
       <p><strong>Resumen:</strong> {project.resumen}</p>
       <p><strong>Enlace:</strong> <a href={project.enlace} target="_blank" rel="noopener noreferrer">{project.enlace}</a></p>
       <p><strong>Premios:</strong> {project.premios}</p>
-      <p><strong>Palabras Clave:</strong> {project.palabrasClave}</p>
+      <p><strong>Palabras Clave:</strong> {project.palabrasClave.join(', ')}</p>
       {project.resultadofinal?.filename && (
           <div>
               <h3>Resultado Final:</h3>
