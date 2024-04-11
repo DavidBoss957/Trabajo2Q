@@ -10,34 +10,46 @@ const { handleHttpError } = require('../utils/handleError')
 // GET ITEMS
 const getItems = async (req, res) => {
     try {
-        const data = await trabajosModel.find({})
-        res.send(data)
+        let data = await trabajosModel.find({});
+
+        // Cambia los ids de los autores por sus emails
+        data = await Promise.all(data.map(async (trabajo) => {
+            const authorIds = trabajo.autores;
+            const authorEmails = await Promise.all(authorIds.map(async (authorId) => {
+                const user = await userModel.findById(authorId);
+                return user ? user.email : authorId;
+            }));
+            return { ...trabajo.toObject(), autores: authorEmails };
+        }));
+
+        res.send(data);
     } catch (err) {
-        //Si nos sirve el de por defecto que hemos establecido, no es necesario pasar el 403
         handleHttpError(res, 'ERROR_GET_ITEMS', 403)
     }
-
 }
+
+
 // GET ITEM
 const getItem = async (req, res) => {
     try {
-        const { id } = matchedData(req) //Me quedo solo con el id
-        const data = await trabajosModel.findById(id)
-
+        const { id } = matchedData(req); //Me quedo solo con el id
+        let data = await trabajosModel.findById(id);
         if (!data)
             throw new Error('Trabajo no encontrado');
 
         // Cambia los ids de los autores por sus emails
-        data.autores = await Promise.all(data.autores.map(async (authorId) => {
+        const authorIds = data.autores;
+        const authorEmails = await Promise.all(authorIds.map(async (authorId) => {
             const user = await userModel.findById(authorId);
             return user ? user.email : authorId;
         }));
 
+        // Crear una nueva copia del objeto de datos con autores actualizados
+        const newData = { ...data.toObject(), autores: authorEmails };
+        res.send(newData);
 
-        res.send(data)
     } catch (err) {
-        //console.log(err)
-        handleHttpError(res, "ERROR_GET_ITEM")
+        handleHttpError(res, "ERROR_GET_ITEM");
     }
 }
 
@@ -57,8 +69,8 @@ const createItem = async (req, res) => {
 
         // Notificar a los usuarios relacionados con el trabajo
         await notificador.notifyOnNameAppearance(data._id);
+        res.send(data);
 
-        res.send(data)
     } catch (error) {
         handleHttpError(res, "ERROR_CREATE_ITEM")
     }
