@@ -20,16 +20,27 @@ const getItems = async (req, res) => {
 }
 // GET ITEM
 const getItem = async (req, res) => {
-
     try {
         const { id } = matchedData(req) //Me quedo solo con el id
         const data = await trabajosModel.findById(id)
+
+        if (!data)
+            throw new Error('Trabajo no encontrado');
+
+        // Cambia los ids de los autores por sus emails
+        data.autores = await Promise.all(data.autores.map(async (authorId) => {
+            const user = await userModel.findById(authorId);
+            return user ? user.email : authorId;
+        }));
+
+
         res.send(data)
     } catch (err) {
         //console.log(err)
         handleHttpError(res, "ERROR_GET_ITEM")
     }
 }
+
 //CREATE ITEM
 const createItem = async (req, res) => {
     try {
