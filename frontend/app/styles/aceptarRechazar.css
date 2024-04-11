@@ -1,0 +1,49 @@
+.containerProyect{
+
+margin-left: 200px;
+margin-right: 200px;
+margin-top: 20px;
+box-shadow: -1px 0 10px gray;
+border-radius: 16px;
+}
+.containerProyect2{
+
+margin: 20px;
+
+}
+.btn-modify {
+    
+    float: right;
+    margin-top: 20px;
+  }
+
+.project-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .imgProyect{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 376px;
+    width: 100%;
+  }
+  
+  .Titulos{
+    
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;    
+  }
+  .Resultado{
+    margin-left: 2rem;
+
+  }
+  .Hashtags{
+
+    font-weight: 500;
+
+  }
+  .btn-vis{
+    margin-bottom: 20px;
+  }
