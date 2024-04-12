@@ -47,10 +47,10 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         const { email, ...body } = matchedData(req) //Extrae el email y el resto lo asigna a la constante body
-        console.log(req.params)
+        //console.log(req.params)
         
         const data = await usersModel.findOneAndUpdate({email:email}, body);
-        console.log(data)
+        //console.log(data)
         res.send(data)
     } catch (err) {
         console.log(err)

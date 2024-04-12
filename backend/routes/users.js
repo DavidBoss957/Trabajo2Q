@@ -14,7 +14,7 @@ const router = express.Router()
 //controller load
 const { getUsers, getUser, createUser, updateUser, deleteUser } = require("../controllers/users")
 //validator load 
-const { validatorCreateUser, validatorGetUser } = require("../validators/users");
+const { validatorCreateUser, validatorGetUser, validatorUpdateUser } = require("../validators/users");
 const authMiddleware = require('../middleware/session');
 //API CUSTOM VALIDATOR
 
@@ -83,7 +83,7 @@ router.post("/", validatorCreateUser, async (req, res) => {
 router.post("/", validatorCreateUser, createUser)
 
 //UPDATE USER
-router.put("/:email", validatorGetUser, validatorCreateUser, updateUser)
+router.put("/:email", validatorGetUser, validatorUpdateUser, updateUser)
 
 //Elimina un usuario de registro
 router.delete("/:id", validatorGetUser, deleteUser)

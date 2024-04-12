@@ -63,11 +63,7 @@ export default function Perfil() {
         //alert("Actualizando información de usuario...")
         //objeto con los datos que hay que actualizar
         const updateInfo = {
-            name: userInfo.name,
-            apellidos: userInfo.apellidos,
             alias: updateAlias,
-            email: userInfo.email,
-            role: userInfo.role,
             notificarAparicionDeNombre: updateNotificacionMencion,
             notificarProyectoAceptado: updateNotificacionAceptado
         }
@@ -91,11 +87,8 @@ export default function Perfil() {
                 body: JSON.stringify(updateInfo)
             });
             console.log("Respuesta: " + response.ok)
-            const data = await response.json()
-            console.log(data)
             if (response.ok) {
-                const data = await response.json()
-                //console.log(data)
+                alert("Información actualizada correctamente")
             } else {
                 console.error("Error al actualizar la informacion")
             }

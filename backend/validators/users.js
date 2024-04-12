@@ -23,7 +23,15 @@ const validatorGetUser = [
     }
 ]
 
-module.exports = { validatorCreateUser, validatorGetUser }
+//validador actualizar info usuarios
+const validatorUpdateUser = [
+    body('alias').optional().isString(),
+    body('notificarAparicionDeNombre').optional().isBoolean(),
+    body('notificarProyectoAceptado').optional().isBoolean(),
+    (req, res, next) => validateResults(req, res, next)
+];
+
+module.exports = { validatorCreateUser, validatorGetUser, validatorUpdateUser }
 
 /*
 ESTRUCTURA DE USUARIOS para validar	
