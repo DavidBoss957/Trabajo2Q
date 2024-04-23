@@ -14,7 +14,7 @@ export default function Login() {
     const router = useRouter();
     const handleSubmit = async (e) => {
         e.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
-        router.push("/MainPage")
+        router.push("/Usuario/MainPage")
     }
 
     return (

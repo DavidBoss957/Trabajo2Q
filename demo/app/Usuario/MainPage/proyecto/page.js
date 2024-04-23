@@ -30,12 +30,12 @@ export default function MainPage() {
 
   const handleProfileClick = () => {
     // Suponiendo que tienes una ruta "/mi-perfil" en tu aplicación de Next.js
-    router.push('/perfil');
+    router.push('/Usuario/perfil');
   };
 
   const handleUploadClick = () => {
     // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
-    router.push('/subida_proyectos');
+    router.push('/Usuario/subida_proyectos');
   };
 
   return (
@@ -139,7 +139,7 @@ export default function MainPage() {
           {Array.from({ length: 1 }).map((_, idx) => (
             <div key={idx} className="col-md-4 mb-3">
               {/* Se utiliza un anchor tag para hacer toda la tarjeta clicable */}
-              <a href="/verProyecto" className="card-link-custom">
+              <a href="/Usuario/verProyecto" className="card-link-custom">
                 <div className="card h-100"> {/* Asegúrate de que la tarjeta ocupe toda la altura para que el enlace también lo haga */}
                   <div className="card-header card-header-titulacion text-center">
                     Grado en Ingeniería de Software

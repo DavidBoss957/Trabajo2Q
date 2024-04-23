@@ -49,7 +49,7 @@ export default function ProjectUpload() {
   // Envio del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
-        router.push('/subida_proyectos/done');
+        router.push('/Usuario/subida_proyectos/done');
     };
 
     return (

@@ -15,7 +15,7 @@ export default function LoadingPage() {
       
       // Redirige después de un breve tiempo de espera
       setTimeout(() => {
-        router.push('/MainPage/proyecto'); // Asegúrate de reemplazar esto con tu ruta real
+        router.push('/Usuario/MainPage/proyecto'); // Asegúrate de reemplazar esto con tu ruta real
       }, 3000);
       
     }, 3000);

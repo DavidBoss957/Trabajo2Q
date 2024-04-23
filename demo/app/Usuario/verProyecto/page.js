@@ -24,7 +24,7 @@ export default function ViewProjects() {
     }*/
     const router = useRouter();
     const handleBack = () => {
-      router.push('/MainPage/proyecto');
+      router.push('/Usuario/MainPage/proyecto');
   };
   
     return (

@@ -30,12 +30,12 @@ export default function MainPage() {
 
   const handleProfileClick = () => {
     // Suponiendo que tienes una ruta "/mi-perfil" en tu aplicación de Next.js
-    router.push('/perfil');
+    router.push('/Usuario/perfil');
   };
 
   const handleUploadClick = () => {
     // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
-    router.push('/subida_proyectos');
+    router.push('/Usuario/subida_proyectos');
   };
 
   return (
@@ -49,7 +49,7 @@ export default function MainPage() {
         <div className="container-fluid">
           {/* Encabezado */}
           <header className="d-flex justify-content-between align-items-center py-2">
-            <img src="U-TAD-Logo-CARD.webp" alt="Logo" className="img-fluid" style={{ maxHeight: '60px' }} />
+            <img src="/U-TAD-Logo-CARD.webp" alt="Logo" className="img-fluid" style={{ maxHeight: '60px' }} />
             <div>
               <button className="btn btn-outline-primary mx-2" onClick={handleProfileClick}>Mi perfil</button>
               <button className="btn btn-primary" onClick={handleUploadClick}>Crear Proyecto</button>
