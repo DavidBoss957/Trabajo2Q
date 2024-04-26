@@ -6,12 +6,33 @@ import Head from 'next/head';
 import { useRouter } from 'next/navigation'
 import '../styles/aceptarRechazar.css'
 
-export default function MainPage() {
+const getProyectInfo = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/trabajos")
+
+    if(res.ok){
+      const proyectInfo = await res.json()
+      return proyectInfo
+    }else{
+      console.error("Error al recibir la información")
+    }
+
+  } catch (e) {
+    console.error("Error al hacer la petición: ", e)
+  }
+
+}
+export default function aceptarRechazar() {
   
 
-
-
+  const [proyectInfo, setProyectInfo] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    getProyectInfo().then(proyectInfo => {
+      setProyectInfo(proyectInfo);
+    });
+  }, []);
 
   const handleProfileClick = () => {
     // Suponiendo que tienes una ruta "/mi-perfil" en tu aplicación de Next.js
@@ -55,7 +76,7 @@ export default function MainPage() {
       <div className="row">
         <div className="col">
           {/* Título */}
-          <h1 className="project-title">Título del Proyecto</h1>
+          <h1 className="project-title">{proyecto.titulo}</h1>
           </div>
           <div className="col">
           {/* Botón de Modificar Proyecto */}
@@ -64,54 +85,44 @@ export default function MainPage() {
           {/* Sección de Autor/es */}
 
           <ul className="Titulos">Autor/es</ul>
-          <ul className="Resultado">- Manolo Lama, Pepito Grillo, Mikol, +6</ul>
+          <ul className="Resultado">- {proyecto.autores.map((autor) => autor)}</ul>
 
           {/* Sección de Docentes */}
 
           <ul className="Titulos">Docentes Implicados</ul>
-          <ul className="Resultado">- Pablo Martín</ul>
+          <ul className="Resultado">- {proyecto.docentesImplicados}</ul>
 
         
         {/* Sección de Asignatura*/}
 
         <ul className="subject-section Titulos">Asignatura/s:</ul>
-        <ul className="subject-section Resultado"> -Proyectos IV </ul>
+        <ul className="subject-section Resultado"> - {proyecto.asignatura} </ul>
 
         {/* Sección de Año*/}
 
         <ul className="year-section Titulos">Año de creación:</ul>
-        <ul className="year-section Resultado"> -2024 </ul>
+        <ul className="year-section Resultado"> - {proyecto.anocreacion}</ul>
 
       
 
         {/* Imagen Proyecto Final*/}
       <ul className="Titulos">Resultado Final</ul>
-      <img src="/ejemplo.jpg"  className="imgProyect" />
+      <img src={proyecto.resultadofinal.url}  className="imgProyect" />
         
         {/* Seccion de Resumen*/}
         
             <ul className="Titulos">Resumen</ul>
-            <ul>Lorem ipsum dolor sit amet consectetur. Vulputate blandit et nisi cras tortor. 
-                Magnis massa nibh aliquam enim auctor et nunc venenatis proin. At id placerat et senectus. 
-                Sed at eu ullamcorper urna vitae. Ornare imperdiet fames ultricies feugiat aliquet elementum ullamcorper bibendum. Hendrerit bibendum fermentum convallis aliquam ut aliquet. 
-                Gravida faucibus risus mauris sagittis. Ac arcu nisl posuere pretium. Massa gravida vel ullamcorper amet et aliquam sit. Ornare ac neque metus tellus dictum consectetur. Dolor imperdiet turpis in id duis risus. 
-                Mattis interdum netus nullam eu at elementum netus. Libero varius risus consectetur urna dictum varius quis at. 
-                </ul>
+            <ul>{proyecto.resumen}</ul>
 
-       {/* Seccion de Descripcion y factor diferenciador de la propuesta*/}
+       {/* Seccion de premios*/}
 
-            <ul className="Titulos">Descripcion y factor diferenciador de la propuesta</ul>
+            <ul className="Titulos">Premios Recibidos</ul>
 
-            <ul>Lorem ipsum dolor sit amet consectetur. Vulputate blandit et nisi cras tortor. 
-                Magnis massa nibh aliquam enim auctor et nunc venenatis proin. At id placerat et senectus. 
-                Sed at eu ullamcorper urna vitae. Ornare imperdiet fames ultricies feugiat aliquet elementum ullamcorper bibendum. Hendrerit bibendum fermentum convallis aliquam ut aliquet. 
-                Gravida faucibus risus mauris sagittis. Ac arcu nisl posuere pretium. Massa gravida vel ullamcorper amet et aliquam sit. Ornare ac neque metus tellus dictum consectetur. Dolor imperdiet turpis in id duis risus. 
-                Mattis interdum netus nullam eu at elementum netus. Libero varius risus consectetur urna dictum varius quis at. 
-                </ul>
+            <ul>{proyecto.premios}</ul>
     
         {/* Sección de Hashtags*/}
 
-            <ul className="Hashtags">#hashtag #hashtag #hashtag #hashtag #hashtag</ul>
+            <ul className="Hashtags">{proyecto.etiquetas}</ul>
 
         <div className="row">
             <div className="col">
