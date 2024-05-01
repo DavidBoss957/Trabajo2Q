@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* FUENTES */
+
+.montserrat-h1 {
+    color: #14192C;
+    /* h1 - título */
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.montserrat-h2 {
+    color: #14192C;
+    /* h2 - subtítulo */
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.montserrat-h3{
+    color: #FFF;
+    /* h3 - destacado */
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.montserrat-body {
+    color: #14192C;
+    /* Body - cuerpo */
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.montserrat-body-underline {
+    color: #14192C;
+    /* Body - cuerpo */
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.montserrat-detalle {
+    color: #14192C;
+    /* Detalle - pequeño */
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: 0.65rem; /*para que se alinie con montserrat-body*/
+}
+
+.montserrat-detalle-light {
+    color: #9DA3A7;
+    /* Detalle - pequeño */
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: 0.65rem; /*para que se alinie con montserrat-body*/
+}
+
+/* BOTONES */
+
+.principal-azul {
+    /*estilo*/
+    color: #FFF;
+    border-radius: 1rem;
+    background:#0065EF;
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+    /*layout*/
+    display: flex;
+    padding: 1rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}

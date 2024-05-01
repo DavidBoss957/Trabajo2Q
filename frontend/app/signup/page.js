@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/login_signup.css'
+import '../globals.css'
 
 export default function Signup() {
     const [name, setName] = useState("")
@@ -12,8 +13,38 @@ export default function Signup() {
     const [password, setPassword] = useState("") //input contraseña
     const [emailType, setEmailType] = useState("@live.u-tad.com") //valor por defecto del email
     const [role, setRole] = useState("usuario") //valor por defecto del registro
+    const [reqPassMay, setReqPassMay] = useState(false) //variable para comprobar si la contraseña tiene mayusculas
+    const [reqPassMin, setReqPassMin] = useState(false) //variable para comprobar si la contraseña tiene entre 8 y 16 caracteres
+    const [reqPassNum, setReqPassNum] = useState(false) //variable para comprobar si la contraseña tiene numeros
 
     const router = useRouter();
+
+    const handleChangePassword = (e) => {
+        setPassword(e.target.value);
+
+        //comprueba si tiene mayusculas
+        if (/[A-Z]/.test(e.target.value)) {
+            setReqPassMay(true)
+        }else{
+            setReqPassMay(false)
+        }
+
+        //comprueba si tiene entre 8 y 16 caracteres
+        if(password.length > 8 && password.length < 16){
+            setReqPassMin(true)
+        }else{
+            setReqPassMin(false)
+        }
+
+        //comprueba si tiene numeros
+        if (/\d/.test(e.target.value)) {
+            setReqPassNum(true)
+        }else{
+            setReqPassNum(false)
+        }
+        
+        //alert("Contraseña: " + password + "\nMayusculas: " + reqPassMay + "\nEntre 8 y 16 caracteres: " + reqPassMin + "\nNumeros: " + reqPassNum)
+    }
 
     const handleComprobacion = (e) => {
         e.preventDefault();
@@ -83,60 +114,102 @@ export default function Signup() {
     }
 
     return (
-        <div id="signupContent" className="container mt-3">
+        <div id="signupContent" className="container my-5">
 
-            <img src="img/default.png" id="imgsignup" className="img-fluid mx-auto d-block mt-5" alt="default"/>
-            <h1 id="titulo" className="text-center my-4">Introducción</h1>
+            <img src="img/Logo-Utad.png" id="imgsignup" className="img-fluid mx-auto d-block mt-5" alt="logo U-tad"/>
+            <h1 className="text-center my-4 montserrat-h1">¡Bienvenid@ a U-tad Projects!</h1>
 
-            <div id="containerFormulario" className="d-flex justify-content-center mx-5 my-5 ">
+            <div id="containerFormulario" className="d-flex justify-content-center mx-5 mt-5 ">
                 <form id="formSignUp" className="px-5 py-5 rounded-4" onSubmit={handleComprobacion}  >
                     
-                    <h2 id="subtitulo">Registrarse</h2>
+                    <h2 className="montserrat-h2 text-center">Registrarse</h2>
                     
                     {/*nombre*/}
                     <div className="mb-3">
-                        <label htmlFor="nombre" className="etiquetas">Nombre</label>
-                        <input type="text" id="nombre" className="form-control rounded-4" placeholder="Nombre" onChange={(e) => setName(e.target.value)} required/>
+                        <label htmlFor="nombre" className="mt-4 mb-2 montserrat-body">Nombre *</label>
+                        <input type="text" className="form-control rounded-4 p-3 form-input montserrat-body" placeholder="Escribe aquí..." onChange={(e) => setName(e.target.value)} required/>
                     </div>
 
                     {/* apellidos */}
                     <div className="mb-3">
-                        <label htmlFor="apellidos" className="etiquetas">Apellidos</label>
-                        <input type="text" id="apellidos" className="form-control rounded-4" placeholder="Apellidos" onChange={(e) => setApellidos(e.target.value)} required/>
+                        <label htmlFor="apellidos" className="mt-2 mb-2 montserrat-body">Apellidos *</label>
+                        <input type="text" className="form-control rounded-4 p-3 form-input montserrat-body" placeholder="Escribe aquí..." onChange={(e) => setApellidos(e.target.value)} required/>
                     </div>
 
                     {/* alias */}
                     <div className="mb-3">
-                        <label htmlFor="alias" className="etiquetas">Alias</label>
-                        <input type="text" id="alias" className="form-control rounded-4" placeholder="Alias" onChange={(e) => setAlias(e.target.value)}/>
+                        <div className="d-flex">
+                            <label htmlFor="alias" className="mt-2 mb-2 montserrat-body">Alias</label>
+                            <label htmlFor="alias" className=" ms-2 montserrat-detalle">Opcional</label>
+                        </div>
+                        {/* <label htmlFor="alias" className="mt-2 mb-2 montserrat-body">Alias<p className="montserrat-detalle">Opcional</p></label> */}
+                        <input type="text" id="alias" className="form-control rounded-4 p-3 form-input montserrat-body" placeholder="Escribe aquí..." onChange={(e) => setAlias(e.target.value)}/>
                     </div>
 
                     {/*correo*/}
-                    <label htmlFor="email" className="etiquetas">Dirección de correo electrónico</label>
+                    <label htmlFor="email" className="mt-2 mb-2 montserrat-body">Dirección de correo electrónico *</label>
                     <div className="input-group mb-3 ">
-                        <input type="text" id="email" className="form-control rounded-start-4"  onChange={(e) => setEmail(e.target.value)} placeholder="mario.hurtado" required/>
+                        <input type="text" id="email" className="form-control rounded-start-4 p-3 form-input montserrat-body" onChange={(e) => setEmail(e.target.value)} placeholder="Escribe aquí..." required/>
                         <select id="emailType" className="dropdown-toggle btn rounded-end-4" onChange={(e) => setEmailType(e.target.value)}>
-                            <option value="@live.u-tad.com" className="opcion">@live.u-tad.com</option>
-                            <option value="@u-tad.com" className="opcion">@u-tad.com</option>
-                            <option value="@ext.live.u-tad.com" className="opcion">@ext.live.u-tad.com</option>
+                            <option value="@live.u-tad.com" className="montserrat-body">@live.u-tad.com</option>
+                            <option value="@u-tad.com" className="montserrat-body">@u-tad.com</option>
+                            <option value="@ext.live.u-tad.com" className="montserrat-body">@ext.live.u-tad.com</option>
                         </select>
                     </div>
 
                     {/*contraseña*/}
                     <div className="mb-3">
-                        <label htmlFor="password" className="etiquetas">Contraseña</label>
-                        <input type="password" id="password" className="form-control rounded-4" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} required/>
+                        <label htmlFor="password" className="mt-2 mb-2 montserrat-body">Contraseña *</label>
+                        <input type="password" id="password" className="form-control rounded-4 p-3 form-input montserrat-body" placeholder="Escribe aquí..." onChange={handleChangePassword} required/>
+                        
+                        <p className="montserrat-detalle-light">Tu contraseña debe tener:</p>
+                        <div className="d-flex align-items-center">
+                            {reqPassMay === false && (
+                                <img src="img/cruz.png" className='estado' alt="cruz"/>
+                            )}
+                            {reqPassMay === true && (
+                                <img src="img/tick.png" className='estado' alt="tick"/>
+                            )}
+                            <p className="ms-2 montserrat-detalle-light">Al menos una mayúscula</p>
+                        </div>
+
+                        <div className="d-flex align-items-center">
+                            {reqPassMin === false && (
+                                <img src="img/cruz.png" className='estado' alt="cruz"/>
+                            )}
+                            {reqPassMin === true && (
+                                <img src="img/tick.png" className='estado' alt="tick"/>
+                            )}
+                            <p className="ms-2 montserrat-detalle-light">Entre 8 y 16 caracteres</p>
+                        </div>
+
+                        <div className="d-flex align-items-center">
+                            {reqPassNum === false && (
+                                <img src="img/cruz.png" className='estado' alt="cruz"/>
+                            )}
+                            {reqPassNum === true && (
+                                <img src="img/tick.png" className='estado' alt="tick"/>
+                            )}
+                            <p className="ms-2 montserrat-detalle-light">Al menos un número</p>
+                        </div>
+                        
                     </div>
 
                     
 
                     {/* boton submit */}
                     <div className="text-center">
-                        <button type="submit" id="botonSignup" className="btn mt-4 text-center rounded-4 px-5" style={{background: '#C8C8C8'}}><div id='textoBoton'>Registrarse</div></button>
+                        <button type="submit" className="btn mt-4 text-center rounded-4 px-4 py-3 principal-azul montserrat-h3" style={{background: '#0065EF', color: 'white'}}>ACCEDER</button>
                     </div>
 
                 </form>
             </div>
+
+            <div className="d-flex justify-content-center text-center mt-4">
+                <p className="montserrat-body">¿Ya tienes una cuenta?</p>
+                <a className="ms-2 montserrat-body-underline" href="/login">Inicia sesión.</a>
+            </div>
+
         </div>
     );
 }
