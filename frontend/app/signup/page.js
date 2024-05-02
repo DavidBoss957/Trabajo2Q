@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/login_signup.css'
@@ -12,7 +12,8 @@ export default function Signup() {
     let [email, setEmail] = useState("") //input email
     const [password, setPassword] = useState("") //input contraseña
     const [emailType, setEmailType] = useState("@live.u-tad.com") //valor por defecto del email
-    const [role, setRole] = useState("usuario") //valor por defecto del registro
+    const [role, setRole] = useState("") //rol del usuario
+    const [cargo, setCargo] = useState("") //cargo del usuario
     const [reqPassMay, setReqPassMay] = useState(false) //variable para comprobar si la contraseña tiene mayusculas
     const [reqPassMin, setReqPassMin] = useState(false) //variable para comprobar si la contraseña tiene entre 8 y 16 caracteres
     const [reqPassNum, setReqPassNum] = useState(false) //variable para comprobar si la contraseña tiene numeros
@@ -43,12 +44,10 @@ export default function Signup() {
             setReqPassNum(false)
         }
         
-        //alert("Contraseña: " + password + "\nMayusculas: " + reqPassMay + "\nEntre 8 y 16 caracteres: " + reqPassMin + "\nNumeros: " + reqPassNum)
     }
 
     const handleComprobacion = (e) => {
         e.preventDefault();
-
         //comprobaciones
 
         //si el input del email contiene @ -> se elimina todo el contenido despues del @ para evitar errores
@@ -56,23 +55,28 @@ export default function Signup() {
             email = email.substring(0, email.indexOf("@"))
         }
 
-        //asignacion de roles
+        handleSubmit()
+
+    }  
+
+    useEffect(() => {
+        // Actualiza el rol y el cargo del usuario según el emailType
         if(emailType === "@live.u-tad.com"){
             setRole("usuario")
-        }else if(emailType === "@u-tad.com"){
-            setRole("creador")
-        }else if(emailType === "@ext.live.u-tad.com"){
-            setRole("creador")
+            setCargo("alumno")
         }
-        
-        handleSubmit()
-           
-    }  
+        if(emailType === "@u-tad.com"){
+            setRole("creador")
+            setCargo("profesor")
+        }
+        if(emailType === "@ext.live.u-tad.com"){
+            setRole("creador")
+            setCargo("departamento")
+        }
+    }, [emailType]); //se ejecuta cada vez que cambie emailType
 
     const handleSubmit = async (e) => {
         //e.preventDefault();
-        //alert("Email: " + email + emailType + "\nContraseña: " + password + "\nNombre: " + name +"\nApellidos: " + apellidos + "\nAlias: " + alias + "\nRol: " + role);
-
 
         //objeto con los datos de registro
         const signup = {
@@ -80,12 +84,10 @@ export default function Signup() {
             apellidos: apellidos,
             alias: alias,
             email: email+emailType, //email=input+tipoEmail (alba+@live.u-tad.com)
-            role: role,
+            cargo: cargo,
+            role: role,            
             password: password            
         }
-
-        //alert(signup.name + signup.apellidos + signup.alias + signup.role + signup.email + signup.password)
-
         
         try {
 
@@ -116,7 +118,7 @@ export default function Signup() {
     return (
         <div id="signupContent" className="container my-5">
 
-            <img src="img/Logo-Utad.png" id="imgsignup" className="img-fluid mx-auto d-block mt-5" alt="logo U-tad"/>
+            <img src="img/Logo-Utad.png" id="imgsignup" className="img-fluid mx-auto d-block my-5" alt="logo U-tad"/>
             <h1 className="text-center my-4 montserrat-h1">¡Bienvenid@ a U-tad Projects!</h1>
 
             <div id="containerFormulario" className="d-flex justify-content-center mx-5 mt-5 ">
@@ -198,8 +200,8 @@ export default function Signup() {
                     
 
                     {/* boton submit */}
-                    <div className="text-center">
-                        <button type="submit" className="btn mt-4 text-center rounded-4 px-4 py-3 principal-azul montserrat-h3" style={{background: '#0065EF', color: 'white'}}>ACCEDER</button>
+                    <div className="d-flex justify-content-center">
+                        <button type="submit" className="mt-4 text-center rounded-4 px-4 py-3 principal-azul montserrat-h3" style={{background: '#0065EF', color: 'white'}}>ACCEDER</button>
                     </div>
 
                 </form>

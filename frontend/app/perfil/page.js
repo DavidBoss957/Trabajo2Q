@@ -1,8 +1,10 @@
 "use client"
 
 import Footer from '@/components/Footer';
+import NavbarSecundario from '@/components/NavbarSecundario';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/perfil.css'
+import '../globals.css'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'
 const jwt = require('jsonwebtoken');
@@ -32,9 +34,11 @@ const getUserInfo = async (email, tokenJWT) => {
 export default function Perfil() {
 
     const [userInfo, setUserInfo] = useState("") //toda la información del usuario
-    const [updateAlias, setUpdateAlias] = useState("") //alias modificado
+    const [updateAlias, setUpdateAlias] = useState("") //alias modificado (por defecto es el que tiene actualmente el usuario)
     const [updateNotificacionAceptado, setUpdateNotificacionAceptado] = useState(false) //actualiza las notificaciones de proyectos aceptados
     const [updateNotificacionMencion, setUpdateNotificacionMencion] = useState(false) //actualiza las notificaciones de menciones en proyectos
+    const [cambios, setCambios] = useState(false) //comprueba si se han realizado cambios en la información del usuario
+    let exit = 0
 
     const router = useRouter();
 
@@ -46,16 +50,18 @@ export default function Perfil() {
         
         getUserInfo(email, tokenJWT).then(userInfo => { //envia el token y el email
             setUserInfo(userInfo); 
+            setUpdateAlias(userInfo.alias)
             setUpdateNotificacionAceptado(userInfo.notificarProyectoAceptado); //actualiza las notificaciones de proyectos aceptados
             setUpdateNotificacionMencion(userInfo.notificarAparicionDeNombre); //actualiza las notificaciones de menciones en proyectos
         });
+
     }, []);
 
     const handleCerrarSesion = () => {
         // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
         localStorage.removeItem('token');
-        router.push('/MainPage');
-    };
+        router.push('/login');
+    }
 
     //implementar funcion post para actualizar los datos del usuario
     const handleUpdateUser = async (userInfo) => {
@@ -100,7 +106,10 @@ export default function Perfil() {
     }
     
     return (
+
         <div id="perfilContainer">
+
+            <NavbarSecundario />
             
             <div id="elementosPerfil" className="mx-5 w-75">
 
@@ -110,71 +119,94 @@ export default function Perfil() {
                 <img src="img/default_profile.png" className="img-fluid mx-auto d-block mt-5 rounded-circle" alt="default"/>
                 
                 {/* Nombre y apellidos */}
-                <h2 id="nombre_apellidos">{userInfo.name} {userInfo.apellidos}</h2>
+                <h2 className='text-center mt-3 montserrat-h1'>{userInfo.name} {userInfo.apellidos}</h2>
 
                 {/* Alias */}
-                <h2 id="aliasTitulo" className='text-center mt-3'>{userInfo.alias}</h2>
+                <h2 className='text-center mt-2 montserrat-h2'>{userInfo.alias}</h2>
 
                 {/* Botones proyectos */}
-                <button type="submit" className="btn mt-4 text-center rounded-4 px-3 me-3" style={{background: '#A1A1A1'}}><div className='textoBoton'>Solicitudes de proyectos</div></button>
-                {/* SOLO ADMIN */}
-                {userInfo.role === "admin" && (
-                    <button type="submit" id="administrarUsuarios" className="btn mt-4 text-center rounded-4 px-3" style={{background: '#A1A1A1'}}>
-                        <div className='textoBoton'>Administrar usuarios</div>
-                    </button>
-                )}
+                <div className='d-flex mt-5'>
+                    <button type="submit" className="me-3 secundario-blanco montserrat-h3" style={{background: '#FFF', color: '#0065EF'}}>SOLICITUDES DE PROYECTOS</button>
+                    
+                    {/* SOLO ADMIN */}
+                    {userInfo.role === "admin" && (
+                        <button type="submit" id="administrarUsuarios" className="secundario-blanco montserrat-h3" style={{background: '#FFF', color: '#0065EF'}}>ADMINISTRAR USUARIOS</button>
+                    )}
+                </div>
 
                 {/* Informacion general */}
                 <div>
-                    <h3 id="infogeneral" className="mt-5 mb-4">Informacion general</h3>
+                    <h3 className="mt-5 mb-4 montserrat-h2">Informacion general</h3>
                     <div className="row mx-0">
-                        <p className="info col rounded-start-4 py-2 infoDatos">Nombre Completo</p>
-                        <p className="info col rounded-end-4 py-2 infoDatos">{userInfo.name} {userInfo.apellidos}</p>
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Nombre Completo</p>
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">{userInfo.name} {userInfo.apellidos}</p>
+                        <hr className="separacion" />
                     </div>
-                    <div className="row mx-0"> {/* ACTUALIZABLE */}
-                        <p className="info col rounded-start-4 py-2 infoDatos">Alias</p>
-                        <input type="text" id="infoAlias" className="info col rounded-end-4 py-2"  onChange={(e) => setUpdateAlias(e.target.value)} placeholder={userInfo.alias}/>
+                    
+                    <div className="row mx-0 mt-2"> {/* ACTUALIZABLE */}
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Alias</p>
+                        <input type="text" id="inputAlias" className="col py-2 px-0 mx-0 my-0 montserrat-body" onChange={(e) => {setUpdateAlias(e.target.value); setCambios(true);}} placeholder={userInfo.alias}/>
+                        <hr className="separacion" />
                     </div>
+                    
                 </div>
                 
                 {/* Informacion en utad */}
                 <div>
-                    <h3 id="infogeneral" className="mt-4 mb-4">Informacion en U-tad</h3>
+                    <h3 className="mt-4 mb-4 montserrat-h2">Informacion en U-tad</h3>
                     <div className="row mx-0">
-                        <p className="info col rounded-start-4 py-2 infoDatos">Dirección de correo electrónico</p>
-                        <p className="info col rounded-end-4 py-2 infoDatos">{userInfo.email}</p>
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Dirección de correo electrónico</p>
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">{userInfo.email}</p>
+                        <hr className="separacion" />
                     </div>
                     <div className="row mx-0">
-                        <p className="info col rounded-start-4 py-2 infoDatos">Cargo</p>
-                        <p className="info col rounded-end-4 py-2 infoDatos">Cargo</p>
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Cargo</p>
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">{userInfo.cargo}</p>
+                        <hr className="separacion" />
                     </div>
                      {/* AÑADIR TIPO Y NOMBRE DE TITULACION */}
+                    <div className="row mx-0">
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Área</p>
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Diseño Digital</p>
+                        <hr className="separacion" />
+                    </div>
                 </div>
 
                 {/* Preferencias y notificaciones */}
                 <div>
-                    <h3 id="infogeneral" className="mt-4 mb-4">Preferencias y notificaciones</h3>
+                    <h3 className="mt-4 mb-4 montserrat-h2">Preferencias y notificaciones</h3>
                     <div className="row mx-0">
-                        <p className="info col rounded-start-4 py-2 infoDatos">Idioma</p>
-                        <p className="info col rounded-end-4 py-2 infoDatos">Español</p> {/* ACTUALIZABLE */}
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Idioma</p>
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Español</p>
+                        <hr className="separacion" />
                     </div>
-                    <div className="row mx-0">
-                        <p className="info col rounded-start-4 py-2 infoDatos">Notificaciones</p>
-                        <div className="info col py-2 infoDatos infoNotificaciones">
-                            <input type="checkbox" id="notificacionCheckbox" onChange={(e) => setUpdateNotificacionAceptado(e.target.checked)} checked={updateNotificacionAceptado}/>
-                            <label htmlFor="notificacionCheckbox" className="ms-1">Proyectos aceptados</label>
+                    <div className="row mx-0 my-0">
+                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body d-flex justify-content-start align-items-end" id="textoNotificacion" >Notificaciones (correo electrónico)</p>
+                        <div className="col py-2 px-0 mx-0 my-0 montserrat-body">
+                            <div className="mx-0 mb-3">
+                                <label htmlFor="notificacionCheckbox1" className="col-10">Actualización del estado de subida de mi proyecto</label>
+                                <input type="checkbox" id="notificacionCheckbox1" className="col-2" onChange={(e) => {setUpdateNotificacionAceptado(e.target.checked); setCambios(true);}} checked={updateNotificacionAceptado}/>
+                            </div>
+
+                            <div className="mx-0">
+                                <label htmlFor="notificacionCheckbox2" className="col-10">Mención en un nuevo proyecto subido a la plataforma</label>
+                                <input type="checkbox" id="notificacionCheckbox2" className="col-2" onChange={(e) => {setUpdateNotificacionMencion(e.target.checked); setCambios(true);}} checked={updateNotificacionMencion}/>
+                            </div>
+                            
                         </div>
-                        <div className="info col rounded-end-4 py-2 infoDatos infoNotificaciones">
-                            <input type="checkbox" id="notificacionCheckbox" onChange={(e) => setUpdateNotificacionMencion(e.target.checked)} checked={updateNotificacionMencion}/>
-                            <label htmlFor="notificacionCheckbox" className="ms-1">Menciones en proyectos</label>
-                        </div>
+                        
                     </div>
+                    <hr className="separacion my-0" />
                 </div>
 
                 {/* Botones cuenta */}
-                <div className="d-flex justify-content-center">
-                    <button className="btn mt-4 text-center rounded-4 px-4 me-3" onClick={handleCerrarSesion} style={{background: '#A1A1A1'}}><div className='textoBoton'>Cerrar sesión</div></button>
-                    <button type="submit" className="btn mt-4 text-center rounded-4 px-3" onClick={() => handleUpdateUser(userInfo)} style={{background: '#A1A1A1'}}><div className='textoBoton'>Actualizar perfil</div></button>
+                <div className="d-flex justify-content-center mt-4">
+                    <button className="mt-4 text-center rounded-4 px-4 me-3 negativo-gris montserrat-h3" onClick={handleCerrarSesion} style={{color: 'white'}}>CERRAR SESION</button>
+                    
+                    {cambios === true && (
+                        <button type="submit" className="mt-4 text-center rounded-4 px-3 secundario-blanco montserrat-h3" onClick={() => handleUpdateUser(userInfo)} style={{color: '#0065EF'}}>ACTUALIZAR PERFIL</button>
+                    )}
+                    
                 </div>
                 
 

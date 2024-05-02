@@ -1,12 +1,8 @@
 #footer{
-    background-color: #D9D9D9 !important;
-}
-
-.elemento, a{
-    color: #000 !important;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    /*style*/
+    border-radius: 2rem 2rem 0rem 0rem;
+    background: #E5E9EC;
+    box-shadow: 0px -4px 4px 0px rgba(20, 20, 20, 0.25);
+    /*layout*/
+    height: auto;
 }

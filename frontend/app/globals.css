@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* FUENTES */
+/* TIPOGRAFIAS */
 
 .montserrat-h1 {
     color: #14192C;
@@ -84,7 +84,43 @@
     border-radius: 1rem;
     background:#0065EF;
     box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+    border: none;
     /*layout*/
+    /* width: auto;
+    height: 50%; */
+    display: flex;
+    padding: 1rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.secundario-blanco {
+    /*estilo*/
+    color: #0065EF;
+    border-radius: 1rem;
+    background:#FFF;
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+    border: none;
+    /*layout*/
+    /* width: auto;
+    height: 50%; */
+    display: flex;
+    padding: 1rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.negativo-gris {
+    /*estilo*/
+    border-radius: 1rem;
+    background: #9DA3A7;
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+    border: none;
+    /*layout*/
+    /* width: auto;
+    height: 50%; */
     display: flex;
     padding: 1rem 1.5rem;
     justify-content: center;

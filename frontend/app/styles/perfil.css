@@ -1,87 +1,26 @@
-#nombre_apellidos{
-    color: #000;
-    text-align: center;
-    font-family: Inter;
-    font-size: 3rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.separacion {
+    height: 0.125rem;
+    color: #0065EF !important;
+    border-color: #0065EF !important;
+    background: #0065EF !important;
+    opacity: 1 !important;
 }
 
-#aliasTitulo{
-    color: #000;
-    text-align: center;
-    font-family: Inter;
-    font-size: 2rem;
-    font-style: italic;
-    font-weight: 300;
-    line-height: normal;
+#notificacionCheckbox1, #notificacionCheckbox2 {
+    text-align: right;
+    align-items: right;
+    justify-content: right;
 }
 
-#infogeneral{
-    color: #000;
-    font-family: Inter;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-#infoAlias{
-    color: #000;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 400;
-    line-height: normal;
-    border: none;
-    height: min-content;
-}
-
-.infoNotificaciones{
-    height: min-content;
-}
-
-.textoBoton{
-    /* tipografia */
-    color: #000;
-    text-align: center;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.info{
-    background-color: #A1A1A1;
-}
-
-.infoDatos{
-    color: #000;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.igual{
-    width: 10.5 rem !important;
+body {
+    background-color: #E5E9EC !important;
 }
 
 #elementosPerfil{
     margin: 0 auto !important;
 }
 
-#infoAlias{
-    /* tipografia */
-    color: #000;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    background: #A1A1A1 !important;
-    border-color: #A1A1A1 !important;
+#inputAlias {
+    border: none;
+    background-color: transparent;
 }

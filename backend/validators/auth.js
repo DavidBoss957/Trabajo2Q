@@ -6,7 +6,7 @@ const validatorRegister = [
     //check("age").exists().notEmpty().isNumeric(), //Puedes aplicarle un min y max también al número
     check("apellidos").exists().notEmpty(),
     check("alias").exists().notEmpty(),
-    //check('cargo').isString().isIn(["alumno", "alumni", "profesor", "coordinador", "departamento"]).notEmpty(),
+    check('cargo').isString().isIn(["alumno", "alumni", "profesor", "coordinador", "departamento"]).notEmpty(),
     check("email").exists().notEmpty().isEmail(),
     check("password").exists().notEmpty().isLength( {min:8, max: 16} ),
     check("role").optional(),

@@ -72,7 +72,7 @@ export default function Login() {
     }
 
     return (
-        <div id="loginContent" className="container my-5" style={{zoom: '80%'}}>
+        <div id="loginContent" className="container my-5">
 
             <img src="img/Logo-Utad.png" id="imglogin" className="img-fluid mx-auto d-block my-5" alt="logo U-tad"/>
             <h1 className="text-center my-4 montserrat-h1">¡Bienvenid@ a U-tad Projects!</h1>
@@ -101,8 +101,8 @@ export default function Login() {
                     </div>
 
                     {/*boton submit*/}
-                    <div className="text-center">
-                        <button type="submit" className="btn mt-4 text-center rounded-4 px-4 py-3 principal-azul montserrat-h3" style={{background: '#0065EF', color: 'white'}}>ACCEDER</button>
+                    <div className="d-flex justify-content-center">
+                        <button type="submit" className="mt-4 text-center rounded-4 px-4 py-3 principal-azul montserrat-h3" style={{background: '#0065EF', color: 'white'}}>ACCEDER</button>
                     </div>
 
                 </form>
