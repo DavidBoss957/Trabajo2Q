@@ -2,6 +2,8 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useRouter } from 'next/navigation'
+import '../styles/mainPage.css'
+import '../styles/perfil.css'
 
 export default function Perfil() {
     const router = useRouter();
@@ -14,63 +16,41 @@ export default function Perfil() {
     //implementar funcion post para actualizar los datos del usuario
 
     return (
-<div id="perfilContainer" className="container mt-3">
+        <div>
+        {/* Contenedor fluido para la parte superior con el fondo */}
+            <div className="container-fluid navBar">
+                {/* Encabezado */}
+                <header className="d-flex justify-content-between align-items-center py-2">
+                    <img src="/U-TAD-Logo-CARD.webp" alt="Logo" className="img-fluid utad_logo" style={{ maxHeight: '60px' }} />
+                    <div>
+                        <input id="searchBar" type="text" className="form-control searchBar searchBarTip" placeholder="Barra de búsqueda"/>
+                    </div>
+                    <div>
+                        <button id="profileButton" className="btn"><h3 id="modifih3">Mi perfil</h3></button>
+                        <button id="createProyect" className="btn btn-primary"><h3 id="modifih3">Subir Proyecto</h3></button>
+                    </div>
+                </header>
+            </div>
 
-<div id="elementosPerfil" className="mx-auto w-75">
-    
-    {/* Imagen */}
-    <img src="6326055.png" className="img-fluid mx-auto d-block mt-5 rounded-circle w-5 h-auto" alt="Perfil"/>
-    
-    {/* Nombre y apellidos */}
-    <h2 id="nombre_apellidos" className="text-center my-3 fw-bold">Mario Hurtado</h2>
+            <div id="fotoPerfilLayout">
+                <center><img id="fotoPerfil" src="/Foto Perfil.png" alt="Logo"/></center>
+            </div>
+            <div id="comite">
+                <center><h1 id="textoNombre">Pablo Andrés Martín Pérez</h1></center>
+                <center><h2 id="textoAlias">PABLO</h2></center>
+            </div>
+            <div id="gradosInfo">
+                <button id="solicitudProyecto" className="btn"><h3 id="modifih3">SOLICITUDES DE PROYECTOS</h3></button>
+            </div>
 
-    {/* Alias */}
-    <h2 id="alias" className='text-center text-primary mt-1'>Diseño</h2>
-
-    {/* Botones proyectos */}
-    <div className="text-center my-3">
-        <button type="submit" className="btn btn-outline-primary mx-2">Solicitudes de proyectos</button>
-        {/* SOLO ADMIN */}
-        <button type="submit" className="btn btn-primary mx-2">Administrar usuarios</button>
-    </div>
-
-    {/* Informacion general */}
-    <div className="my-4">
-        <h3 className="text-primary mt-5 mb-4">Información general</h3>
-        <div className="bg-white p-3 shadow-sm rounded">
-            <p className="my-1"><strong>Nombre Completo:</strong> Mario Hurtado</p>
-            <p className="my-1"><strong>Alias:</strong> Diseño</p>
-            {/* Añadir más información si es necesario */}
+            <div id="formComp">
+                <div id="apartadoTexto">
+                    <div id="tituloLineas">
+                        <h2 id="textoAlias">Información general</h2>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    {/* Informacion en utad */}
-    <div className="my-4">
-        <h3 className="text-primary mt-5 mb-4">Información en U-tad</h3>
-        <div className="bg-white p-3 shadow-sm rounded">
-            <p className="my-1"><strong>Dirección de correo electrónico:</strong> mario.hurtado@live.u-tad.com</p>
-            <p className="my-1"><strong>Cargo:</strong> Alumno</p>
-            {/* Añadir tipo y nombre de titulación si es necesario */}
-        </div>
-    </div>
-
-    {/* Preferencias y notificaciones */}
-    <div className="my-4">
-        <h3 className="text-primary mt-5 mb-4">Preferencias y notificaciones</h3>
-        <div className="bg-white p-3 shadow-sm rounded">
-            <p className="my-1"><strong>Idioma:</strong> Español</p>
-            <p className="my-1"><strong>Notificaciones:</strong> Email, SMS</p>
-        </div>
-    </div>
-
-    {/* Botones cuenta */}
-    <div className="text-center my-3">
-        <button onClick={handleLogOut} type="button" className="btn btn-outline-secondary mx-2">Cerrar sesión</button>
-        <button type="button" className="btn btn-secondary mx-2">Actualizar perfil</button>
-    </div>
-</div>
-</div>
-
     )
 
 }

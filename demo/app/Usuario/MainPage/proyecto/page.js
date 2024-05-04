@@ -60,16 +60,6 @@ export default function MainPage() {
             </div>
           </header>
         </div>
-
-        {/* Contenedor para el título y la barra de búsqueda */}
-        <div className="container my-3">
-          {/* Título y descripción de la página */}
-          
-          {/* Barra de búsqueda */}
-          <div className="input-group mb-4">
-            
-          </div>
-        </div>
       </div>
 
       <div id="layoutFirst">

@@ -1,69 +1,69 @@
-#nombre_apellidos{
-    color: #000;
+#fotoPerfilLayout{
+    margin-top: 60px;
+}
+
+#comite{
+    margin-top: 32px;
+}
+
+#textoNombre{
+    color: var(--secundario-1, #14192C);
     text-align: center;
-    font-family: Inter;
-    font-size: 3rem;
+    /* h1 - título */
+    font-family: Montserrat;
+    font-size: 48px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 800;
     line-height: normal;
 }
 
-#alias{
-    color: #000;
+#textoAlias{
+    margin-top: 16px;
+    color: var(--secundario-1, #14192C);
     text-align: center;
-    font-family: Inter;
-    font-size: 2rem;
-    font-style: italic;
-    font-weight: 300;
-    line-height: normal;
-}
-
-#infogeneral{
-    color: #000;
-    font-family: Inter;
-    font-size: 1.5rem;
+    /* h2 - subtítulo */
+    font-family: Montserrat;
+    font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    text-transform: uppercase;
 }
 
-#infoAlias{
-    color: #000;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 400;
-    line-height: normal;
+#gradosInfo{
+    margin-left: 72px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
 }
 
-.textoBoton{
-    /* tipografia */
-    color: #000;
-    text-align: center;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+#solicitudProyecto{
+    padding: 10px 24px;
+    color: var(--principal, #0065EF);
+    border-radius: 16px;
+    background: var(--grados, #FFF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
 }
 
-.info{
-    background-color: #A1A1A1;
+#formComp{
+    margin-left: 72px;
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
 }
 
-.infoDatos{
-    color: #000;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+#apartadoTexto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.igual{
-    width: 10.5 rem !important;
+#tituloLineas{
+    display: flex;
+    padding-bottom: 32px;
+    align-items: flex-start;
 }
 
-#elementosPerfil{
-    margin: 0 auto !important;
-}
