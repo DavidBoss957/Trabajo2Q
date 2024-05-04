@@ -19,7 +19,7 @@ export default function Login() {
     }
 
     return (
-        <div id="loginContent" className="">
+        <div id="loginContent">
             <div src="x" className="mx-auto d-block mt-6"></div>
                 <h1 id="titulo" className="text-center my-4 display-1 fw-bold">¡Bienvenid@ a U-tad Projects!</h1>
 
