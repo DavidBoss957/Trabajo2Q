@@ -20,7 +20,31 @@ body {
     margin: 0 auto !important;
 }
 
-#inputAlias {
+#inputAlias, #selectGrado, #botonEditar {
     border: none;
     background-color: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
+#imgEditar {
+    width: 1rem;
+    height: 1rem;
+    text-align: right;
+    align-items: right;
+    justify-content: right;
+}
+
+.dropdown-personalizado {
+    max-height: 16rem;
+    overflow-y: scroll;
+    scrollbar-color: #383B42 #E5E9EC;
+    scrollbar-width: thin;
+    border-radius: 1rem;
+    border: none;
+}
+
+.dropdown-divider {
+    background: #14192C;
+    height: 0.0625rem;
 }

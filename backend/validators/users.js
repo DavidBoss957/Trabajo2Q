@@ -28,6 +28,7 @@ const validatorUpdateUser = [
     body('alias').optional().isString(),
     body('notificarAparicionDeNombre').optional().isBoolean(),
     body('notificarProyectoAceptado').optional().isBoolean(),
+    body('grado').optional().isString(),
     (req, res, next) => validateResults(req, res, next)
 ];
 

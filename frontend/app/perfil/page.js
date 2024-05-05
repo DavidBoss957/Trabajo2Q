@@ -3,6 +3,7 @@
 import Footer from '@/components/Footer';
 import NavbarSecundario from '@/components/NavbarSecundario';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../styles/perfil.css'
 import '../globals.css'
 import { useEffect, useState } from 'react';
@@ -37,8 +38,9 @@ export default function Perfil() {
     const [updateAlias, setUpdateAlias] = useState("") //alias modificado (por defecto es el que tiene actualmente el usuario)
     const [updateNotificacionAceptado, setUpdateNotificacionAceptado] = useState(false) //actualiza las notificaciones de proyectos aceptados
     const [updateNotificacionMencion, setUpdateNotificacionMencion] = useState(false) //actualiza las notificaciones de menciones en proyectos
+    const [updateGrado, setUpdateGrado] = useState(undefined) //actualiza el grado del usuario
+    const [editAlias, setEditAlias] = useState(false) //comprueba si se está editando el alias del usuario
     const [cambios, setCambios] = useState(false) //comprueba si se han realizado cambios en la información del usuario
-    let exit = 0
 
     const router = useRouter();
 
@@ -50,7 +52,8 @@ export default function Perfil() {
         
         getUserInfo(email, tokenJWT).then(userInfo => { //envia el token y el email
             setUserInfo(userInfo); 
-            setUpdateAlias(userInfo.alias)
+            setUpdateAlias(userInfo.alias); //actualiza el alias del usuario
+            setUpdateGrado(userInfo.grado); //actualiza el grado del usuario
             setUpdateNotificacionAceptado(userInfo.notificarProyectoAceptado); //actualiza las notificaciones de proyectos aceptados
             setUpdateNotificacionMencion(userInfo.notificarAparicionDeNombre); //actualiza las notificaciones de menciones en proyectos
         });
@@ -71,16 +74,13 @@ export default function Perfil() {
         const updateInfo = {
             alias: updateAlias,
             notificarAparicionDeNombre: updateNotificacionMencion,
-            notificarProyectoAceptado: updateNotificacionAceptado
+            notificarProyectoAceptado: updateNotificacionAceptado,
+            grado: updateGrado
         }
-
-        console.log(updateInfo)
 
         const tokenJWT = localStorage.getItem('token');
         const decodedToken = jwt.decode(tokenJWT); // Decodificar token
         const email = decodedToken.email;   // Extraer email del token
-
-        //console.log(email)
 
         try {
 
@@ -92,12 +92,15 @@ export default function Perfil() {
                 },
                 body: JSON.stringify(updateInfo)
             });
-            console.log("Respuesta: " + response.ok)
+            // console.log("Respuesta: " + response.ok)
             if (response.ok) {
                 alert("Información actualizada correctamente")
             } else {
                 console.error("Error al actualizar la informacion")
             }
+
+            setEditAlias(false)
+            setCambios(false)
 
         } catch (e) {
             console.error("Error al hacer la petición: ", e)
@@ -144,8 +147,18 @@ export default function Perfil() {
                     </div>
                     
                     <div className="row mx-0 mt-2"> {/* ACTUALIZABLE */}
-                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Alias</p>
-                        <input type="text" id="inputAlias" className="col py-2 px-0 mx-0 my-0 montserrat-body" onChange={(e) => {setUpdateAlias(e.target.value); setCambios(true);}} placeholder={userInfo.alias}/>
+                        <p className="col-6 py-2 px-0 mx-0 my-0 montserrat-body">Alias</p>
+
+                        {editAlias === false ? (
+                            <p className="col-5 py-2 px-0 mx-0 my-0 montserrat-body">{userInfo.alias}</p>
+                        ) : (
+                            <input type="text" id="inputAlias" className="col-5 py-2 px-0 mx-0 my-0 montserrat-body" onChange={(e) => {setUpdateAlias(e.target.value); setCambios(true);}} placeholder="Escribe aquí..."/>
+                        )}
+
+                        <button id="botonEditar" className="col-1 py-0 px-0 mx-0 my-0" onClick={(e) => {setEditAlias(true); setCambios(true)}}>
+                            <img src="img/edit.png" id="imgEditar" alt="editar"/>
+                        </button>
+                        
                         <hr className="separacion" />
                     </div>
                     
@@ -167,7 +180,33 @@ export default function Perfil() {
                      {/* AÑADIR TIPO Y NOMBRE DE TITULACION */}
                     <div className="row mx-0">
                         <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Área</p>
-                        <p className="col py-2 px-0 mx-0 my-0 montserrat-body">Diseño Digital</p>
+                        
+                        <div className="col py-2 px-0 mx-0 my-0 montserrat-body ">
+                            <button type="button" id="selectGrado" className="dropdown-toggle px-0 mx-0" data-bs-toggle="dropdown" aria-expanded="false">{updateGrado ? updateGrado : "Elige tu área"}</button>
+                            <ul id="listado" className="dropdown-menu px-0 mx-0 dropdown-personalizado">
+                                <li className="dropdown-header mx-0 montserrat-h3" style={{color: '#14192C'}}>Grados</li>
+                                <li><hr className="dropdown-divider mx-3"/></li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Animación"); setCambios(true)}}>Animación</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Diseño Digital"); setCambios(true)}}>Diseño Digital</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Efectos Visuales"); setCambios(true)}}>Efectos Visuales</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Diseño de Productos Interactivos"); setCambios(true)}}>Diseño de Productos Interactivos</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Ingeniería de Software"); setCambios(true)}}>Ingeniería de Software</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Física Computacional e Ingeniería del Software"); setCambios(true)}}>Física Computacional e Ingeniería del Software</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Matemática Computacional e Ingeniería del Software"); setCambios(true)}}>Matemática Computacional e Ingeniería del Software</li>
+                                <li className="dropdown-item mx-0 mb-3 montserrat-h3" onClick={(e) => {setUpdateGrado("Dirección de Empresas de Entretenimiento Digital"); setCambios(true)}}>Dirección de Empresas de Entretenimiento Digital</li>
+                                <li className="dropdown-header mx-0 montserrat-h3" style={{color: '#14192C'}}>Ciclos</li>
+                                <li><hr className="dropdown-divider mx-3"/></li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Marketing y publicidad"); setCambios(true)}}>Marketing y Publicidad</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Artes plásticas y Diseño en Animación"); setCambios(true)}}>Artes plásticas y Diseño en Animación</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Artes plásticas y Diseño en Ilustración"); setCambios(true)}}>Artes plásticas y Diseño en Ilustración</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Desarrollo de Aplicaciones Multiplataforma"); setCambios(true)}}>Desarrollo de Aplicaciones Multiplataforma</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Desarrollo de Aplicaciones Web"); setCambios(true)}}>Desarrollo de Aplicaciones Web</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Administración de Sistemas Informáticos en Red"); setCambios(true)}}>Administración de Sistemas Informáticos en Red</li>
+                                <li className="dropdown-item mx-0 montserrat-h3" onClick={(e) => {setUpdateGrado("Animaciones 3D, Juegos y Entornos Interactivos"); setCambios(true)}}>Animaciones 3D, Juegos y Entornos Interactivos</li>
+                                
+                            </ul>
+                        </div>
+
                         <hr className="separacion" />
                     </div>
                 </div>
