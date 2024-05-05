@@ -1,0 +1,190 @@
+body{
+    background-color: #E5E9EC;
+}
+.navBar {
+    border-radius: 0px 0px 32px 32px;
+    background: var(--secundario-5, #E5E9EC);
+    box-shadow: 0px 4px 4px 0px rgba(20, 20, 20, 0.25);
+    height: 128px;
+}
+
+.utad_logo {
+    margin-top: 25px;
+    width: 201px;
+    height: 64px;
+    flex-shrink: 0;
+    margin-left: 72px;
+}
+
+#searchBar{
+    margin-top: 25px;
+    width: 551px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 80px;
+    border: 2px solid var(--secundario-1, #14192C);
+}
+
+.searchBarTip{
+    color: var(--secundario-3, #6F7276);
+    /* Body - cuerpo */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#modifih3{
+    font-family: Montserrat;
+    margin-top: 8px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#profileButton{
+    margin-top: 25px;
+    width: 132px;
+    height: 52px;
+    margin-right: 24px;
+    border-radius: 16px;
+    border-color: #FFF;
+    background: var(--grados, #FFF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+    color: var(--principal, #0065EF);
+}
+
+#createProyect{
+    margin-top: 25px;
+    width: 148px;
+    margin-right: 72px;
+    height: 52px;
+    border-radius: 16px;
+    background: var(--principal, #0065EF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+}
+
+#title{
+    color: var(--secundario-1, #14192C);
+    text-align: center;
+    /* h1 - título */
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-top: 64px;
+}
+
+#layoutFirst{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#botonesNavegacion{
+    margin-top: 64px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+#gradoButton{
+    border-radius: 86px;
+    background: var(--grados, #FFF);
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#ciclosButton{
+    border-radius: 86px;
+    background: var(--ciclos, #9DA3A7);
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--grados, #FFF);
+}
+
+#postgradosButton{
+    border-radius: 86px;
+    background: var(--postgrados, #14192C);
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--grados, #FFF);
+}
+
+#layoutSecond{
+    display: flex;
+    width: 1440px;
+    padding: 0px 72px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 32px 48px;
+    flex-wrap: wrap;
+}
+
+#formatoProyecto{
+    flex-shrink: 0;
+    margin-top: 64px;
+}
+
+#tituloProyecto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 16px 16px 0px 0px;
+    background: var(--grados, #FFF);
+}
+
+#textoTitulo{
+    color: var(--secundario-1, #14192C);
+    text-align: center;
+    /* Body - cuerpo */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 16px;
+}
+
+#imagenProyecto{
+    width: 400px;
+    height: 201px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 16px 16px;
+}
+
+#infoProyecto{
+    margin-top: 16px;
+}
+
+#tituloAno{
+    display: flex;
+    gap: 180px;
+}
+
+#textoBody{
+    color: var(--secundario-1, #14192C);
+    /* Body - cuerpo */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
