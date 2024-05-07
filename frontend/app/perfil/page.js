@@ -119,7 +119,7 @@ export default function Perfil() {
                 {/* HACER MAP DE userInfo */}
                 
                 {/* Imagen */}
-                <img src="img/default_profile.png" className="img-fluid mx-auto d-block mt-5 rounded-circle" alt="default"/>
+                <img src="img/default_profile.png" id="foto-perfil" className="img-fluid mx-auto d-block mt-5 rounded-circle" alt="default"/>
                 
                 {/* Nombre y apellidos */}
                 <h2 className='text-center mt-3 montserrat-h1'>{userInfo.name} {userInfo.apellidos}</h2>

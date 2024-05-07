@@ -116,7 +116,7 @@ export default function Signup() {
     }
 
     return (
-        <div id="signupContent" className="container my-5">
+        <div id="signupContent" className="container my-5" style={{zoom: '85%'}}>
 
             <img src="img/Logo-Utad.png" id="imgsignup" className="img-fluid mx-auto d-block my-5" alt="logo U-tad"/>
             <h1 className="text-center my-4 montserrat-h1">¡Bienvenid@ a U-tad Projects!</h1>
@@ -152,7 +152,7 @@ export default function Signup() {
                     <label htmlFor="email" className="mt-2 mb-2 montserrat-body">Dirección de correo electrónico *</label>
                     <div className="input-group mb-3 ">
                         <input type="text" id="email" className="form-control rounded-start-4 p-3 form-input montserrat-body" onChange={(e) => setEmail(e.target.value)} placeholder="Escribe aquí..." required/>
-                        <select id="emailType" className="dropdown-toggle btn rounded-end-4" onChange={(e) => setEmailType(e.target.value)}>
+                        <select id="selectEmail" className="btn rounded-end-4 pe-5" onChange={(e) => setEmailType(e.target.value)}>
                             <option value="@live.u-tad.com" className="montserrat-body">@live.u-tad.com</option>
                             <option value="@u-tad.com" className="montserrat-body">@u-tad.com</option>
                             <option value="@ext.live.u-tad.com" className="montserrat-body">@ext.live.u-tad.com</option>
@@ -164,35 +164,35 @@ export default function Signup() {
                         <label htmlFor="password" className="mt-2 mb-2 montserrat-body">Contraseña *</label>
                         <input type="password" id="password" className="form-control rounded-4 p-3 form-input montserrat-body" placeholder="Escribe aquí..." onChange={handleChangePassword} required/>
                         
-                        <p className="montserrat-detalle-light">Tu contraseña debe tener:</p>
-                        <div className="d-flex align-items-center">
+                        <p className="montserrat-detalle-light mb-1">Tu contraseña debe tener:</p>
+                        <div className="d-flex align-items-center my-0">
                             {reqPassMay === false && (
                                 <img src="img/cruz.png" className='estado' alt="cruz"/>
                             )}
                             {reqPassMay === true && (
                                 <img src="img/tick.png" className='estado' alt="tick"/>
                             )}
-                            <p className="ms-2 montserrat-detalle-light">Al menos una mayúscula</p>
+                            <p className="ms-2 requisitos montserrat-detalle-light">Al menos una mayúscula</p>
                         </div>
 
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex align-items-center my-0">
                             {reqPassMin === false && (
                                 <img src="img/cruz.png" className='estado' alt="cruz"/>
                             )}
                             {reqPassMin === true && (
                                 <img src="img/tick.png" className='estado' alt="tick"/>
                             )}
-                            <p className="ms-2 montserrat-detalle-light">Entre 8 y 16 caracteres</p>
+                            <p className="ms-2 requisitos montserrat-detalle-light">Entre 8 y 16 caracteres</p>
                         </div>
 
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex align-items-center my-0">
                             {reqPassNum === false && (
                                 <img src="img/cruz.png" className='estado' alt="cruz"/>
                             )}
                             {reqPassNum === true && (
                                 <img src="img/tick.png" className='estado' alt="tick"/>
                             )}
-                            <p className="ms-2 montserrat-detalle-light">Al menos un número</p>
+                            <p className="ms-2 requisitos montserrat-detalle-light">Al menos un número</p>
                         </div>
                         
                     </div>

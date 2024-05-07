@@ -48,3 +48,9 @@ body {
     background: #14192C;
     height: 0.0625rem;
 }
+
+#foto-perfil {
+    width: 11rem;
+    height: 11rem;
+    flex-shrink: 0;
+}

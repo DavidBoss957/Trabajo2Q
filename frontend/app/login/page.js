@@ -72,7 +72,7 @@ export default function Login() {
     }
 
     return (
-        <div id="loginContent" className="container my-5">
+        <div id="loginContent" className="container my-5"  style={{zoom: '85%'}}>
 
             <img src="img/Logo-Utad.png" id="imglogin" className="img-fluid mx-auto d-block my-5" alt="logo U-tad"/>
             <h1 className="text-center my-4 montserrat-h1">¡Bienvenid@ a U-tad Projects!</h1>
@@ -85,8 +85,8 @@ export default function Login() {
                     {/* correo */}
                     <label htmlFor="email" className="mt-4 mb-2 montserrat-body">Dirección de correo electrónico *</label>
                     <div className="input-group mb-3">
-                        <input type="text" className="form-control rounded-start-4 p-3 form-input montserrat-body" onChange={(e) => setEmail(e.target.value)} placeholder="Escribe aquí..." required/>
-                        <select className="dropdown-toggle btn rounded-end-4" onChange={(e) => setEmailType(e.target.value)}>
+                        <input type="text" id="email" className="form-control rounded-start-4 p-3 form-input montserrat-body" onChange={(e) => setEmail(e.target.value)} placeholder="Escribe aquí..." required/>
+                        <select className="btn rounded-end-4 pe-5" id="selectEmail" onChange={(e) => setEmailType(e.target.value)}>
                             <option value="@live.u-tad.com" className="montserrat-body">@live.u-tad.com</option>
                             <option value="@u-tad.com" className="montserrat-body">@u-tad.com</option>
                             <option value="@ext.live.u-tad.com" className="montserrat-body">@ext.live.u-tad.com</option>
@@ -97,7 +97,7 @@ export default function Login() {
                     
                     <div className="mb-3">
                         <label htmlFor='password' className="mt-2 mb-2 montserrat-body">Contraseña *</label>
-                        <input type="password" className="form-control rounded-4 p-3 form-input montserrat-body" onChange={(e) => setPassword(e.target.value)} placeholder="Escribe aquí..." required/>
+                        <input type="password" id="password" className="form-control rounded-4 p-3 form-input montserrat-body" onChange={(e) => setPassword(e.target.value)} placeholder="Escribe aquí..." required/>
                     </div>
 
                     {/*boton submit*/}
