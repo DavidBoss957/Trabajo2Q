@@ -66,9 +66,9 @@ export default function MainPage() {
         <h1 id="title">Bienvenid@ a U-tad Projects.</h1>
 
         <div id="botonesNavegacion">
-          <button id="gradoButton" className="btn" onClick={handleProfileClick}><h3 id="modifih3">GRADOS</h3></button>
-          <button id="ciclosButton" className="btn" onClick={handleProfileClick}><h3 id="modifih3">CICLOS</h3></button>
-          <button id="postgradosButton" className="btn" onClick={handleProfileClick}><h3 id="modifih3">POSTGRADOS</h3></button>
+          <button id="gradoButton" className="btn"><h3 id="modifih3">GRADOS</h3></button>
+          <button id="ciclosButton" className="btn"><h3 id="modifih3">CICLOS</h3></button>
+          <button id="postgradosButton" className="btn"><h3 id="modifih3">POSTGRADOS</h3></button>
         </div>
       </div>
 

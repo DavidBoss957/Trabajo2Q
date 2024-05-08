@@ -1,0 +1,59 @@
+body{
+    background-color: #E5E9EC;
+}
+
+#titulo{
+    color: #000;
+
+    /* h1 - título */
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+#contentLayout{
+    margin-top: 64px;
+    margin-left: 72px;
+}
+
+#autores{
+    margin-top: 24px;
+    color: #000;
+
+    /* h3 - destacado */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#row{
+    
+}
+
+#foto{
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background-color: #141414;
+    border-radius: 35px;
+}
+
+#foto2{
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background-color: #383838;
+    border-radius: 35px;
+}
+
+#foto3{
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background-color: #6C6C6C;
+    border-radius: 35px;
+}
