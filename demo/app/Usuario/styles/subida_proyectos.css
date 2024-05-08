@@ -23,16 +23,6 @@
   border: 2px dashed #000;
 }
 
-.input-file-trigger {
-  display: block;
-  padding: 10px 45px;
-  background: #39D2B4;
-  color: #fff;
-  font-size: 1em;
-  transition: all 0.4s;
-  cursor: pointer;
-}
-
 .input-file {
   position: absolute;
   top: 0;
@@ -44,7 +34,7 @@
 }
 
 /* TITULO DEL PROYECTO */
-.input-titulo-proyecto {
+#input-titulo-proyecto {
   color: #000;
   font-family: 'Inter', sans-serif;
   font-size: 48px;
@@ -58,14 +48,14 @@
 }
 
 /* Si quieres que no aparezca el borde al hacer foco en el input */
-.input-titulo-proyecto:focus {
+#input-titulo-proyecto:focus {
   border: none;
   outline: none;
   box-shadow: none;
 }
 
 /* Si necesitas aplicar el margen superior de 22px al contenedor de los selectores */
-.d-flex {
+#d-flex {
   margin-top: 22px !important;
   gap: 14px;
 }

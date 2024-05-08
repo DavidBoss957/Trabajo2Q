@@ -24,7 +24,7 @@ export default function ProjectUpload() {
         projectMemory: null,
         projectMemoryName: '', // Para almacenar el nombre del archivo
     });
-
+    
     const years = Array.from({ length: new Date().getFullYear() - 2017 }, (v, i) => 2018 + i); // Genera un array de años desde 2018 hasta el año actual
 
   // Cambio de los campos del formulario
@@ -58,11 +58,11 @@ export default function ProjectUpload() {
 
         {/* Campo del nombre del proyecto */}
         <div className="mb-3">
-            <input type="text" className="form-control input-titulo-proyecto" name="nombreProyecto" value={formState.nombreProyecto} onChange={handleChange} placeholder="Título del proyecto" required/>
+            <input type="text" className="form-control" id="input-titulo-proyecto" name="nombreProyecto" value={formState.nombreProyecto} onChange={handleChange} placeholder="Título del proyecto" required/>
         </div>
 
         {/* Desplegables de Titulación y Año de creación */}
-        <div className="d-flex justify-content-between mb-3">
+        <div className="justify-content-between mb-3 d-flex">
             <div className="flex-grow-1 me-2">
                 <select className="form-select" aria-label="Titulación" name="titulacion" value={formState.titulacion} onChange={handleChange} required>
                     <option value="" disabled selected>Titulación</option>
@@ -101,7 +101,7 @@ export default function ProjectUpload() {
             {/* Campo de resumen */}
             <div className="row mb-3">
                 <div className="col-6">
-                    <span className="form-control-plaintext fixed-height d-flex align-items-center">Resumen *</span>
+                    <span className="form-control-plaintext fixed-height align-items-center" id="d-flex">Resumen *</span>
                 </div>
                 <div className="col-6">
                     <textarea className="form-control fixed-height" placeholder="Añade una descripción y el valor diferencial de tu proyecto..." style={{ resize: 'none' }} aria-label="Resumen" name="resumen" value={formState.resumen} onChange={handleChange}></textarea>

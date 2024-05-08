@@ -12,6 +12,10 @@ export default function Perfil() {
         // Suponiendo que tienes una ruta "/mi-perfil" en tu aplicación de Next.js
         router.push('/');
     };
+    const handleUploadClick = () => {
+        // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
+        router.push('/Usuario/subida_proyectos');
+      };
 
     //implementar funcion post para actualizar los datos del usuario
 
@@ -27,7 +31,7 @@ export default function Perfil() {
                     </div>
                     <div>
                         <button id="profileButton" className="btn"><h3 id="modifih3">Mi perfil</h3></button>
-                        <button id="createProyect" className="btn btn-primary"><h3 id="modifih3">Subir Proyecto</h3></button>
+                        <button id="createProyect" className="btn btn-primary" onClick={handleUploadClick}><h3 id="modifih3">Subir Proyecto</h3></button>
                     </div>
                 </header>
             </div>
@@ -44,11 +48,71 @@ export default function Perfil() {
             </div>
 
             <div id="formComp">
+                <div id="infoSection">
+                    <div id="infoRow">
+                        <p id="label">Nombre completo</p>
+                        <p id="value">Pablo Andrés Martín Pérez</p>
+                    </div>
+                    <div id="separador"></div>
+                    <div id="infoRow">
+                        <p id="label">Alias</p>
+                        <p id="value">Pablo</p>
+                    </div>
+                    <div id="separador"></div>
+                </div>
                 <div id="apartadoTexto">
                     <div id="tituloLineas">
-                        <h2 id="textoAlias">Información general</h2>
+                        <h2 id="textoAlias">Información en U-tad</h2>
+                    </div>
+                    <div id="infoSection">
+                        <div id="infoRow">
+                            <p id="label">Nombre completo</p>
+                            <p id="value">Pablo Andrés Martín Pérez</p>
+                        </div>
+                        <div id="separador"></div>
+                        <div id="infoRow">
+                            <p id="label">Dirección de correo electrónico</p>
+                            <p id="value">pablo.perez2@u-tad.com</p>
+                        </div>
+                        <div id="separador"></div>
+                        <div id="infoRow">
+                            <p id="label">Área</p>
+                            <p id="value">Diseño Digital</p>
+                        </div>
+                        <div id="separador"></div>
                     </div>
                 </div>
+                <div id="apartadoTexto">
+                    <div id="tituloLineas">
+                        <h2 id="textoAlias">Preferencias y notificaciones</h2>
+                    </div>
+                    <div id="infoSection">
+                        <div id="infoRow">
+                            <p id="label">Idioma</p>
+                            <p id="value">Español</p>
+                        </div>
+                        <div id="separador"></div>
+                        <div id="preference-item">
+                            <span>Notificaciones (correo electrónico)</span>
+                            <div id="margin">
+                                <label><input type="checkbox" /> Actualización del estado de subida de mi proyecto</label>
+                                <label><input type="checkbox" /> Mención en un nuevo proyecto subido a la plataforma</label>
+                            </div>
+                        </div>
+                        <div id="separador"></div>
+                    </div>
+                </div>
+            </div>
+            <center><button id="exitButton" className="bnt"><h3 id="modifih3">CERRAR SESIÓN</h3></button></center>
+
+            <div id="footerLayout">
+                <center>
+                <div id="footerInterior">
+                    <p id="textoBody">Privacidad</p>
+                    <p id="textoBody">Condiciones</p>
+                    <p id="textoBody">Accesibilidad</p>
+                </div>
+                </center>
             </div>
         </div>
     )
