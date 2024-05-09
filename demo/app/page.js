@@ -51,9 +51,8 @@ export default function Login() {
                         <div className="layout_boton_acceder">
                             <button type="submit" id="boton_acceder" className="body_type text_botton_acceder">Acceder</button>
                         </div>
-
                     </form>
-            </div>
+                </div>
         </div>
     );
 }

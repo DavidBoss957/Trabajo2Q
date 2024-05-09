@@ -1,0 +1,61 @@
+#formUsuarios{
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+#label, #value {
+    flex: 1; /* Permite que ambos elementos crezcan igualmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+#value {
+    flex: 0 0 50%; /* Limita el ancho del valor a un 50% */
+    padding-right: 650px; /* Añade espacio a la izquierda del valor */
+}
+
+#grado{
+    margin-left: 16px;
+    flex: 1; /* Permite que ambos elementos crezcan igualmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: var(--secundario-1, #14192C);
+    /* Detalle - pequeño */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+#nombre{
+    color: var(--secundario-1, #14192C);
+    /* Body - cuerpo */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#separadorUser{
+    width: 700px;
+    height: 2px;
+    background: #0065EF;
+    margin-bottom: 32px;
+}
+
+#infoRow {
+    display: flex;
+    justify-content: space-between; /* Asegura que los textos estén en extremos opuestos */
+    margin-bottom: 2px; /* Espacio entre las filas, ajusta según sea necesario */
+}
+
+#fotoPerfil{
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    background: var(--secundario-1, #14192C);
+    border-radius: 35px;
+}

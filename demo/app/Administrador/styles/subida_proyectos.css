@@ -1,0 +1,70 @@
+.fixed-width-span {
+  width: 564px; /* Ajusta el ancho según tus necesidades */
+}
+
+.fixed-height {
+  height: 150px; /* Ajusta esta altura a tus necesidades */
+}
+
+.fixed-height-label{
+  height: 65px; /* Ajusta esta altura a tus necesidades */
+}
+
+.input-file-container {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  transition: border 0.3s ease;
+}
+
+.input-file-container:hover {
+  border: 2px dashed #000;
+}
+
+.input-file {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* TITULO DEL PROYECTO */
+#input-titulo-proyecto {
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal; /* Esta propiedad necesita un valor, como 1 o 1.5, "normal" en sí no es un valor CSS válido */
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: transparent; /* Si deseas que no tenga color de fondo */
+}
+
+/* Si quieres que no aparezca el borde al hacer foco en el input */
+#input-titulo-proyecto:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Si necesitas aplicar el margen superior de 22px al contenedor de los selectores */
+#d-flex {
+  margin-top: 22px !important;
+  gap: 14px;
+}
+
+/* CAMPOS TEXTO ESPACIADO */
+.espaciado-select-text{
+  margin-top: 57px;
+}
+
+.espaciado-etiqueta-input{
+  margin-bottom: 64px;
+}

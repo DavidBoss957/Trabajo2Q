@@ -31,24 +31,8 @@ export default function MainPage() {
 
   const handleProfileClick = () => {
     // Suponiendo que tienes una ruta "/mi-perfil" en tu aplicación de Next.js
-    router.push('/Usuario/perfil');
+    router.push('/Administrador/perfil');
   };
-
-  const handleUploadClick = () => {
-    // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
-    router.push('/Usuario/subida_proyectos');
-  };
-
-  const handleVerProyecto1 = () => {
-    // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
-    router.push('/Usuario/verProyecto1');
-  };
-
-  const handleVerProyecto2 = () => {
-    // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
-    router.push('/Usuario/verProyecto2');
-  };
-
 
   return (
     <>
@@ -67,7 +51,7 @@ export default function MainPage() {
             </div>
             <div>
               <button id="profileButton" className="btn" onClick={handleProfileClick}><h3 id="modifih3">Mi perfil</h3></button>
-              <button id="createProyect" className="btn btn-primary" onClick={handleUploadClick}><h3 id="modifih3">Subir Proyecto</h3></button>
+              <button id="createProyect" className="btn btn-primary"><h3 id="modifih3">Subir Proyecto</h3></button>
             </div>
           </header>
         </div>
@@ -80,40 +64,6 @@ export default function MainPage() {
           <button id="gradoButton" className="btn"><h3 id="modifih3">GRADOS</h3></button>
           <button id="ciclosButton" className="btn"><h3 id="modifih3">CICLOS</h3></button>
           <button id="postgradosButton" className="btn"><h3 id="modifih3">POSTGRADOS</h3></button>
-        </div>
-      </div>
-
-      <div id="layoutSecond">
-        <div id="formatoProyecto" onClick={handleVerProyecto1}>
-          <div id="tituloProyecto">
-            <p id="textoTitulo">Diseño Digital</p>
-          </div>
-          <div>
-            <img id="imagenProyecto" src="/f66cf9e5f59a51477285f972ee774b2b.jpg" alt="Logo"/>
-          </div>
-          <div id="infoProyecto">
-            <div id="tituloAno">
-              <p id="textoBody">Suena a verano - RTVE</p>
-              <p id="textoBody">2023</p>
-            </div>
-            <p id="textoBody">Mario Hurtado, Alejandro Valencia, más.</p>
-          </div>
-        </div>
-        
-        <div id="formatoProyecto" onClick={handleVerProyecto2}>
-          <div id="tituloJuegos">
-            <p id="textoJuegos">Arte y Diseño Visual de Videojuegos</p>
-          </div>
-          <div>
-            <img id="imagenProyecto" src="/5b57e5c64631d4dc23a90dd865df5754.png" alt="Logo"/>
-          </div>
-          <div id="infoProyecto">
-            <div id="tituloAno">
-              <p id="textoBody">Blackstorm</p>
-              <p id="textoBody">Varios alumnos</p>
-            </div>
-            <p id="textoBody">2019</p>
-          </div>
         </div>
       </div>
     </>

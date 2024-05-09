@@ -39,6 +39,11 @@ export default function MainPage() {
     router.push('/Usuario/subida_proyectos');
   };
 
+  const handleVerProyecto1 = () => {
+    // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
+    router.push('/Usuario/verProyecto1');
+  };
+
   return (
     <>
       <Head>
@@ -79,6 +84,24 @@ export default function MainPage() {
           <button id="gradoButton" className="btn"><h3 id="modifih3">GRADOS</h3></button>
           <button id="ciclosButton" className="btn"><h3 id="modifih3">CICLOS</h3></button>
           <button id="postgradosButton" className="btn"><h3 id="modifih3">POSTGRADOS</h3></button>
+        </div>
+
+        <div id="layoutSecond">
+        <div id="formatoProyecto" onClick={handleVerProyecto1}>
+          <div id="tituloProyecto">
+            <p id="textoTitulo">Diseño Digital</p>
+          </div>
+          <div>
+            <img id="imagenProyecto" src="/f66cf9e5f59a51477285f972ee774b2b.jpg" alt="Logo"/>
+          </div>
+          <div id="infoProyecto">
+            <div id="tituloAno">
+              <p id="textoBody">Suena a verano - RTVE</p>
+              <p id="textoBody">2023</p>
+            </div>
+            <p id="textoBody">Mario Hurtado, Alejandro Valencia, más.</p>
+          </div>
+        </div>
         </div>
       </div>
     </>

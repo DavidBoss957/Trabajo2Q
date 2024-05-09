@@ -32,3 +32,14 @@ h3 {
     font-weight: 400;
     line-height: normal;
 }
+
+#registrate{
+    color: var(--secundario-1, #14192C);
+    text-align: center;
+    /* Body - cuerpo */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

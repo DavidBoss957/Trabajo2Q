@@ -1,0 +1,8 @@
+.card-link-custom {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color del texto normal */
+  }
+  
+  .card-link-custom:hover {
+    text-decoration: none; /* Evita que se subraye al pasar el mouse */
+  }

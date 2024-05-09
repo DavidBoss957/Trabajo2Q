@@ -1,0 +1,115 @@
+#titulo{
+    display: flex;
+    width: 1128px;
+    height: 64px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;  
+
+    color: var(--secundario-1, #14192C);
+    /* h1 - título */
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+#layoutSolicitud{
+    margin-left: 73px;
+}
+
+#buscarProyecto{
+    width: 551px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 80px;
+    border: 2px solid var(--secundario-1, #14192C);
+}
+
+#placeholderBuscarProyecto{
+    width: 152px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: var(--secundario-3, #6F7276);
+    /* Body - cuerpo */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#botonesFiltros{
+    margin-top: 40px;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+#botonFiltros{
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 86px;
+    background: var(--grados, #FFF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+}
+
+#botonFiltrosTexto{
+    margin-top: 6px;
+    color: var(--principal, #0065EF);
+    /* h3 - destacado */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#tituloVR{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 16px 16px 0px 0px;
+    background: var(--secundario-4, #9DA3A7);
+}
+
+#textoVR{
+    margin-top: 16px;
+    color: var(--grados, #FFF);
+    text-align: center;
+    /* Body - cuerpo */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#botonPendiente{
+    
+    display: flex;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 28px;
+    background: var(--secundario-4, #9DA3A7);
+}
+
+#botonPendienteTexto{
+    margin-top: 2px;
+    color: var(--secundario-1, #14192C);
+    /* Body - cuerpo */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

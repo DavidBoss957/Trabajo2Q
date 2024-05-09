@@ -12,10 +12,6 @@ export default function Perfil() {
         // Suponiendo que tienes una ruta "/mi-perfil" en tu aplicación de Next.js
         router.push('/');
     };
-    const handleUploadClick = () => {
-        // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
-        router.push('/Usuario/subida_proyectos');
-    };
 
     const handleCerrarSesion = () => {
         // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
@@ -24,9 +20,13 @@ export default function Perfil() {
 
     const handleMainPage = () => {
         // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
-        router.push('/Usuario/MainPage');
+        router.push('/Administrador/MainPage');
     };
-    //implementar funcion post para actualizar los datos del usuario
+    
+    const handleSolicitud = () => {
+        // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
+        router.push('/Administrador/solicitudes');
+    };
 
     return (
         <div>
@@ -40,7 +40,7 @@ export default function Perfil() {
                     </div>
                     <div>
                         <button id="profileButton" className="btn"><h3 id="modifih3">Mi perfil</h3></button>
-                        <button id="createProyect" className="btn btn-primary" onClick={handleUploadClick}><h3 id="modifih3">Subir Proyecto</h3></button>
+                        <button id="createProyect" className="btn btn-primary"><h3 id="modifih3">Subir Proyecto</h3></button>
                     </div>
                 </header>
             </div>
@@ -53,7 +53,8 @@ export default function Perfil() {
                 <center><h2 id="textoAlias">PABLO</h2></center>
             </div>
             <div id="gradosInfo">
-                <button id="solicitudProyecto" className="btn"><h3 id="modifih3">SOLICITUDES DE PROYECTOS</h3></button>
+                <button id="solicitudProyecto" className="btn" onClick={handleSolicitud}><h3 id="modifih3">SOLICITUDES DE PROYECTOS</h3></button>
+                <button id="solicitudProyecto" className="btn"><h3 id="modifih3">ADMINISTRAR USUARIOS</h3></button>
             </div>
 
             <div id="formComp">
