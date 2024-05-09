@@ -49,23 +49,20 @@ export default function Perfil() {
                 <center><img id="fotoPerfil" src="/Foto Perfil.png" alt="Logo"/></center>
             </div>
             <div id="comite">
-                <center><h1 id="textoNombre">Pablo Andrés Martín Pérez</h1></center>
-                <center><h2 id="textoAlias">PABLO</h2></center>
-            </div>
-            <div id="gradosInfo">
-                <button id="solicitudProyecto" className="btn"><h3 id="modifih3">SOLICITUDES DE PROYECTOS</h3></button>
+                <center><h1 id="textoNombre">Mario Hurtado Ruiz</h1></center>
+                <center><h2 id="textoAlias">MARIO</h2></center>
             </div>
 
             <div id="formComp">
                 <div id="infoSection">
                     <div id="infoRow">
                         <p id="label">Nombre completo</p>
-                        <p id="value">Pablo Andrés Martín Pérez</p>
+                        <p id="value">Mario Hurtado Ruiz</p>
                     </div>
                     <div id="separador"></div>
                     <div id="infoRow">
                         <p id="label">Alias</p>
-                        <p id="value">Pablo</p>
+                        <p id="value">MARIO</p>
                     </div>
                     <div id="separador"></div>
                 </div>
@@ -76,12 +73,12 @@ export default function Perfil() {
                     <div id="infoSection">
                         <div id="infoRow">
                             <p id="label">Nombre completo</p>
-                            <p id="value">Pablo Andrés Martín Pérez</p>
+                            <p id="value">Mario Hurtado Ruiz</p>
                         </div>
                         <div id="separador"></div>
                         <div id="infoRow">
                             <p id="label">Dirección de correo electrónico</p>
-                            <p id="value">pablo.perez2@u-tad.com</p>
+                            <p id="value">mario.hurtado@live.u-tad.com</p>
                         </div>
                         <div id="separador"></div>
                         <div id="infoRow">

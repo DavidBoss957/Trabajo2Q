@@ -35,11 +35,6 @@ export default function MainPage() {
     router.push('/Administrador/perfil');
   };
 
-  const handleVerProyecto1 = () => {
-    // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
-    router.push('/Administrador/verProyecto1');
-  };
-
   return (
     <>
       <Head>
@@ -84,7 +79,7 @@ export default function MainPage() {
         </div>
 
         <div id="layoutSecond">
-        <div id="formatoProyecto" onClick={handleVerProyecto1}>
+        <div id="formatoProyecto">
           <div id="tituloVR">
             <p id="textoVR">Desarrollo de Videojuegos y VR</p>
           </div>
