@@ -44,6 +44,12 @@ export default function MainPage() {
     router.push('/Usuario/verProyecto1');
   };
 
+  
+  const handleBuscador = () => {
+    // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
+    router.push('/Usuario/buscador');
+  };
+
   return (
     <>
       <Head>
@@ -57,7 +63,7 @@ export default function MainPage() {
           <header className="d-flex justify-content-between align-items-center py-2">
             <img src="/U-TAD-Logo-CARD.webp" alt="Logo" className="img-fluid utad_logo" style={{ maxHeight: '60px' }} />
             <div>
-              <input id="searchBar" type="text" className="form-control searchBar searchBarTip" placeholder="Barra de búsqueda"/>
+              <input id="searchBar" type="text" onClick={handleBuscador} className="form-control searchBar searchBarTip" placeholder="Barra de búsqueda"/>
             </div>
             <div>
               <button id="profileButton" className="btn" onClick={handleProfileClick}><h3 id="modifih3">Mi perfil</h3></button>

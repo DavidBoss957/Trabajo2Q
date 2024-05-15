@@ -18,12 +18,16 @@ export default function Login() {
         router.push("/Usuario/MainPage")
     }
 
+    const handleSignupRedirect = () => {
+        router.push("/Usuario/signup");
+    }
+
     return (
         <div id="loginContent">
             <div src="x" className="mx-auto d-block mt-6"></div>
                 <h1 id="titulo" className="text-center my-4 display-1 fw-bold">¡Bienvenid@ a U-tad Projects!</h1>
 
-                <div id="containerFormulario" className="d-flex justify-content-center mx-5 my-5 shadow-lg center">
+                <div id="containerFormulario" className="d-flex justify-content-center mx-5 shadow-lg center">
                     <form className="" onSubmit={handleSubmit} >
                         
                         <h2 id="iniciar" className="text-center mb-4">Iniciar sesión</h2>
@@ -53,6 +57,7 @@ export default function Login() {
                         </div>
                     </form>
                 </div>
+                <label id="textoIniciarSesion" onClick={handleSignupRedirect} style={{ cursor: "pointer" }}>¿Aún no tienes una cuenta? Regístrate.</label>
         </div>
     );
 }
