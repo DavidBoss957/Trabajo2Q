@@ -28,6 +28,11 @@ export default function Perfil() {
         router.push('/Administrador/solicitudes');
     };
 
+    const handleAdministrarUsuarios = () => {
+        // Suponiendo que tienes una ruta "/subir-proyecto" en tu aplicación de Next.js
+        router.push('/Administrador/userManagement');
+    };
+
     return (
         <div>
         {/* Contenedor fluido para la parte superior con el fondo */}
@@ -54,7 +59,7 @@ export default function Perfil() {
             </div>
             <div id="gradosInfo">
                 <button id="solicitudProyecto" className="btn" onClick={handleSolicitud}><h3 id="modifih3">SOLICITUDES DE PROYECTOS</h3></button>
-                <button id="solicitudProyecto" className="btn"><h3 id="modifih3">ADMINISTRAR USUARIOS</h3></button>
+                <button id="solicitudProyecto" className="btn" onClick={handleAdministrarUsuarios}><h3 id="modifih3">ADMINISTRAR USUARIOS</h3></button>
             </div>
 
             <div id="formComp">

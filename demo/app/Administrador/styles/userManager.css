@@ -1,0 +1,149 @@
+body {
+    background-color: #E5E9EC;
+}
+
+.navBar {
+    border-radius: 0px 0px 32px 32px;
+    background: var(--secundario-5, #E5E9EC);
+    box-shadow: 0px 4px 4px 0px rgba(20, 20, 20, 0.25);
+    height: 128px;
+}
+
+.utad_logo {
+    margin-top: 25px;
+    width: 201px;
+    height: 64px;
+    flex-shrink: 0;
+    margin-left: 72px;
+}
+
+#searchBar {
+    margin-top: 25px;
+    width: 551px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 80px;
+    border: 2px solid var(--secundario-1, #14192C);
+}
+
+#searchBarUsers {
+    width: 100%;
+    height: 40px;
+    border-radius: 80px;
+    border: 2px solid var(--secundario-1, #14192C);
+    margin-bottom: 20px;
+}
+
+.searchBarTip {
+    color: var(--secundario-3, #6F7276);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#modifih3 {
+    font-family: Montserrat;
+    margin-top: 8px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#profileButton {
+    margin-top: 25px;
+    width: 132px;
+    height: 52px;
+    margin-right: 24px;
+    border-radius: 16px;
+    border-color: #FFF;
+    background: var(--grados, #FFF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+    color: var(--principal, #0065EF);
+}
+
+#createProyect {
+    margin-top: 25px;
+    width: 148px;
+    margin-right: 72px;
+    height: 52px;
+    border-radius: 16px;
+    background: var(--principal, #0065EF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+}
+
+#ResultadoBusqueda {
+    color: var(--secundario-1, #14192C);
+    text-align: left;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-top: 20px;
+}
+
+#layoutFirst {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#DesplazamientoBotones {
+    margin-right: 20px;
+}
+
+#botonesBlancoAzul {
+    margin-left: 26px;
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 86px;
+    background: var(--grados, #FFF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+}
+
+#botonesBlancoAzulTexto {
+    color: var(--principal, #0065EF);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#layoutSecond {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#userList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.userEntry {
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 48%;
+}
+
+.userEntry p {
+    margin: 5px 0;
+}
+
+.userActions a {
+    margin-right: 10px;
+    color: var(--principal, #0065EF);
+    text-decoration: none;
+}
