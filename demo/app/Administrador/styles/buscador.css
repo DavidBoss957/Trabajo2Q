@@ -1,0 +1,67 @@
+#botonesBlancoAzul{
+    margin-left: 26px;
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 86px;
+    background: var(--grados, #FFF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+}
+
+#botonesGris{
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 86px;
+    border: 2px solid var(--secundario-4, #9DA3A7);
+}
+
+#textoBotonGris{
+    color: var(--secundario-4, #9DA3A7);
+    /* h3 - destacado */
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#botonesBlancoAzulTexto{
+    color: var(--principal, #0065EF);
+    /* h3 - destacado */
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#ResultadoBusqueda{
+    color: var(--secundario-1, #14192C);
+    text-align: center;
+    /* h1 - título */
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-left: 115px;
+}
+
+#DesplazamientoBotones{
+    margin-right: 80px;
+}
+
+#botonesNavegacionBusqueda{
+    margin-top: 40px;
+    margin-left: 115px;
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+
