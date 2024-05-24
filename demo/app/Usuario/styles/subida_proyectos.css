@@ -54,9 +54,17 @@
   box-shadow: none;
 }
 
+#input_campos {
+  margin-right: 550px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: transparent; /* Si deseas que no tenga color de fondo */
+}
+
 /* Si necesitas aplicar el margen superior de 22px al contenedor de los selectores */
 #d-flex {
-  margin-top: 22px !important;
+  margin-top: 22px;
   gap: 14px;
 }
 
@@ -67,4 +75,62 @@
 
 .espaciado-etiqueta-input{
   margin-bottom: 64px;
+}
+
+/*   */
+.file-upload-row {
+  display: flex;
+  justify-content: space-between; /* Distribuye el espacio uniformemente entre los elementos */
+  gap: 20px; /* Espacio entre los elementos */
+  margin-top: 20px; /* Margen superior para separación */
+}
+
+.input-file-container {
+  flex: 1; /* Hace que todos los contenedores tengan el mismo ancho */
+  border: 2px solid var(--principal, #0065EF);
+  border-radius: 16px;
+  position: relative;
+  padding: 30px 10px 10px 10px; /* Ajusta el padding para espacio arriba */
+  text-align: center;
+  transition: border 0.3s ease;
+  background-color: #E5E9EC; /* Fondo claro */
+  margin: 0 10px; /* Margen lateral para separación adicional */
+}
+
+.input-file-container:hover {
+  border: 2px solid var(--principal, #0065EF);
+}
+
+.input-file {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.button-label {
+  display: inline-block;
+  background-color: #fff;
+  color: #007bff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px; /* Añadido para separación con el texto */
+}
+
+.button-label:hover {
+  background-color: #e9ecef;
+}
+
+.input-file-container span {
+  display: block;
+  color: #000;
+  font-size: 14px;
+  margin-top: 10px; /* Ajusta el margen según sea necesario */
 }
