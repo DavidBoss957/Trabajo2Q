@@ -118,7 +118,7 @@ export default function ProjectUpload() {
                 <form onSubmit={handleSubmit}>
                     {/* Campo del nombre del proyecto */}
                     <div className="mb-3">
-                        <input type="text" className="form-control titulo-proyecto" id="input-titulo-proyecto" name="nombreProyecto" value={formState.nombreProyecto} onChange={handleChange} placeholder="Título del proyecto" required />
+                        <input type="text" className="form-control" id="input-titulo-proyecto" name="nombreProyecto" value={formState.nombreProyecto} onChange={handleChange} placeholder="Título del proyecto" required />
                     </div>
 
                     <div className="justify-content-between mb-3 d-flex">

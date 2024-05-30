@@ -81,13 +81,13 @@ export default function Perfil() {
                     </div>
                     <div id="infoSection">
                         <div id="infoRow">
-                            <p id="label">Nombre completo</p>
-                            <p id="value">Pablo Andrés Martín Pérez</p>
+                            <p id="label">Dirección de correo electrónico</p>
+                            <p id="value">pablo.perez2@u-tad.com</p>
                         </div>
                         <div id="separador"></div>
                         <div id="infoRow">
-                            <p id="label">Dirección de correo electrónico</p>
-                            <p id="value">pablo.perez2@u-tad.com</p>
+                            <p id="label">Cargo</p>
+                            <p id="value">Coordinador</p>
                         </div>
                         <div id="separador"></div>
                         <div id="infoRow">

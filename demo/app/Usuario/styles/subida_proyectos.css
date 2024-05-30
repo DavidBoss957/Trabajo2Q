@@ -45,6 +45,7 @@
   outline: none;
   box-shadow: none;
   background-color: transparent; /* Si deseas que no tenga color de fondo */
+  margin-top: 15px;
 }
 
 /* Si quieres que no aparezca el borde al hacer foco en el input */
@@ -133,4 +134,12 @@
   color: #000;
   font-size: 14px;
   margin-top: 10px; /* Ajusta el margen según sea necesario */
+}
+
+.form-select {
+  background-color: transparent; /* Quita el fondo */
+  border: 1px solid #E5E9EC; /* Opcional: añade un borde para mejor visibilidad */
+  font-size: 1.25rem; /* Aumenta la tipografía */
+  padding: 0.5rem 1rem; /* Ajusta el padding para un mejor aspecto */
+  color: #495057; /* Color del texto */
 }

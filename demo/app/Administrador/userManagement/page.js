@@ -12,11 +12,16 @@ export default function MainPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState("Recomendado");
   const [selectedFilter, setSelectedFilter] = useState("Todos los proyectos");
-  const [users, setUsers] = useState(Array.from({ length: 8 }, (_, index) => ({
-    id: index,
-    name: "Mario Hurtado Ruíz",
-    project: "Diseño Digital",
-  })));
+  const [users, setUsers] = useState([
+    { id: 0, name: "Mario Hurtado Ruíz", project: "Diseño Digital" },
+    { id: 1, name: "Paula", project: "Ingeniería de Software" },
+    { id: 2, name: "Alba", project: "Ingeniería de Software" },
+    { id: 3, name: "Francisco Javier", project: "Ingeniería de Software" },
+    { id: 4, name: "Bea", project: "Diseño Digital" },
+    { id: 5, name: "Alvaro", project: "Ingeniería de Software" },
+    { id: 6, name: "Vasco", project: "Ingeniería de Software" },
+    { id: 7, name: "Alex", project: "Ingeniería de Software" },
+  ]);
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
   const toggleFilters = () => setShowFilters(!showFilters);

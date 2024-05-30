@@ -72,13 +72,13 @@ export default function Perfil() {
                     </div>
                     <div id="infoSection">
                         <div id="infoRow">
-                            <p id="label">Nombre completo</p>
-                            <p id="value">Mario Hurtado Ruiz</p>
+                            <p id="label">Dirección de correo electrónico</p>
+                            <p id="value">mario.hurtado@live.u-tad.com</p>
                         </div>
                         <div id="separador"></div>
                         <div id="infoRow">
-                            <p id="label">Dirección de correo electrónico</p>
-                            <p id="value">mario.hurtado@live.u-tad.com</p>
+                            <p id="label">Cargo</p>
+                            <p id="value">Alumno</p>
                         </div>
                         <div id="separador"></div>
                         <div id="infoRow">

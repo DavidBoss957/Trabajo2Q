@@ -64,4 +64,43 @@
     gap: 24px;
 }
 
+#custom-modal-header {
+    background-color: #E5E9EC;
+    border-bottom: none;
+    justify-content: center;
+  }
+  
+  .custom-modal-body {
+    background-color: #E5E9EC;
+  }
+  
+  #custom-modal-footer {
+    background-color: #E5E9EC;
+    border-top: none;
+    justify-content: center;
+  }
+  
+  .custom-select {
+    border-radius: 16px;
+    background-color: white;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+  }
+  
+  #custom-button {
+    border-radius: 16px;
+    background: var(--grados, #FFF);
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.25);
+    color: #0065EF;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .modal-title {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+  }
 
